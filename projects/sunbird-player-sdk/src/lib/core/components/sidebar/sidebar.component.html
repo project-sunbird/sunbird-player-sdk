@@ -1,0 +1,16 @@
+<div id="pdfPlayerSideMenu" class="sidenav" #sidebarMenu>
+  <div class="navBlock">
+    <div class="pdf-nav-unit">{{title}}</div>
+    <ul>
+      <li *ngIf="config.showShare" (click)="sidebarEvent.emit('SHARE')"><span class="pdf-icon pdf-share"></span>Share</li>
+      <li *ngIf="config.showDownload"(click)="showDownloadPopup()"><span class="pdf-icon pdf-download"></span>Download</li>
+      <li *ngIf="config.showExit" (click)="closeNav();"><span class="pdf-icon pdf-exit"></span>Exit</li>
+    </ul>
+  </div>
+  <div class="transparentBlock" (click)="closeNav()"></div>
+</div>
+<download-pdf-popup 
+[title]="title"
+[showDownloadPopUp]="showDownloadPopUp" 
+(hideDownloadPopUp)="hideDownloadPopUp()"
+(downloadEvent)="sidebarEvent.emit($event)" ></download-pdf-popup>
