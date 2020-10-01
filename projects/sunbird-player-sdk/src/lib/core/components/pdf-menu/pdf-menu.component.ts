@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'pdf-menu',
@@ -7,17 +7,19 @@ import { Component } from '@angular/core';
 })
 export class PdfMenuComponent  {
 
+  @Output() sidebarMenuEvent = new EventEmitter<any>();
+
   toggleMenu() {
     const inputChecked = document.getElementById('overlay-input') as HTMLInputElement;
     if (inputChecked.checked === true) {
       document.getElementById('pdfPlayerSideMenu').style.visibility = 'visible';
       document.querySelector<HTMLElement>('.navBlock').style.width = '100%';
       document.querySelector<HTMLElement>('.navBlock').style.marginLeft = '0%';
-      // this.pdfPlayerService.raiseHeartBeatEvent('OPEN_MENU');
+      this.sidebarMenuEvent.emit('OPEN_MENU');
     } else {
       document.getElementById('pdfPlayerSideMenu').style.visibility = 'hidden';
       document.querySelector<HTMLElement>('.navBlock').style.marginLeft = '-100%';
-      // this.pdfPlayerService.raiseHeartBeatEvent('CLOSE_MENU');
+      this.sidebarMenuEvent.emit('CLOSE_MENU');
     }
   }
 }
