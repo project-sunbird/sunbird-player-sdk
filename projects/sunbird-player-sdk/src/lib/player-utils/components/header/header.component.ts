@@ -1,5 +1,4 @@
-import { Component, OnInit, OnDestroy, SimpleChanges, OnChanges, Input } from '@angular/core';
-import { PlayerEventsHelperService } from '../../services/player-events-helper.service';
+import { Component, OnInit, OnDestroy, SimpleChanges, OnChanges, Input, Output, EventEmitter, ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'pdf-header',
@@ -7,17 +6,22 @@ import { PlayerEventsHelperService } from '../../services/player-events-helper.s
   styleUrls: ['./header.component.scss']
 })
 
-export class HeaderComponent implements  OnChanges {
+export class HeaderComponent implements  OnChanges, OnInit {
   @Input() pageNumber;
   @Input() totalPages;
-  totalPageView = true;
-  constructor(public playerEventsHelperService: PlayerEventsHelperService) {}
+  @Output() actions = new EventEmitter<any>();
+  page;
+
+  ngOnInit(): void {
+    this.page = this.pageNumber;
+  }
 
   ngOnChanges(changes: SimpleChanges) {
     for (const propName in changes) {
       if (changes.hasOwnProperty(propName)) {
         switch (propName) {
           case 'pageNumber':
+            this.page = changes[propName].currentValue;
             this.pageNumber = changes[propName].currentValue;
             break;
           case 'totalPages':
@@ -30,25 +34,24 @@ export class HeaderComponent implements  OnChanges {
 
   zoomIn() {
     // (window as any).PDFViewerApplication.zoomIn();
-    this.playerEventsHelperService.playerUtilEvent.emit('header:zoomIn');
+    this.actions.emit({type: 'header:zoomIn'});
     // this.pdfPlayerService.raiseHeartBeatEvent('ZOOM_IN');
   }
 
   zoomOut() {
-    this.playerEventsHelperService.playerUtilEvent.emit('header:zoomOut');
+    this.actions.emit({type: 'header:zoomOut'});
     // (window as any).PDFViewerApplication.zoomOut();
     // this.pdfPlayerService.raiseHeartBeatEvent('ZOOM_OUT');
   }
 
+
   gotoPage() {
-    // if (this.pageNumber > 0 && this.pageNumber <= this.pdfPlayerService.totalNumberOfPages) {
-    //   (window as any).PDFViewerApplication.page = parseInt(this.pageNumber, 10) ;
-    // } else {
-    //   this.pageNumber = this.pdfPlayerService.currentPagePointer;
-    // }
-    // this.totalPageView = true;
-    // this.pdfPlayerService.raiseHeartBeatEvent('NAVIGATE_TO_PAGE');
-    this.totalPageView = true;
-    this.playerEventsHelperService.playerUtilEvent.emit({ type: 'header:navigateToPage', data: this.pageNumber });
+    const page = parseInt(this.page, 10);
+    if (page > 0 && page <= this.totalPages) {
+      this.actions.emit({ type: 'header:navigateToPage', data: page });
+      this.pageNumber = page;
+    } else {
+      this.page = this.pageNumber;
+    }
   }
 }

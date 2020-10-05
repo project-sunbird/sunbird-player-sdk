@@ -9,8 +9,7 @@
         <div (click)="zoomIn()" class="pdf-header-btn__zoombtn zoomIn-btn"></div>
       </div>
       <div class="pdf-pagenumber">
-        <input  [(ngModel)]='pageNumber' type="text" class="page-count" 
-        (click)="totalPageView = false"/>
+        <input  [(ngModel)]='page' type="text" class="page-count" />
         <span class="focus-arrow" (click)="gotoPage()"><img src="./assets/arrow-right.svg" width="100%" /></span>
         <span class="slash">/</span>
         <span class="pageNumberFullcount">{{totalPages}}</span>
@@ -20,8 +19,8 @@
 
       <div class="visible-only-landscape">
       <div class="d-flex pdf-slides">
-        <previous-navigation></previous-navigation>
-        <next-navigation></next-navigation>
+        <previous-navigation (previousAction)="actions.emit($event)"></previous-navigation>
+        <next-navigation (nextAction)="actions.emit($event)" ></next-navigation>
         <!-- <div class="pdf-previousIcon pdf-header-btn-inline" ></div>
         <div class="pdf-nextIcon pdf-header-btn-inline" ></div> -->
       </div>

@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { NextNavigationComponent } from './components/next-navigation/next-navigation.component';
 import { PreviousNavigationComponent } from './components/previous-navigation/previous-navigation.component';
 import { HeaderComponent } from './components//header/header.component';
-import { PlayerEventsHelperService } from './services/player-events-helper.service';
 
 
 @NgModule({
@@ -15,7 +14,6 @@ import { PlayerEventsHelperService } from './services/player-events-helper.servi
     FormsModule
   ],
   exports: [ HeaderComponent,
-    NextNavigationComponent, PreviousNavigationComponent],
-    providers: [PlayerEventsHelperService]
+    NextNavigationComponent, PreviousNavigationComponent]
 })
 export class PlayerUtilsModule { }
