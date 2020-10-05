@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "build": "ng build && node assets-copy.js",
-    "pack":"npm run build && cd dist/sunbird-player-sdk && npm pack && cd ../..",
+    "prod": "gulp && npm run build && cd dist/sunbird-player-sdk && npm pack && cd ../..",
     "ng": "ng",
     "start": "ng serve",
     "test": "ng test",
@@ -36,6 +36,8 @@
     "@types/node": "~8.9.4",
     "codelyzer": "~4.5.0",
     "fs-extra": "^9.0.1",
+    "gulp": "^4.0.2",
+    "gulp-svgmin": "^3.0.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.0.0",
