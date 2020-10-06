@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "build": "ng build && node assets-copy.js",
-    "prod": "gulp && npm run build && cd dist/sunbird-player-sdk && npm pack && cd ../..",
+    "pack": "npm run build && cd dist/sunbird-player-sdk && npm pack && cd ../..",
     "ng": "ng",
     "start": "ng serve",
     "test": "ng test",
@@ -20,6 +20,7 @@
     "@angular/platform-browser": "~7.2.0",
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
+    "@project-sunbird/sb-styles": "0.0.7",
     "core-js": "^2.5.4",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
