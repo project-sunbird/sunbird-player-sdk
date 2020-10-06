@@ -1,3 +1,5 @@
+@import "../../../../../../../node_modules/@project-sunbird/sb-styles/assets/mixins/mixins";
+
 .sb-pdf-splash-container {
   box-sizing: border-box;
   padding: 1rem;
@@ -23,6 +25,15 @@
       line-height: normal;
       text-shadow: 0px 2px var(--gray-400);
       word-break: break-word;
+      @include respond-above(md){
+        font-size: 1.75;
+      }
+      @include respond-above(xl){
+        font-size:2rem;
+      }
+      @include respond-above(xxxl){
+        font-size: 2.3rem;
+      }
     }
   }
 
@@ -34,6 +45,15 @@
     flex-direction: column;
     width: 100%;
     // align-items: center;
+    @include respond-above(md){
+      font-size: 1rem;
+    }
+    @include respond-above(xl){
+      font-size: 1.2rem;
+    }
+    @include respond-above(xxxl){
+      font-size: 1.5rem;
+    }
   }
 }
 
