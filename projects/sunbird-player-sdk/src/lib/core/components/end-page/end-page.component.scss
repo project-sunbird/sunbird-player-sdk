@@ -216,7 +216,7 @@
       border-radius: 0.5rem;
       padding: 0.75rem;
       background: linear-gradient(135deg, #FFCD55 0%, #FFD955 100%);
-      box-shadow: inset 0 -0.063rem 0.188rem 0 rgba(0, 0, 0, 0.5);
+      box-shadow: inset 0 -0.063rem 0.188rem 0 rgba(var(--rc-rgba-black), .5);
       display: flex;
       align-items: center;
       justify-content: space-between;

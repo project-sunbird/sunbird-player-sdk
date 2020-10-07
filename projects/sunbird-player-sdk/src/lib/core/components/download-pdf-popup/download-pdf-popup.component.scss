@@ -28,12 +28,11 @@
     min-height: 13.125rem;
     background: var(--white);
     border-radius: 1rem;
-    box-shadow: 0 0 1.5em 0 rgba(0, 0, 0, 0.22);
+    box-shadow: 0 0 1.5em 0 rgba(var(--rc-rgba-black), .22);
     padding: 1.5rem;
     position: relative;
     transition: all 0.3s ease-in;
     transform: scale(0.5);
-    // opacity:0;
   }
 
   &__close-btn {
@@ -81,7 +80,7 @@
   }
 
   &__text {
-    color: #666666;
+    color: var(--gray-400);
     word-break: break-word;
   }
 
@@ -178,7 +177,6 @@
 .showDownload .file-download__popup {
   transform: scale(1);
   visibility: visible;
-  // opacity: 1;
 }
 
 .showDownload {
