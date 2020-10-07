@@ -6,7 +6,7 @@
       </li>
       <li *ngIf="config.showDownload" (click)="showDownloadPopup()"><span class="pdf-icon pdf-download"></span>Download
       </li>
-      <li *ngIf="config.showExit" (click)="closeNav();"><span class="pdf-icon pdf-exit"></span>Exit</li>
+      <li *ngIf="config.showExit" (click)="sidebarEvent.emit('EXIT');closeNav();"><span class="pdf-icon pdf-exit"></span>Exit</li>
     </ul>
   </div>
   <div class="transparentBlock" (click)="closeNav()"></div>
