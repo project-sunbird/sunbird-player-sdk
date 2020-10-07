@@ -239,3 +239,20 @@
   display: inline;
   padding: calculateRem(8px);
 }
+.pdf-rotate{
+  cursor: pointer;
+  .rotate-icon{
+    .PlayerMediaQueryClass & {
+      @include respond-above(xl) {
+        width: calculateRem(30px);
+        height: calculateRem(30px);
+      }
+  
+      @include respond-above(xxxl) {
+        width: calculateRem(36px);
+        height: calculateRem(36px);
+      }
+    }
+  }
+  
+}
