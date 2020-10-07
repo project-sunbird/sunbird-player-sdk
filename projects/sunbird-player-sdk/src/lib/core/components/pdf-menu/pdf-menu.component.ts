@@ -10,7 +10,8 @@ export class PdfMenuComponent  {
   toggleMenu() {
     const inputChecked = document.getElementById('overlay-input') as HTMLInputElement;
     if (inputChecked.checked === true) {
-      document.getElementById('pdfPlayerSideMenu').style.visibility = 'visible';
+      const pdfPlayerSideMenuDiv = document.getElementById('pdfPlayerSideMenu') as HTMLInputElement;
+      pdfPlayerSideMenuDiv.style.visibility = 'visible';
       document.querySelector<HTMLElement>('.navBlock').style.width = '100%';
       document.querySelector<HTMLElement>('.navBlock').style.marginLeft = '0%';
       // this.pdfPlayerService.raiseHeartBeatEvent('OPEN_MENU');

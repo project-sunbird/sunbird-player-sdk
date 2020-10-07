@@ -22,7 +22,8 @@ export class SidebarComponent {
   closeNav() {
     const inputChecked = document.getElementById('overlay-input') as HTMLInputElement;
     inputChecked.checked = false;
-    document.getElementById('pdfPlayerSideMenu').style.visibility = 'hidden';
+    const pdfPlayerSideMenuDiv = document.getElementById('pdfPlayerSideMenu') as HTMLElement;
+    pdfPlayerSideMenuDiv.style.visibility = 'hidden';
     document.querySelector<HTMLElement>('.navBlock').style.marginLeft = '-100%';
     this.sidebarEvent.emit('CLOSE_MENU');
   }
