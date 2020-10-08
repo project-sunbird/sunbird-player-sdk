@@ -1,7 +1,9 @@
-import { ChangeDetectorRef, Component, EventEmitter, Input, OnChanges, Output,
-  SimpleChanges } from '@angular/core';
+import {
+  Component, EventEmitter, Input, OnChanges, Output,
+  SimpleChanges
+} from '@angular/core';
 @Component({
-  selector: 'download-pdf-popup',
+  selector: 'sb-player-download-pdf-popup',
   templateUrl: './download-pdf-popup.component.html',
   styleUrls: ['./download-pdf-popup.component.scss']
 })

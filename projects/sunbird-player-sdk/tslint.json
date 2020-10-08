@@ -4,11 +4,13 @@
     "directive-selector": [
       true,
       "attribute",
+      "sb-player",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
+      "sb-player",
       "kebab-case"
     ]
   }

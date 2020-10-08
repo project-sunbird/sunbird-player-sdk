@@ -1,4 +1,4 @@
-<div class="sb-pdf-splash-container animateBg">
+<div class="sb-pdf-splash-container"  [ngClass]="{'animateBg': progress === 100}">
   <div class="sb-pdf-splash-container__header"></div>
   <div class="sb-pdf-splash-container__body animated fadeInDown">
     <span class="">{{title}}</span>

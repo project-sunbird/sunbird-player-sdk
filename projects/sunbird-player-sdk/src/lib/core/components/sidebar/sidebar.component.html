@@ -11,5 +11,5 @@
   </div>
   <div class="transparentBlock" (click)="closeNav()"></div>
 </div>
-<download-pdf-popup [title]="title" [showDownloadPopUp]="showDownloadPopUp" (hideDownloadPopUp)="hideDownloadPopUp()"
-  (downloadEvent)="sidebarEvent.emit($event)"></download-pdf-popup>
+<sb-player-download-pdf-popup [title]="title" [showDownloadPopUp]="showDownloadPopUp" (hideDownloadPopUp)="hideDownloadPopUp()"
+  (downloadEvent)="sidebarEvent.emit($event)"></sb-player-download-pdf-popup>
