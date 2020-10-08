@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'end-page',
+  selector: 'sb-player-end-page',
   templateUrl: './end-page.component.html',
   styleUrls: ['./end-page.component.scss']
 })

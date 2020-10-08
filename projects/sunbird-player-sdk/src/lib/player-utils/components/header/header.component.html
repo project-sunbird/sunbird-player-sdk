@@ -1,6 +1,4 @@
 
-
-    
 <div id="sbPdfPlayerContainer">
   <div class="sb-pdf-header">
    <div class="sb-pdf-header__panel d-flex flex-ai-center flex-jc-flex-end">
@@ -22,8 +20,8 @@
 
       <div class="visible-only-landscape">
       <div class="d-flex pdf-slides">
-        <previous-navigation (previousAction)="actions.emit($event)"></previous-navigation>
-        <next-navigation (nextAction)="actions.emit($event)" ></next-navigation>
+        <sb-player-previous-navigation (previousAction)="actions.emit($event)"></sb-player-previous-navigation>
+        <sb-player-next-navigation (nextAction)="actions.emit($event)" ></sb-player-next-navigation>
         <!-- <div class="pdf-previousIcon pdf-header-btn-inline" ></div>
         <div class="pdf-nextIcon pdf-header-btn-inline" ></div> -->
       </div>

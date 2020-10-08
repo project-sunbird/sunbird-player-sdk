@@ -2,7 +2,7 @@ import { ChangeDetectorRef, Component, EventEmitter, Input, Output } from '@angu
 import { CoreEventsHelperService } from '../../services/core-events-helper.service';
 
 @Component({
-  selector: 'sidebar',
+  selector: 'sb-player-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })

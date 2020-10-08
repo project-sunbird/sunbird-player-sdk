@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
-  selector: 'pdf-menu',
+  selector: 'sb-player-pdf-menu',
   templateUrl: './pdf-menu.component.html',
   styleUrls: ['./pdf-menu.component.scss']
 })

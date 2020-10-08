@@ -1,7 +1,7 @@
-import { Component, OnInit, OnDestroy, SimpleChanges, OnChanges, Input, Output, EventEmitter, ChangeDetectorRef } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 
 @Component({
-  selector: 'pdf-header',
+  selector: 'sb-player-pdf-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })

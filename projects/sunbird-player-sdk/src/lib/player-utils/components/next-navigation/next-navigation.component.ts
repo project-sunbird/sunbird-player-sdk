@@ -1,7 +1,7 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
-  selector: 'next-navigation',
+  selector: 'sb-player-next-navigation',
   templateUrl: './next-navigation.component.html',
   styleUrls: ['./next-navigation.component.scss']
 })

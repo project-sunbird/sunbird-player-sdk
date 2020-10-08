@@ -2,7 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 
 
 @Component({
-  selector: 'previous-navigation',
+  selector: 'sb-player-previous-navigation',
   templateUrl: './previous-navigation.component.html',
   styleUrls: ['./previous-navigation.component.scss']
 })
