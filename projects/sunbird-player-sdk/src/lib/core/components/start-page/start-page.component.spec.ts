@@ -22,4 +22,40 @@ describe('StartPageComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('if progress is 10% should show the progress 10% on startpage progressbar', () => {
+    component.ngOnChanges({
+      title: {
+        isFirstChange: null,
+        previousValue: null,
+        currentValue: 'B515,B516,B517_STD_3_MATHS,SCIENCE,SOCIAL_TM_TERM 3_IOPT',
+        firstChange: true
+      },
+      progress: {
+        isFirstChange: null,
+        previousValue: null,
+        currentValue: 10,
+        firstChange: true
+      }
+    });
+    expect(component.progress).toEqual(10);
+  });
+
+  it('if progress is 99% should show the progress 99% on startpage progressbar', () => {
+    component.ngOnChanges({
+      title: {
+        isFirstChange: null,
+        previousValue: null,
+        currentValue: 'B515,B516,B517_STD_3_MATHS,SCIENCE,SOCIAL_TM_TERM 3_IOPT',
+        firstChange: true
+      },
+      progress: {
+        isFirstChange: null,
+        previousValue: null,
+        currentValue: 99,
+        firstChange: true
+      }
+    });
+    expect(component.progress).toEqual(99);
+  });
 });
