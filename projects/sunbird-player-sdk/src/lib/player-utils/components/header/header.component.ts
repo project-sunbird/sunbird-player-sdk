@@ -44,6 +44,10 @@ export class HeaderComponent implements  OnChanges, OnInit {
     // this.pdfPlayerService.raiseHeartBeatEvent('ZOOM_OUT');
   }
 
+  rotateCW() {
+    this.actions.emit({type: 'header:rotateCW'});
+  }
+
 
   gotoPage() {
     const page = parseInt(this.page, 10);
