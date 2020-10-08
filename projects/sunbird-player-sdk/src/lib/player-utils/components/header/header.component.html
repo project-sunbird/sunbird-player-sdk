@@ -1,13 +1,13 @@
 
 <div id="sbPdfPlayerContainer">
-  <div class="sb-pdf-header">
-   <div class="sb-pdf-header__panel d-flex flex-ai-center flex-jc-flex-end">
-     <div class="icon_rotate mr-16">
+  <div class="sb-player-header">
+   <div class="sb-player-header__panel d-flex flex-ai-center flex-jc-flex-end">
+     <div class="icon_rotate mr-8">
       <img src="./assets/rotate-icon.svg" alt="rotate icon" class="rotate-icon" (click)="rotateCW()">
      </div>
-      <div class="pdf-header-btn d-flex">
-        <div (click)="zoomOut()" class="pdf-header-btn__zoombtn zoomOut-btn"></div>
-        <div (click)="zoomIn()" class="pdf-header-btn__zoombtn zoomIn-btn"></div>
+      <div class="pdf-header-btn d-flex mr-8">
+        <button type="button" (click)="zoomOut()" class="pdf-header-btn__zoombtn zoomOut-btn"></button>
+        <button type="button" (click)="zoomIn()" class="pdf-header-btn__zoombtn zoomIn-btn"></button>
       </div>
       <div class="pdf-pagenumber">
         <input  [(ngModel)]='page' type="text" class="page-count" />
@@ -19,7 +19,7 @@
       </div>
 
       <div class="visible-only-landscape">
-      <div class="d-flex pdf-slides">
+      <div class="d-flex pdf-slides ml-8">
         <sb-player-previous-navigation (previousAction)="actions.emit($event)"></sb-player-previous-navigation>
         <sb-player-next-navigation (nextAction)="actions.emit($event)" ></sb-player-next-navigation>
         <!-- <div class="pdf-previousIcon pdf-header-btn-inline" ></div>

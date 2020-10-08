@@ -51,47 +51,45 @@
 
 
   span {
-    height: 0.25rem;
-    width: 1.5rem;
+    height: 0.20rem;
+    width: 1.25rem;
     border-radius: 0.125rem;
     background-color: var(--black);
     position: relative;
     display: block;
     transition: all .2s ease-in-out;
 
-
-
     .PlayerMediaQueryClass & {
       @include respond-above(xl) {
-        height: .25rem;
-        width: 2.2rem;
+        height: .20rem;
+        width: 1.95rem;
       }
 
       @include respond-above(xxxl) {
-        height: 0.3rem;
-        width: 2.25rem;
+        height: 0.25rem;
+        width: 2rem;
       }
     }
 
     &:before {
-      top: -0.5rem;
+      top: -0.45rem;
       visibility: visible;
     }
 
     &:after {
-      top: 0.5rem;
+      top: 0.45rem;
 
       .PlayerMediaQueryClass & {
         @include respond-above(xxxl) {
-          top: 0.5rem;
+          top: 0.45rem;
         }
       }
     }
 
     &:before,
     &:after {
-      height: 0.25rem;
-      width: 1.5rem;
+      height: 0.20rem;
+      width: 1.25rem;
       border-radius: 0.125rem;
       background-color: var(--black);
       position: absolute;
@@ -100,13 +98,13 @@
 
       .PlayerMediaQueryClass & {
         @include respond-above(xl) {
-          height: .25rem;
-          width: 2.2rem;
+          height: .20rem;
+          width: 1.95rem;
         }
 
         @include respond-above(xxxl) {
-          height: .3rem;
-          width: 2.25rem;
+          height: .25rem;
+          width: 2rem;
         }
       }
 
@@ -122,7 +120,7 @@
   }
 
   &:hover {
-    background-color: rgba(51, 51, 51, 0.5);
+    background-color: rgba(51, 51, 51, 0.25);
 
     span {
       background-color: var(--white);
@@ -153,12 +151,12 @@ input[type=checkbox]:checked~#overlay-button {
 
   span {
     &:before {
-      transform: rotate(45deg) translate(6px, 5px);
+      transform: rotate(45deg) translate(5px,5px);
       opacity: 1;
     }
 
     &:after {
-      transform: rotate(-45deg) translate(6px, -6px);
+      transform: rotate(-45deg) translate(5px,-5px);
     }
   }
 }
