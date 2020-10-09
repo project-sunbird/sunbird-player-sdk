@@ -11,15 +11,8 @@ export class StartPageComponent implements OnChanges {
   @Input() progress = 0;
 
   ngOnChanges(changes: SimpleChanges) {
-    for (const propName in changes) {
-      if (changes.hasOwnProperty(propName)) {
-        switch (propName) {
-          case 'progress':
-            this.progress = changes[propName].currentValue;
-            break;
-        }
+      if (changes.progress && changes.progress.currentValue) {
+          this.progress = changes.progress.currentValue;
       }
-    }
   }
-
 }

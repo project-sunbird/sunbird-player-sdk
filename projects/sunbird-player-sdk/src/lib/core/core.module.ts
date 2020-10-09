@@ -1,23 +1,23 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { DownloadPdfPopupComponent } from './components/download-pdf-popup/download-pdf-popup.component';
-import { StartPageComponent } from './components/start-page/start-page.component';
+import { DownloadPopupComponent } from './components/download-popup/download-popup.component';
 import { EndPageComponent } from './components/end-page/end-page.component';
+import { SideMenuIconComponent } from './components/side-menu-icon/side-menu-icon.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { PdfMenuComponent } from './components/pdf-menu/pdf-menu.component';
+import { StartPageComponent } from './components/start-page/start-page.component';
 
 
 
 @NgModule({
-  declarations: [DownloadPdfPopupComponent,
+  declarations: [DownloadPopupComponent,
     StartPageComponent, EndPageComponent,
-     SidebarComponent, PdfMenuComponent],
+     SidebarComponent, SideMenuIconComponent],
   imports: [
     CommonModule,
     FormsModule
   ],
-  exports: [DownloadPdfPopupComponent, StartPageComponent,
-    EndPageComponent, SidebarComponent, PdfMenuComponent]
+  exports: [DownloadPopupComponent, StartPageComponent,
+    EndPageComponent, SidebarComponent, SideMenuIconComponent]
 })
 export class CoreModule { }

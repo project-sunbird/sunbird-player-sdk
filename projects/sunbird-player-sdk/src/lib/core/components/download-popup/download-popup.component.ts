@@ -3,11 +3,11 @@ import {
   SimpleChanges
 } from '@angular/core';
 @Component({
-  selector: 'sb-player-download-pdf-popup',
-  templateUrl: './download-pdf-popup.component.html',
-  styleUrls: ['./download-pdf-popup.component.scss']
+  selector: 'sb-player-download-popup',
+  templateUrl: './download-popup.component.html',
+  styleUrls: ['./download-popup.component.scss']
 })
-export class DownloadPdfPopupComponent implements OnChanges {
+export class DownloadPopupComponent implements OnChanges {
 
   @Input() title: string;
   @Output() downloadEvent = new EventEmitter<any>();
@@ -31,10 +31,8 @@ export class DownloadPdfPopupComponent implements OnChanges {
   }
 
   download() {
-    // (window as any).PDFViewerApplication.download();
     this.downloadEvent.emit('DOWNLOAD');
     this.hideDownloadPopup();
-    // this.pdfPlayerService.raiseHeartBeatEvent('DOWNLOAD');
   }
 
 }

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { DownloadPopupComponent } from './download-popup.component';
 
-import { PdfMenuComponent } from './pdf-menu.component';
 
-describe('PdfMenuComponent', () => {
-  let component: PdfMenuComponent;
-  let fixture: ComponentFixture<PdfMenuComponent>;
+describe('DownloadPopupComponent', () => {
+  let component: DownloadPopupComponent;
+  let fixture: ComponentFixture<DownloadPopupComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PdfMenuComponent ]
+      declarations: [ DownloadPopupComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PdfMenuComponent);
+    fixture = TestBed.createComponent(DownloadPopupComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

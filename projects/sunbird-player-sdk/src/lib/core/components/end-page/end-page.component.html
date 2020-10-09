@@ -27,23 +27,10 @@
           <stop stop-color="#70D4AD" offset="0%"></stop>
           <stop stop-color="#31A679" offset="100%"></stop>
         </linearGradient>
-        <!-- <text id="text-6" font-family="NotoSans-Bold, Noto Sans" font-size="18" font-weight="bold" fill="#FFFFFE">
-            <tspan x="75.5" y="19">{{pdfPlayerService.currentPagePointer}}</tspan>
-        </text> -->
-        <!-- <filter x="-11.3%" y="-10.4%" width="122.6%" height="129.2%" filterUnits="objectBoundingBox" id="filter-7">
-            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
-            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
-            <feColorMatrix values="0 0 0 0 0.81006567   0 0 0 0 0.508945651   0 0 0 0 0.130709529  0 0 0 1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
-        </filter> -->
         <text id="text-8" x="55" y="16" text-anchor="middle" fill="#FFFFFE">
             <tspan font-size="12" font-weight="400" font-family="Noto Sans, NotoSans-Bold">Pages read:</tspan>
             <tspan font-size="18" font-family="NotoSans-Bold, Noto Sans">{{pagesRead}}</tspan>
         </text>
-        <!-- <filter x="-5.1%" y="-15.6%" width="110.3%" height="143.8%" filterUnits="objectBoundingBox" id="filter-9">
-            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
-            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
-            <feColorMatrix values="0 0 0 0 0.81006567   0 0 0 0 0.508945651   0 0 0 0 0.130709529  0 0 0 1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
-        </filter> -->
     </defs>
     <g id="player-Player" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="endgame-l2" transform="translate(-39.000000, -65.000000)">
@@ -273,7 +260,7 @@
       <span class="animated fadeInUp">{{contentName}}</span>
     </div>
     <div class="user-options">
-      <div class="replay-section" (click)="replayContent.emit()">
+      <div class="replay-section" (click)="replayContent.emit({type: 'REPLAY'})">
         <img src="assets/replay.svg" alt="replay">
         <div class="title">Replay</div>
       </div>
