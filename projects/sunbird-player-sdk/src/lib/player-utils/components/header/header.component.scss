@@ -87,9 +87,6 @@
 
         &:hover {
           background: var(--gray-200);
-          // border-right: 0px solid transparent !important;
-          // line-height: 1.8rem;
-
           .PlayerMediaQueryClass & {
             @include respond-above(md) {
               height: 2.2rem;
