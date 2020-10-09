@@ -160,3 +160,15 @@ input[type=checkbox]:checked~#overlay-button {
     }
   }
 }
+::ng-deep{
+  html[dir=rtl] #overlay-button{
+    left: auto;
+    right: 1rem;
+    span{
+      &:before,
+      &:after {
+        right: 0;
+      }
+    }
+  }
+}

@@ -285,3 +285,18 @@
     }
   }
 }
+::ng-deep{
+  html[dir=rtl] .sb-player-header__panel .pdf-pagenumber .page-count{
+    &:focus {
+      border-radius:0 .25em .25rem 0 !important;
+    }
+    &~.focus-arrow {
+      left:auto;
+      right: calc(3rem - 0px);
+      border-radius: .25em 0 0 .25em !important;
+      img{
+        transform: rotate(180deg);
+      }
+    }
+  }
+}

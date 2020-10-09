@@ -189,3 +189,9 @@ button {
     cursor: default;
   }
 }
+
+::ng-deep{
+  html[dir=rtl] .player-previousIcon, html[dir=rtl] .player-nextIcon{
+    transform: rotate(180deg);
+  }
+}

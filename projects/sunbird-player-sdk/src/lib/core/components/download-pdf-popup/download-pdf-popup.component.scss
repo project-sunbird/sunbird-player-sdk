@@ -134,7 +134,6 @@
     }
 
     .download-btn {
-      margin-left: auto;
       border-radius: 1.25rem;
       background-color: var(--primary-color);
       color: var(--white);
@@ -186,4 +185,69 @@
 
 .showDownload .file-download__overlay {
   visibility: visible;
+}
+
+.close-btn{
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+}
+.close-icon {
+  width: calculateRem(30px);
+  height: calculateRem(30px);
+  background: 0 0;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  &::after{
+    content: "";
+    transform: rotate(-45deg);
+  }
+  &::before{
+    content: "";
+    transform: rotate(45deg);
+  }
+  &:after, &:before {
+    content: "";
+    width: calculateRem(20px);
+		height: calculateRem(2px);
+    position: absolute;
+    background-color: var(--black);
+  }
+}
+.close-icon[data-animation="showShadow"] {
+	box-shadow: 0px 0px 0px 0px var(--red) inset;
+	transition: 200ms cubic-bezier(0.175, 0.885, 0.52, 1.775);
+	border: 0px solid var(--white);
+	&:before {
+		transition: 200ms cubic-bezier(0.175, 0.885, 0.52, 1.775);
+	}
+	&:after {
+		transition: 200ms cubic-bezier(0.175, 0.885, 0.52, 1.775);
+	}
+	&:not(.showShadow) {
+		&:hover {
+			box-shadow: 0px 0px 0px calculateRem(4px) var(--red) inset;
+			&:before {
+				transform: scale(0.7) rotate(45deg);
+        transition-delay: 100ms;
+        background-color: var(--red);
+			}
+			&:after {
+				transform: scale(0.7) rotate(-45deg);
+        transition-delay: 100ms;
+        background-color: var(--red);
+			}
+		}
+	}
+}
+
+::ng-deep{
+  html[dir=rtl] .close-btn{
+    left: .75rem;
+    right: auto;
+  }
 }
