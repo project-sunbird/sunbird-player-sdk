@@ -25,7 +25,7 @@ describe('SideMenuIconComponent', () => {
 
   it('should show side menu', () => {
     const btn = document.createElement('Div');
-    btn.id = 'pdfPlayerSideMenu';
+    btn.id = 'playerSideMenu';
     document.body.appendChild(btn);
 
     const btn1 = document.createElement('Div');
@@ -34,14 +34,14 @@ describe('SideMenuIconComponent', () => {
     const inputChecked = document.getElementById('overlay-input') as HTMLInputElement;
 
     component.toggleMenu();
-    const pdfPlayerSideMenuDiv = document.getElementById('pdfPlayerSideMenu') as HTMLInputElement;
+    const pdfPlayerSideMenuDiv = document.getElementById('playerSideMenu') as HTMLInputElement;
     expect(pdfPlayerSideMenuDiv.style.visibility).toEqual('hidden');
     expect(inputChecked.checked).toEqual(false);
   });
 
   it('should hide side menu', () => {
     const btn = document.createElement('Div');
-    btn.id = 'pdfPlayerSideMenu';
+    btn.id = 'playerSideMenu';
     document.body.appendChild(btn);
 
     const btn1 = document.createElement('Div');
@@ -51,7 +51,7 @@ describe('SideMenuIconComponent', () => {
     const inputChecked = document.getElementById('overlay-input') as HTMLInputElement;
     inputChecked.checked = true;
     component.toggleMenu();
-    const pdfPlayerSideMenuDiv = document.getElementById('pdfPlayerSideMenu') as HTMLInputElement;
+    const pdfPlayerSideMenuDiv = document.getElementById('playerSideMenu') as HTMLInputElement;
     expect(pdfPlayerSideMenuDiv.style.visibility).toEqual('visible');
   });
 });

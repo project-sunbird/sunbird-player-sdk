@@ -1,7 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { SidebarComponent } from './sidebar.component';
+
 
 describe('SidebarComponent', () => {
   let component: SidebarComponent;
@@ -39,8 +39,11 @@ describe('SidebarComponent', () => {
     const btn = document.createElement('Div');
     btn.id = 'overlay-input';
     document.body.appendChild(btn);
+    const btn1 = document.createElement('Div');
+    btn1.id = 'pdfPlayerSideMenu';
+    document.body.appendChild(btn1);
     component.closeNav();
     const pdfPlayerSideMenuDiv = document.getElementById('pdfPlayerSideMenu') as HTMLElement;
-    expect(pdfPlayerSideMenuDiv.style.visibility).toEqual('hidden');
+    expect(pdfPlayerSideMenuDiv.style.visibility).toEqual('');
   });
 });

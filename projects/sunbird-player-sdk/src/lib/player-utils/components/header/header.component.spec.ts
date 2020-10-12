@@ -1,10 +1,9 @@
+import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { CoreEventsHelperService } from '../../../core/services/core-events-helper.service';
 import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-
 import { HeaderComponent } from './header.component';
+
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -71,30 +70,25 @@ describe('HeaderComponent', () => {
   it('should emit the rotateCW ', () => {
     spyOn(component.actions, 'emit');
     component.rotateCW();
-    expect(component.actions.emit).toHaveBeenCalledWith({type: 'header:rotateCW'});
-  });
-
-  it('should use the helper service', () => {
-    const helperService = fixture.debugElement.injector.get(CoreEventsHelperService);
-    expect(helperService).toBeTruthy();
+    expect(component.actions.emit).toHaveBeenCalledWith({ type: 'ROTATE_CW' });
   });
 
   it('should emit zoomIn', () => {
     spyOn(component.actions, 'emit');
     component.zoomIn();
-    expect(component.actions.emit).toHaveBeenCalledWith({type: 'header:zoomIn'});
+    expect(component.actions.emit).toHaveBeenCalledWith({ type: 'ZOOM_IN' });
   });
   it('should emit zoomOut', () => {
     spyOn(component.actions, 'emit');
     component.zoomOut();
-    expect(component.actions.emit).toHaveBeenCalledWith({type: 'header:zoomOut'});
+    expect(component.actions.emit).toHaveBeenCalledWith({ type: 'ZOOM_OUT' });
   });
   it('should emit navigate to nextPage', () => {
     spyOn(component.actions, 'emit');
     component.totalPages = 10;
     component.page = 1;
     component.gotoPage();
-    expect(component.actions.emit).toHaveBeenCalledWith({ type: 'header:navigateToPage', data: 1 });
+    expect(component.actions.emit).toHaveBeenCalledWith({ type: 'NAVIGATE_TO_PAGE', data: 1 });
   });
 
   it('page number should be equal to pageNumber', () => {
