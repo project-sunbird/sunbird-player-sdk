@@ -1,4 +1,4 @@
-<div id="pdfPlayerSideMenu" class="sidenav" #sidebarMenu>
+<div id="playerSideMenu" class="sidenav" #sidebarMenu>
   <div class="navBlock">
     <div class="pdf-nav-unit">{{title}}</div>
     <ul>
@@ -11,5 +11,5 @@
   </div>
   <div class="transparentBlock" (click)="closeNav()"></div>
 </div>
-<sb-player-download-pdf-popup [title]="title" [showDownloadPopUp]="showDownloadPopUp" (hideDownloadPopUp)="hideDownloadPopUp()"
-  (downloadEvent)="sidebarEvent.emit($event)"></sb-player-download-pdf-popup>
+<sb-player-download-popup [title]="title" [showDownloadPopUp]="showDownloadPopUp" (hideDownloadPopUp)="hideDownloadPopUp()"
+  (downloadEvent)="sidebarEvent.emit($event)"></sb-player-download-popup>

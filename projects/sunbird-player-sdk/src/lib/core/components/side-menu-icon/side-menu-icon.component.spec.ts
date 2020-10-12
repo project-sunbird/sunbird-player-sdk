@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { SideMenuIconComponent } from './side-menu-icon.component';
 
-import { PdfMenuComponent } from './pdf-menu.component';
 
-describe('PdfMenuComponent', () => {
-  let component: PdfMenuComponent;
-  let fixture: ComponentFixture<PdfMenuComponent>;
+describe('SideMenuIconComponent', () => {
+  let component: SideMenuIconComponent;
+  let fixture: ComponentFixture<SideMenuIconComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PdfMenuComponent ]
+      declarations: [ SideMenuIconComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PdfMenuComponent);
+    fixture = TestBed.createComponent(SideMenuIconComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

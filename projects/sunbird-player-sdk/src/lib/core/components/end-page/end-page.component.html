@@ -1,45 +1,9 @@
-<div class="pdf-endpage">
-  <div class="pdf-endpage__left-panel">
+<div class="player-endpage">
+  <div class="player-endpage__left-panel">
     <div class="user-score-card">
       <!-- <img src="assets/badge-2.svg" alt="badge" class="badge"> -->
 <svg width="100%" height="100%" viewBox="0 0 250 250" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-    <style>
-      .truncate-overflow {
-        --lh: 1.4rem;
-        line-height: var(--lh);
-        --max-lines: 1;
-        position: relative;
-        max-height: calc(var(--lh) * var(--max-lines));
-        overflow: hidden;
-        padding-right: 0.5rem; 
-        width: 100%;font-size: 0.65rem;
-      }
-      .truncate-overflow::before {
-        position: absolute;
-        content: "...";
-        /* tempting... but shows when lines == content */
-        /* top: calc(var(--lh) * (var(--max-lines) - 1)); */
-        
-        /*
-        inset-block-end: 0;
-        inset-inline-end: 0;
-        */
-        bottom: 0;
-        right: 0;
-      }
-      .truncate-overflow::after {
-        content: "";
-        position: absolute;
-        /*
-        inset-inline-end: 0;
-        */
-        right: 0;
-        /* missing bottom on purpose*/
-        width: 1rem;
-        height: 1rem;
-        background: white;
-      }
-    </style>
+ 
     <defs>
         <filter id="filter-1">
             <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 1.000000 0 0 0 0 0.906248 0 0 0 0 0.902287 0 0 0 1.000000 0"></feColorMatrix>
@@ -63,29 +27,16 @@
           <stop stop-color="#70D4AD" offset="0%"></stop>
           <stop stop-color="#31A679" offset="100%"></stop>
         </linearGradient>
-        <!-- <text id="text-6" font-family="NotoSans-Bold, Noto Sans" font-size="18" font-weight="bold" fill="#FFFFFE">
-            <tspan x="75.5" y="19">{{pdfPlayerService.currentPagePointer}}</tspan>
-        </text> -->
-        <!-- <filter x="-11.3%" y="-10.4%" width="122.6%" height="129.2%" filterUnits="objectBoundingBox" id="filter-7">
-            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
-            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
-            <feColorMatrix values="0 0 0 0 0.81006567   0 0 0 0 0.508945651   0 0 0 0 0.130709529  0 0 0 1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
-        </filter> -->
         <text id="text-8" x="55" y="16" text-anchor="middle" fill="#FFFFFE">
             <tspan font-size="12" font-weight="400" font-family="Noto Sans, NotoSans-Bold">Pages read:</tspan>
             <tspan font-size="18" font-family="NotoSans-Bold, Noto Sans">{{pagesRead}}</tspan>
         </text>
-        <!-- <filter x="-5.1%" y="-15.6%" width="110.3%" height="143.8%" filterUnits="objectBoundingBox" id="filter-9">
-            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
-            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
-            <feColorMatrix values="0 0 0 0 0.81006567   0 0 0 0 0.508945651   0 0 0 0 0.130709529  0 0 0 1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
-        </filter> -->
     </defs>
-    <g id="PDF-Player" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="player-Player" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="endgame-l2" transform="translate(-39.000000, -65.000000)">
             <g id="Group-2" transform="translate(39.500000, 65.000000)">
                 <g filter="url(#filter-1)" id="Group">
-                    <g transform="translate(4.000000, 4.000000)">
+                    <g class="particles" transform="translate(4.000000, 4.000000)">
                         <path d="M84.4144231,47.2437308 L77.9616538,41.1916154 C77.5351923,40.7922308 76.8658846,40.8133846 76.4665,41.2394231 C76.0666923,41.6654615 76.0882692,42.3351923 76.5143077,42.7345769 L82.9670769,48.7866923 C83.3931154,49.1860769 84.0624231,49.1649231 84.4622308,48.7384615 C84.8616154,48.3124231 84.8404615,47.6431154 84.4144231,47.2437308" id="Fill-3" fill="#4970D9"></path>
                         <path d="M78.2087308,48.9402692 L84.2616923,42.4875 C84.6615,42.0614615 84.6399231,41.3921538 84.2138846,40.9927692 C83.7878462,40.5929615 83.1185385,40.6141154 82.7187308,41.0405769 L76.6661923,47.4929231 C76.2663846,47.9189615 76.2879615,48.5886923 76.714,48.9880769 C77.1400385,49.3878846 77.8093462,49.3663077 78.2087308,48.9402692" id="Fill-4" fill="#4970D9"></path>
                         <path d="M91.8275769,140.082038 L85.3748077,134.030346 C84.9487692,133.630538 84.2794615,133.652115 83.8796538,134.078154 C83.4802692,134.504192 83.5014231,135.1735 83.9278846,135.573308 L90.3806538,141.625 C90.8066923,142.024808 91.476,142.003231 91.8753846,141.577192 C92.2751923,141.151154 92.2536154,140.481846 91.8275769,140.082038" id="Fill-5" fill="#4970D9"></path>
@@ -303,13 +254,13 @@
 </svg>
     </div>
   </div>
-  <div class="pdf-endpage__right-panel">
+  <div class="player-endpage__right-panel">
     <div class="title-section">
-      <div class="title">You just completed</div>
-      <span>{{contentName}}</span>
+      <div class="title animated fadeInDown">You just completed</div>
+      <span class="animated fadeInUp">{{contentName}}</span>
     </div>
     <div class="user-options">
-      <div class="replay-section" (click)="replayContent.emit()">
+      <div class="replay-section" (click)="replayContent.emit({type: 'REPLAY'})">
         <img src="assets/replay.svg" alt="replay">
         <div class="title">Replay</div>
       </div>

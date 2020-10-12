@@ -1,24 +1,20 @@
-import { element } from '@angular/core/src/render3';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import {
-  SimpleChanges
-} from '@angular/core';
+import { DownloadPopupComponent } from './download-popup.component';
 
-import { DownloadPdfPopupComponent } from './download-pdf-popup.component';
 
-describe('DownloadPdfPopupComponent', () => {
-  let component: DownloadPdfPopupComponent;
-  let fixture: ComponentFixture<DownloadPdfPopupComponent>;
+describe('DownloadPopupComponent', () => {
+  let component: DownloadPopupComponent;
+  let fixture: ComponentFixture<DownloadPopupComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DownloadPdfPopupComponent ]
+      declarations: [ DownloadPopupComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DownloadPdfPopupComponent);
+    fixture = TestBed.createComponent(DownloadPopupComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

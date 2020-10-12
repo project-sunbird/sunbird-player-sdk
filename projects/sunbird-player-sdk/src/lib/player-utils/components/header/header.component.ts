@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 
 @Component({
-  selector: 'sb-player-pdf-header',
+  selector: 'sb-player-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
@@ -33,26 +33,22 @@ export class HeaderComponent implements  OnChanges, OnInit {
   }
 
   zoomIn() {
-    // (window as any).PDFViewerApplication.zoomIn();
-    this.actions.emit({type: 'header:zoomIn'});
-    // this.pdfPlayerService.raiseHeartBeatEvent('ZOOM_IN');
+    this.actions.emit({type: 'ZOOM_IN'});
   }
 
   zoomOut() {
-    this.actions.emit({type: 'header:zoomOut'});
-    // (window as any).PDFViewerApplication.zoomOut();
-    // this.pdfPlayerService.raiseHeartBeatEvent('ZOOM_OUT');
+    this.actions.emit({type: 'ZOOM_OUT'});
   }
 
   rotateCW() {
-    this.actions.emit({type: 'header:rotateCW'});
+    this.actions.emit({type: 'ROTATE_CW'});
   }
 
 
   gotoPage() {
     const page = parseInt(this.page, 10);
     if (page > 0 && page <= this.totalPages) {
-      this.actions.emit({ type: 'header:navigateToPage', data: page });
+      this.actions.emit({ type: 'NAVIGATE_TO_PAGE', data: page });
       this.pageNumber = page;
     } else {
       this.page = this.pageNumber;

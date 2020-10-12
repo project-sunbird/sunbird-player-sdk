@@ -1,6 +1,6 @@
 @import "~@project-sunbird/sb-styles/assets/mixins/mixins";
 
-.pdf-endpage {
+.player-endpage {
   padding: 1rem;
   height: 100%;
   display: flex;
@@ -255,4 +255,166 @@
 
 .replay-section {
   cursor: pointer;
+  background-color: var(--white);
+  padding:0.5rem;
+  border-radius: calculateRem(4px);
+  &:hover {
+    background-color: var(--gray-0);
+  }
 }
+
+
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeftSide {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInLeftSide {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+}
+
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+
+.fadeInLeftSide {
+  -webkit-animation-name: fadeInLeftSide;
+  animation-name: fadeInLeftSide;
+}
+
+.fadeInRightSide {
+  -webkit-animation-name: fadeInLeftSide;
+  animation-name: fadeInLeftSide;
+}
+
+.animated {
+  -webkit-animation-duration: 1.5s;
+  animation-duration: 1.5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+
+
+/* animation */
+ .truncate-overflow {
+        --lh: 1.4rem;
+        line-height: var(--lh);
+        --max-lines: 1;
+        position: relative;
+        max-height: calc(var(--lh) * var(--max-lines));
+        overflow: hidden;
+        padding-right: 0.5rem; 
+        width: 100%;font-size: 0.65rem;
+      }
+      .truncate-overflow::before {
+        position: absolute;
+        content: "...";
+        /* tempting... but shows when lines == content */
+        /* top: calc(var(--lh) * (var(--max-lines) - 1)); */
+        
+        /*
+        inset-block-end: 0;
+        inset-inline-end: 0;
+        */
+        bottom: 0;
+        right: 0;
+      }
+      .truncate-overflow::after {
+        content: "";
+        position: absolute;
+        /*
+        inset-inline-end: 0;
+        */
+        right: 0;
+        /* missing bottom on purpose*/
+        width: 1rem;
+        height: 1rem;
+        background:var(--white);
+      }
+      .particles path {
+        transform: scale(1.1);
+        transform-origin: center;
+        -webkit-animation: heartbeat 1.5s ease-in-out infinite both;
+        animation: heartbeat 1.5s ease-in-out infinite both;
+      }
+      @keyframes heartbeat {
+        from {
+          -webkit-transform: scale(1);
+          -webkit-transform-transform: scale(1);
+          -webkit-transform-origin: center center;
+          -webkit-transform-origin-transform-origin: center center;
+          -webkit-animation-timing-function: ease-out;
+          -webkit-animation-timing-function-animation-timing-function: ease-out;
+        }
+        10% {
+          -webkit-transform: scale(0.91);
+          -webkit-transform-transform: scale(0.91);
+          -webkit-animation-timing-function: ease-in;
+          -webkit-animation-timing-function-animation-timing-function: ease-in;
+        }
+        17% {
+          -webkit-transform: scale(0.98);
+          -webkit-transform-transform: scale(0.98);
+          -webkit-animation-timing-function: ease-out;
+          -webkit-animation-timing-function-animation-timing-function: ease-out;
+        }
+        33% {
+          -webkit-transform: scale(0.87);
+          -webkit-transform-transform: scale(0.87);
+          -webkit-animation-timing-function: ease-in;
+          -webkit-animation-timing-function-animation-timing-function: ease-in;
+        }
+        45% {
+          -webkit-transform: scale(1);
+          -webkit-transform-transform: scale(1);
+          -webkit-animation-timing-function: ease-out;
+          -webkit-animation-timing-function-animation-timing-function: ease-out;
+        }
+      }
