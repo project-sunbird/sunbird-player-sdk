@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/sunbird-player-sdk
     docker:
-      - image: circleci/node:9.0.0
+      - image: circleci/node:12.0.0
     steps:
       - checkout:
           path: ~/sunbird-player-sdk
@@ -22,7 +22,7 @@ jobs:
     
       - run:
           name: alter node version
-          command: 'source ~/.nvm/nvm.sh && nvm install 8 && nvm use 8 && nvm alias default 8 && node -v'
+          command: 'source ~/.nvm/nvm.sh && nvm install 12 && nvm use 12 && nvm alias default 12 && node -v'
 
       - run: 
           name: Install sonar scanner
