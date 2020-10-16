@@ -8,8 +8,8 @@ jobs:
       - checkout:
           path: ~/sunbird-player-sdk
 
+      - run: cd projects/sunbird-player-sdk && sudo npm install
       - run: sudo npm install
-      - run: npm install
 
       - run:
           name: running test cases
