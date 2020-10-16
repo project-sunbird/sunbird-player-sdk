@@ -3,13 +3,13 @@ jobs:
   build:
     working_directory: ~/sunbird-player-sdk
     docker:
-      - image: circleci/node:12.0.0
+      - image: circleci/node:12.13.0
     steps:
       - checkout:
           path: ~/sunbird-player-sdk
 
-      - run: cd projects/sunbird-player-sdk && sudo npm install
-      - run: sudo npm install
+      - run: cd projects/sunbird-player-sdk && npm install
+      - run: npm install
 
       - run:
           name: running test cases
@@ -17,7 +17,7 @@ jobs:
 
       - run: 
           name: Install sonar scanner
-          command: 'sudo npm install -g sonarqube-scanner'
+          command: 'npm install -g sonarqube-scanner'
           
       - run: 
           name: Sonar scanner
