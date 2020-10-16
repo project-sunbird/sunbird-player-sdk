@@ -13,7 +13,7 @@ jobs:
 
       - run:
           name: running test cases
-          command: 'npm run test-coverage | tee /tmp/logs/test_cases.log'
+          command: npm run test
           no_output_timeout: 30m
 
       - run: 
