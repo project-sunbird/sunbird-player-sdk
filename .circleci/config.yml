@@ -25,6 +25,6 @@ jobs:
              
 workflows:
   version: 2.1
-  build_and_test:projects/sunbird-player-sdk/src/
+  build_and_test:
     jobs:
       - build
