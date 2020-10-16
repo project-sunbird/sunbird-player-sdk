@@ -13,8 +13,7 @@ jobs:
 
       - run:
           name: running test cases
-          command: npm run test
-          no_output_timeout: 30m
+          command: ng test --code-coverage
 
       - run: 
           name: Install sonar scanner
