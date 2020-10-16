@@ -11,44 +11,20 @@ jobs:
       - run: sudo npm install
       - run: npm install
 
-          #
-      # - run:
-      #     name: running test cases
-      #     command: npm run test
-
       - run:
-          name: Install NVM
-          command: 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh|bash'
-    
-      - run:
-          name: alter node version
-          command: 'source ~/.nvm/nvm.sh && nvm install 12 && nvm use 12 && nvm alias default 12 && node -v'
+          name: running test cases
+          command: npm run test
 
       - run: 
           name: Install sonar scanner
-          command: 'source ~/.nvm/nvm.sh && sudo npm install -g sonarqube-scanner'
+          command: 'sudo npm install -g sonarqube-scanner'
           
       - run: 
           name: Sonar scanner
-          command: source ~/.nvm/nvm.sh |
-            sonar-scanner -Dsonar.projectKey=project-sunbird_sunbird-player-sdk -Dsonar.organization=project-sunbird -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io -Dsonar.language=js
-      
-      - run:
-          name: Publish to NPM
-          command: |
-            if [ -z $CIRCLE_PR_NUMBER ]; then 
-              commit_hash=$(echo $CIRCLE_SHA1 | cut -c 1-7)
-              npm version prerelease --preid=alpha-${commit_hash}
-              npm run build-npm-package
-              npm set //registry.npmjs.org/:_authToken=$NPM_TOKEN
-              npm pack ./www/preview
-              npm publish project-sunbird-player-sdk-*     
-            else
-              npm run build-npm-package
-            fi
+          command: sonar-scanner -Dsonar.projectKey=project-sunbird_sunbird-player-sdk -Dsonar.organization=project-sunbird -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io -Dsonar.language=ts -Dsonar.sources=projects/sunbird-player-sdk/src -Dsonar.typescript.lcov.reportPaths=coverage/sunbird-player-sdk/lcov.info
              
 workflows:
   version: 2.1
-  build_and_test:
+  build_and_test:projects/sunbird-player-sdk/src/
     jobs:
       - build
