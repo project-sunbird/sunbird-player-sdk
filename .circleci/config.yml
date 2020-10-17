@@ -12,7 +12,7 @@ jobs:
       - run: npm install
       - run:
           name: Installing angular cli
-          command: 'npm install -g @angular/cli@6.0.8 --no-progress'
+          command: 'npm install @angular/cli@6.0.8 --no-progress'
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
       - save_cache: # special step to save the dependency cache	
