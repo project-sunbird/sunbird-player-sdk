@@ -10,13 +10,6 @@ jobs:
 
       - run: cd projects/sunbird-player-sdk && npm install
       - run: npm install
-      - run: 
-          name: Install sonar scanner
-          command: 'npm install -g sonarqube-scanner'
-          
-      - run: 
-          name: Sonar scanner
-          command: sonar-scanner -Dsonar.projectKey=project-sunbird_sunbird-player-sdk -Dsonar.organization=project-sunbird -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io -Dsonar.language=ts -Dsonar.sources=projects/sunbird-player-sdk/src -Dsonar.typescript.lcov.reportPaths=coverage/sunbird-player-sdk/lcov.info
   test-cases:
     working_directory: ~/sunbird-player-sdk
     docker:
@@ -40,7 +33,14 @@ jobs:
           command: 'mkdir -p /tmp/logs && ng build --prod --optimization=false --buildOptimizer=false | tee /tmp/logs/build.log'
       - run:
           name: Executing test cases
-          command: 'npm run test-coverage | tee /tmp/logs/test_cases.log'     
+          command: 'npm run test-coverage | tee /tmp/logs/test_cases.log'
+      - run: 
+          name: Install sonar scanner
+          command: 'npm install -g sonarqube-scanner'
+          
+      - run: 
+          name: Sonar scanner
+          command: sonar-scanner -Dsonar.projectKey=project-sunbird_sunbird-player-sdk -Dsonar.organization=project-sunbird -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io -Dsonar.language=ts -Dsonar.sources=projects/sunbird-player-sdk/src -Dsonar.typescript.lcov.reportPaths=coverage/sunbird-player-sdk/lcov.info
 workflows:
   version: 2.1
   build_and_test:
