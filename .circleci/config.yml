@@ -20,7 +20,7 @@ jobs:
           command: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
       - run: 
           name: Install sonar scanner
-          command: 'npm install sonarqube-scanner'
+          command: 'npm install -g sonarqube-scanner'
       - run: 
           name: Sonar scanner
           command: sonar-scanner -Dsonar.projectKey=project-sunbird_sunbird-player-sdk -Dsonar.organization=project-sunbird -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io -Dsonar.language=ts -Dsonar.sources=projects/sunbird-player-sdk/src -Dsonar.typescript.lcov.reportPaths=coverage/sunbird-player-sdk/lcov.info
