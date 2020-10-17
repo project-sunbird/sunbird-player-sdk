@@ -11,9 +11,6 @@ jobs:
       - run: cd projects/sunbird-player-sdk && npm install
       - run: npm install
       - run:
-          name: Installing npm
-          command: 'npm i npm@latest -g'
-      - run:
           name: Installing angular cli
           command: 'npm install -g @angular/cli@6.0.8 --no-progress'
       - restore_cache:
