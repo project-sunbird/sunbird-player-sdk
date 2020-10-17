@@ -20,7 +20,7 @@ jobs:
           paths: ./node_modules    
       - run:
           name: Executing test cases
-          command: 'npm run test-coverage | tee /tmp/logs/test_cases.log'
+          command: 'npm run test | tee /tmp/logs/test_cases.log'
       - run: 
           name: Install sonar scanner
           command: 'npm install -g sonarqube-scanner'
