@@ -10,12 +10,6 @@ jobs:
 
       - run: cd projects/sunbird-player-sdk && npm install
       - run: npm install
-
-      - run:
-          name: running test cases
-          command: npm run test
-          no_output_timeout: 30m
-
       - run: 
           name: Install sonar scanner
           command: 'npm install -g sonarqube-scanner'
@@ -23,7 +17,36 @@ jobs:
       - run: 
           name: Sonar scanner
           command: sonar-scanner -Dsonar.projectKey=project-sunbird_sunbird-player-sdk -Dsonar.organization=project-sunbird -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io -Dsonar.language=ts -Dsonar.sources=projects/sunbird-player-sdk/src -Dsonar.typescript.lcov.reportPaths=coverage/sunbird-player-sdk/lcov.info
-             
+  test-cases:
+    working_directory: ~/sunbird-player-sdk
+    docker:
+      - image: circleci/classic:latest
+    steps:
+      - checkout:
+          path: ~/sunbird-player-sdk
+      - run:
+          name: Installing npm
+          command: 'npm i npm@latest -g'
+      - run:
+          name: Installing angular cli
+          command: 'npm install -g @angular/cli@6.0.8 --no-progress'
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - save_cache: # special step to save the dependency cache	
+          key: dependency-cache-{{ checksum "package.json" }}	
+          paths: ./node_modules    
+      - run:
+          name: ng lint and building
+          command: 'mkdir -p /tmp/logs && ng build --prod --optimization=false --buildOptimizer=false | tee /tmp/logs/build.log'
+      - run:
+          name: Executing test cases
+          command: 'npm run test-coverage | tee /tmp/logs/test_cases.log'
+      - run:
+          name: install sonar scanner
+          command: npm install -g sonarqube-scanner
+      - run:
+         name: run sonar scanner
+         command: 'cd ~/portal && sonar-scanner'      
 workflows:
   version: 2.1
   build_and_test:
