@@ -6,7 +6,7 @@
     "prod": "gulp && npm run build && cd dist/sunbird-player-sdk && npm pack && cd ../..",
     "ng": "ng",
     "start": "ng serve",
-    "test": "ng test --code-coverage=true --watch=false --sourceMap=false",
+    "test": "ng test --code-coverage=true --watch=false",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
