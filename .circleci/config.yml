@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  test:
+  build:
     working_directory: ~/sunbird-player-sdk
     docker:
       - image: circleci/node:12.13.0-browsers
