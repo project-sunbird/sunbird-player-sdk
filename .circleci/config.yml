@@ -10,16 +10,8 @@ jobs:
       - run:
           name: Show current branch
           command: echo ${CIRCLE_BRANCH}
-      - restore_cache:
-        keys:
-        - v1-dependencies-{{ checksum "package-lock.json" }}
-        - v1-dependencies-
       - run: cd projects/sunbird-player-sdk && npm install
       - run: npm install
-      - save_cache:
-          key: v1-dependencies-{{ checksum "package-lock.json" }}
-          paths:
-              - node_modules
       - run:
           name: Linting
           command: npm run lint
