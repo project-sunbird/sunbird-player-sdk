@@ -10,13 +10,6 @@ jobs:
 
       - run: cd projects/sunbird-player-sdk && npm install
       - run: npm install
-  test-cases:
-    working_directory: ~/sunbird-player-sdk
-    docker:
-      - image: circleci/node:12.13.0
-    steps:
-      - checkout:
-          path: ~/sunbird-player-sdk
       - run:
           name: Installing npm
           command: 'npm i npm@latest -g'
