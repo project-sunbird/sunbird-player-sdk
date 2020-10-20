@@ -87,9 +87,6 @@
 
         &:hover {
           background: var(--gray-200);
-          // border-right: 0px solid transparent !important;
-          // line-height: 1.8rem;
-
           .PlayerMediaQueryClass & {
             @include respond-above(md) {
               height: 2.2rem;
@@ -281,6 +278,21 @@
       @include respond-above(xxxl) {
         width: calculateRem(36px);
         height: calculateRem(36px);
+      }
+    }
+  }
+}
+::ng-deep{
+  html[dir=rtl] .sb-player-header__panel .pdf-pagenumber .page-count{
+    &:focus {
+      border-radius:0 .25em .25rem 0 !important;
+    }
+    &~.focus-arrow {
+      left:auto;
+      right: calc(3rem - 0px);
+      border-radius: .25em 0 0 .25em !important;
+      img{
+        transform: rotate(180deg);
       }
     }
   }
