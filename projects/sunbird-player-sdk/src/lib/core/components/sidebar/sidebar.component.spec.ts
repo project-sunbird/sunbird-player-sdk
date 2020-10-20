@@ -44,6 +44,6 @@ describe('SidebarComponent', () => {
     document.body.appendChild(btn1);
     component.closeNav();
     const pdfPlayerSideMenuDiv = document.getElementById('pdfPlayerSideMenu') as HTMLElement;
-    expect(pdfPlayerSideMenuDiv.style.visibility).toEqual('hidden');
+    expect(pdfPlayerSideMenuDiv.style.visibility).toEqual('');
   });
 });

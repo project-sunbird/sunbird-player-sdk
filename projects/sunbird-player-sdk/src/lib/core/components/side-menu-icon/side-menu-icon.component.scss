@@ -1,14 +1,14 @@
 @import "~@project-sunbird/sb-styles/assets/mixins/mixins";
 
 :host {
-  .overlay-button {
+  #overlay-button {
     z-index: 10;
     cursor: pointer;
     user-select: none;
     margin: 0;
     position: absolute;
-    top: 0.5rem;
-    left: 0.5rem;
+    top: 0.4rem;
+    left: 1rem;
     height: calculateRem(36px);
     width: calculateRem(36px);
     border-radius: 50%;
@@ -16,6 +16,7 @@
     align-items: center;
     justify-content: center;
     transition: all .3s ease-in-out;
+
     .PlayerMediaQueryClass & {
       @include respond-above(xl) {
         height: 3rem;
@@ -27,6 +28,8 @@
         width: 3.5rem;
       }
     }
+
+
 
     span {
       height: 0.20rem;
@@ -121,7 +124,7 @@ input[type=checkbox]:checked~#overlay {
   visibility: visible;
 }
 
-input[type=checkbox]:checked~.overlay-button {
+input[type=checkbox]:checked~#overlay-button {
 
   &:hover span,
   span {
@@ -135,15 +138,18 @@ input[type=checkbox]:checked~.overlay-button {
     }
 
     &:after {
-      transform: rotate(-45deg) translate(5px, -6px);
+      transform: rotate(-45deg) translate(5px, -5px);
     }
   }
 }
-::ng-deep{
-  html[dir=rtl] .overlay-button{
+
+::ng-deep {
+  html[dir=rtl] #overlay-button {
     left: auto;
     right: 1rem;
-    span{
+
+    span {
+
       &:before,
       &:after {
         right: 0;

@@ -156,14 +156,10 @@
         padding: 1.7rem 0;
 
         .title {
-          color: #2B2C43;
-          font-size: .99rem;
+          color:var(--gray-800);
+          font-size: 1rem;
           line-height: 1.188rem;
           text-align: center;
-
-          @include respond-above(sm) {
-            font-size: 1.1rem;
-          }
 
           .PlayerMediaQueryClass & {
             @include respond-above(md) {
