@@ -1,7 +1,7 @@
 @import "~@project-sunbird/sb-styles/assets/mixins/mixins";
 
 :host {
-  #overlay-button {
+  .overlay-button {
     z-index: 10;
     cursor: pointer;
     user-select: none;
@@ -121,7 +121,7 @@ input[type=checkbox]:checked~#overlay {
   visibility: visible;
 }
 
-input[type=checkbox]:checked~#overlay-button {
+input[type=checkbox]:checked~.overlay-button {
 
   &:hover span,
   span {
@@ -140,7 +140,7 @@ input[type=checkbox]:checked~#overlay-button {
   }
 }
 ::ng-deep{
-  html[dir=rtl] #overlay-button{
+  html[dir=rtl] .overlay-button{
     left: auto;
     right: 1rem;
     span{
