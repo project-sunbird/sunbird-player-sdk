@@ -123,8 +123,6 @@ button {
   }
 
   &.left {
-    // right: 58%;
-
     i {
       transform-origin: 0% 50%;
       background-color: var(--gray-800);
@@ -148,10 +146,6 @@ button {
       }
     }
 
-    // &:active {
-    //   @include arrowTransform( $angleActive, 1px, -1px );
-    // }
-
     &[data-state=disabled] {
       @include arrowTransform(0deg, -5px, 0);
 
@@ -162,8 +156,6 @@ button {
   }
 
   &.right {
-    // left: 58%;
-
     i {
       transform-origin: 100% 50%
     }
@@ -182,10 +174,6 @@ button {
       }
     }
 
-    // &:active {
-    //   @include arrowTransform( $angleActive, 1px, 1px );
-    // }
-
     &[data-state=disabled] {
       @include arrowTransform(0deg, 5px, 0);
 
@@ -198,5 +186,11 @@ button {
   &[data-state=disabled] {
     opacity: 0.3;
     cursor: default;
+  }
+}
+
+::ng-deep{
+  html[dir=rtl] .player-previousIcon, html[dir=rtl] .player-nextIcon{
+    transform: rotate(180deg);
   }
 }
