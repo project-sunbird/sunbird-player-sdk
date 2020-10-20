@@ -32,7 +32,7 @@ add the assets in angular.json file
               "src/assets",
               {
                 "glob": "**/*",
-                "input": "node_modules/@project-sunbird/sunbird-pdf-player/lib/assets/",
+                "input": "node_modules/@project-sunbird/sunbird-player-sdk/lib/assets/",
                 "output": "/assets/"
               }
 
