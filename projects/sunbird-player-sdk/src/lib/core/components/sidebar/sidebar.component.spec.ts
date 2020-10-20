@@ -40,10 +40,10 @@ describe('SidebarComponent', () => {
     btn.id = 'overlay-input';
     document.body.appendChild(btn);
     const btn1 = document.createElement('Div');
-    btn1.id = 'pdfPlayerSideMenu';
+    btn1.id = 'playerSideMenu';
     document.body.appendChild(btn1);
     component.closeNav();
-    const pdfPlayerSideMenuDiv = document.getElementById('pdfPlayerSideMenu') as HTMLElement;
-    expect(pdfPlayerSideMenuDiv.style.visibility).toEqual('');
+    const PlayerSideMenuDiv = document.getElementById('playerSideMenu') as HTMLElement;
+    expect(PlayerSideMenuDiv.style.visibility).toEqual('');
   });
 });

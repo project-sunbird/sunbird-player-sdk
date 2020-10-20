@@ -34,8 +34,8 @@ describe('SideMenuIconComponent', () => {
     const inputChecked = document.getElementById('overlay-input') as HTMLInputElement;
 
     component.toggleMenu();
-    const pdfPlayerSideMenuDiv = document.getElementById('playerSideMenu') as HTMLInputElement;
-    expect(pdfPlayerSideMenuDiv.style.visibility).toEqual('hidden');
+    const PlayerSideMenuDiv = document.getElementById('playerSideMenu') as HTMLInputElement;
+    expect(PlayerSideMenuDiv.style.visibility).toEqual('hidden');
     expect(inputChecked.checked).toEqual(false);
   });
 
@@ -51,7 +51,7 @@ describe('SideMenuIconComponent', () => {
     const inputChecked = document.getElementById('overlay-input') as HTMLInputElement;
     inputChecked.checked = true;
     component.toggleMenu();
-    const pdfPlayerSideMenuDiv = document.getElementById('playerSideMenu') as HTMLInputElement;
-    expect(pdfPlayerSideMenuDiv.style.visibility).toEqual('visible');
+    const PlayerSideMenuDiv = document.getElementById('playerSideMenu') as HTMLInputElement;
+    expect(PlayerSideMenuDiv.style.visibility).toEqual('visible');
   });
 });

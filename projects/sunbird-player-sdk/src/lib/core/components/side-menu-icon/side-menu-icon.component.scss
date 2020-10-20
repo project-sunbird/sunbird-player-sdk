@@ -1,99 +1,40 @@
 @import "~@project-sunbird/sb-styles/assets/mixins/mixins";
 
-
-@keyframes bugfix {
-  from {
-    padding: 0;
-  }
-
-  to {
-    padding: 0;
-  }
-}
-
-@-webkit-keyframes bugfix {
-  from {
-    padding: 0;
-  }
-
-  to {
-    padding: 0;
-  }
-}
-
-#overlay-button {
-  z-index: 10;
-  cursor: pointer;
-  user-select: none;
-  margin: 0;
-  position: absolute;
-  top: 0.4rem;
-  left: 1rem;
-  height: calculateRem(36px);
-  width: calculateRem(36px);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  .PlayerMediaQueryClass & {
-    @include respond-above(xl) {
-      height: 3rem;
-      width: 3rem;
-    }
-
-    @include respond-above(xxxl) {
-      height: 3.5rem;
-      width: 3.5rem;
-    }
-  }
-
-
-
-  span {
-    height: 0.20rem;
-    width: 1.25rem;
-    border-radius: 0.125rem;
-    background-color: var(--black);
-    position: relative;
-    display: block;
-    transition: all .2s ease-in-out;
-
+:host {
+  #overlay-button {
+    z-index: 10;
+    cursor: pointer;
+    user-select: none;
+    margin: 0;
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    height: calculateRem(36px);
+    width: calculateRem(36px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .3s ease-in-out;
     .PlayerMediaQueryClass & {
       @include respond-above(xl) {
-        height: .20rem;
-        width: 1.95rem;
+        height: 3rem;
+        width: 3rem;
       }
 
       @include respond-above(xxxl) {
-        height: 0.25rem;
-        width: 2rem;
+        height: 3.5rem;
+        width: 3.5rem;
       }
     }
 
-    &:before {
-      top: -0.45rem;
-      visibility: visible;
-    }
-
-    &:after {
-      top: 0.45rem;
-
-      .PlayerMediaQueryClass & {
-        @include respond-above(xxxl) {
-          top: 0.45rem;
-        }
-      }
-    }
-
-    &:before,
-    &:after {
+    span {
       height: 0.20rem;
       width: 1.25rem;
       border-radius: 0.125rem;
       background-color: var(--black);
-      position: absolute;
-      content: "";
+      position: relative;
+      display: block;
       transition: all .2s ease-in-out;
 
       .PlayerMediaQueryClass & {
@@ -103,34 +44,72 @@
         }
 
         @include respond-above(xxxl) {
-          height: .25rem;
+          height: 0.25rem;
           width: 2rem;
         }
       }
 
+      &:before {
+        top: -0.45rem;
+        visibility: visible;
+      }
+
+      &:after {
+        top: 0.45rem;
+
+        .PlayerMediaQueryClass & {
+          @include respond-above(xxxl) {
+            top: 0.45rem;
+          }
+        }
+      }
+
+      &:before,
+      &:after {
+        height: 0.20rem;
+        width: 1.25rem;
+        border-radius: 0.125rem;
+        background-color: var(--black);
+        position: absolute;
+        content: "";
+        transition: all .2s ease-in-out;
+
+        .PlayerMediaQueryClass & {
+          @include respond-above(xl) {
+            height: .20rem;
+            width: 1.95rem;
+          }
+
+          @include respond-above(xxxl) {
+            height: .25rem;
+            width: 2rem;
+          }
+        }
 
 
-    }
-  }
 
-  &:hover span,
-  &:hover span:before,
-  &:hover span:after {
-    background: #333332;
-  }
-
-  &:hover {
-    background-color: rgba(51, 51, 51, 0.25);
-
-    span {
-      background-color: var(--white);
-
-      &::before,
-      &::after {
-        background-color: var(--white);
       }
     }
 
+    &:hover span,
+    &:hover span:before,
+    &:hover span:after {
+      background: #333332;
+    }
+
+    &:hover {
+      background-color: rgba(var(--rc-rgba-black), 0.75);
+
+      span {
+        background-color: var(--white);
+
+        &::before,
+        &::after {
+          background-color: var(--white);
+        }
+      }
+
+    }
   }
 }
 
@@ -151,12 +130,12 @@ input[type=checkbox]:checked~#overlay-button {
 
   span {
     &:before {
-      transform: rotate(45deg) translate(5px,5px);
+      transform: rotate(45deg) translate(5px, 5px);
       opacity: 1;
     }
 
     &:after {
-      transform: rotate(-45deg) translate(5px,-5px);
+      transform: rotate(-45deg) translate(5px, -6px);
     }
   }
 }
