@@ -1,27 +1,77 @@
-# SunbirdPlayerSdk
+# Sunbird Player Sdk
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.10.
+Contains common component which can be used across the player like start page, end page and side menu and header navigations
 
-## Development server
+## Usage
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Quick start
 
-## Code scaffolding
+`npm i @project-sunbird/sunbird-player-sdk`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+Add the module to the your player root module 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+`import { SunbirdPlayerSdkModule  } from '@project-sunbird/sunbird-player-sdk';`
+
+```javascript
+@NgModule({
+  ...
+  imports: [
+    ...,
+    SunbirdPlayerSdkModule
+  ]
+})
+```
+
+add the assets in angular.json file
+
+```javascript
+....
+ "assets": [
+              "src/favicon.ico",
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "node_modules/@project-sunbird/sunbird-pdf-player/lib/assets/",
+                "output": "/assets/"
+              }
+
+...
+
+```
+
+after that you can use the components like below
+
+```html
+  <sb-player-start-page  [title]="title" [progress]="progress"></sb-player-start-page>
+```
+
+
+## Development
+
+### Prerequisites
+
+ Node 12+
+
+Fork the repo and execute below steps
+
+```bash
+cd <forked-folder>
+
+npm install
+
+cd projects/sunbird-player-sdk
+
+npm install
+
+cd ../..
+
+npm run build
+
+```
+
+This will build the library
 
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
