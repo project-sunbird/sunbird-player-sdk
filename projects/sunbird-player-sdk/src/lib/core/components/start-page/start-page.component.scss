@@ -11,6 +11,7 @@
   opacity: 1;
   background: var(--primary-theme);
   transition: all .3s ease-in;
+
   &.animateBg {
     opacity: 0;
   }
@@ -30,17 +31,20 @@
       line-height: normal;
       text-shadow: 0px 2px var(--gray-400);
       word-break: break-word;
+
       .PlayerMediaQueryClass & {
-      @include respond-above(md){
-        font-size: 1.75;
+        @include respond-above(md) {
+          font-size: 1.75;
+        }
+
+        @include respond-above(xl) {
+          font-size: 2rem;
+        }
+
+        @include respond-above(xxxl) {
+          font-size: 2.3rem;
+        }
       }
-      @include respond-above(xl){
-        font-size:2rem;
-      }
-      @include respond-above(xxxl){
-        font-size: 2.3rem;
-      }
-    }
     }
   }
 
@@ -51,18 +55,21 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+
     // align-items: center;
     .PlayerMediaQueryClass & {
-    @include respond-above(md){
-      font-size: 1rem;
+      @include respond-above(md) {
+        font-size: 1rem;
+      }
+
+      @include respond-above(xl) {
+        font-size: 1.2rem;
+      }
+
+      @include respond-above(xxxl) {
+        font-size: 1.5rem;
+      }
     }
-    @include respond-above(xl){
-      font-size: 1.2rem;
-    }
-    @include respond-above(xxxl){
-      font-size: 1.5rem;
-    }
-  }
   }
 }
 
@@ -70,83 +77,95 @@
 $loadingTime: 20s;
 $color: #F1635D;
 
-
 @keyframes loading {
   0% {
     width: 0;
-  } 100% {
+  }
+
+  100% {
     width: 100%;
   }
 }
 
-@keyframes percentage { 
+@keyframes percentage {
   @for $i from 1 through 100 {
     $percentage: $i + "%";
+
     #{$percentage} {
       content: $percentage;
     }
   }
 }
 
-.bg,.el {
+.bg,
+.el {
   border-radius: 0.25rem;
   height: 0.5rem;
 }
+
 .bg {
-    background-color: var(--white);
+  background-color: var(--white);
 }
-.el{
+
+.el {
   background-color: $color;
   width: 0%;
   transition: all ease .3s;
-//   animation: loading $loadingTime linear;
+  //   animation: loading $loadingTime linear;
 }
+
 .loading-text {
-    align-self: center;
-    margin-bottom: 0.5rem;
+  align-self: center;
+  margin-bottom: 0.5rem;
 }
 
 
 
 @keyframes fadeInDown {
   0% {
-     opacity: 0;
-     transform: translateY(-20px);
+    opacity: 0;
+    transform: translateY(-20px);
   }
+
   100% {
-     opacity: 1;
-     transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
 @keyframes fadeInUp {
- 0% {
+  0% {
     opacity: 0;
     transform: translateY(20px);
- }
- 100% {
+  }
+
+  100% {
     opacity: 1;
     transform: translateY(0);
- }
+  }
 }
-@keyframes fadeInLeftSide {
- 0% {
-    opacity: 0;
-    transform: translateX(100px);
- }
- 100% {
-    opacity: 1;
-    transform: translateX(0);
- }
-}
+
 @keyframes fadeInLeftSide {
   0% {
-     opacity: 0;
-     transform: translateX(-100px);
+    opacity: 0;
+    transform: translateX(100px);
   }
+
   100% {
-     opacity: 1;
-     transform: translateX(0);
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInLeftSide {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
@@ -154,14 +173,17 @@ $color: #F1635D;
   -webkit-animation-name: fadeInDown;
   animation-name: fadeInDown;
 }
+
 .fadeInUp {
- -webkit-animation-name: fadeInUp;
- animation-name: fadeInUp;
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
 }
+
 .fadeInLeftSide {
- -webkit-animation-name: fadeInLeftSide;
- animation-name: fadeInLeftSide;
+  -webkit-animation-name: fadeInLeftSide;
+  animation-name: fadeInLeftSide;
 }
+
 .fadeInRightSide {
   -webkit-animation-name: fadeInLeftSide;
   animation-name: fadeInLeftSide;

@@ -1,80 +1,88 @@
 @import "~@project-sunbird/sb-styles/assets/mixins/mixins";
 
-.navigation-arrows {
-  height: 2rem;
-  width: 4rem;
-  cursor: pointer;
-  border-radius: 1rem;
-  background-color: var(--white);
-  box-shadow: var(--sbt-box-shadow-6px);
-  border: 1px solid #f2f2f2;
-  transition: all .1s ease-in;
-  .PlayerMediaQueryClass & {
-    @include respond-above(md) {
-      height: 2.2rem;
-      width: 4.2rem;
+:host {
+  .navigation-arrows {
+    height: 2rem;
+    width: 4rem;
+    cursor: pointer;
+    border-radius: 1rem;
+    background-color: var(--white);
+    box-shadow: var(--sbt-box-shadow-3px);
+    border: 1px solid var(--gray-0);
+    transition: all .1s ease-in;
+    &:hover {
+      border: 1px solid transparent;
     }
-
-    @include respond-above(xl) {
-      width: 4.8rem;
-      height: 2.5rem;
-    }
-
-    @include respond-above(xxxl) {
-      width: 5rem;
-      height: 2.75rem;
-    }
-  }
-
-  &:hover {
-    background: var(--primary-color);
-  }
-
-  &::after {
-    display: none;
-    content: '';
-    width: 0.5rem;
-    height: 0.5rem;
-    border-top: 0.125rem solid var(--gray-200);
-    border-left: 0.125rem solid var(--gray-200);
 
     .PlayerMediaQueryClass & {
       @include respond-above(md) {
-        width: .7rem;
-        height: .7rem;
+        width: 4.2rem;
+        height: 2.2rem;
+        border-radius: 2.2rem;
       }
 
       @include respond-above(xl) {
-        width: .9rem;
-        height: .9rem;
+        width: 4.8rem;
+        height: 2.5rem;
+        border-radius: 2.5rem;
       }
 
       @include respond-above(xxxl) {
-        width: 1rem;
-        height: 1rem;
+        width: 5rem;
+        height: 2.75rem;
+        border-radius: 2.75rem;
+      }
+    }
+
+    &:hover {
+      background: var(--primary-color);
+    }
+
+    &::after {
+      display: none;
+      content: '';
+      width: 0.5rem;
+      height: 0.5rem;
+      border-top: 0.125rem solid var(--gray-200);
+      border-left: 0.125rem solid var(--gray-200);
+
+      .PlayerMediaQueryClass & {
+        @include respond-above(md) {
+          width: .7rem;
+          height: .7rem;
+        }
+
+        @include respond-above(xl) {
+          width: .9rem;
+          height: .9rem;
+        }
+
+        @include respond-above(xxxl) {
+          width: 1rem;
+          height: 1rem;
+        }
       }
     }
   }
-}
 
-
-.player-nextIcon {
-  &::after {
-    content: '';
-    transform: rotate(135deg);
-    border-top: .125rem solid var(--white);
-    border-left: .125rem solid var(--white);
+  .player-nextIcon {
+    &::after {
+      content: '';
+      transform: rotate(135deg);
+      border-top: .125rem solid var(--white);
+      border-left: .125rem solid var(--white);
+    }
   }
-}
 
-.navigation-arrows:hover.player-nextIcon::after {
-  content: '';
-  border-top: 0.125rem solid var(--white);
-  border-left: 0.125rem solid var(--white);
-}
+  .navigation-arrows:hover.player-nextIcon::after {
+    content: '';
+    border-top: 0.125rem solid var(--white);
+    border-left: 0.125rem solid var(--white);
+  }
 
-.navigation-arrows.player-nextIcon {
-  background: var(--primary-color);
+  .navigation-arrows.player-nextIcon {
+    background: var(--primary-color);
+  }
 }
 
 $size: 12px;
@@ -83,13 +91,13 @@ $angle: 40deg;
 $angleHover: 30deg;
 $angleActive: 25deg;
 
-@mixin arrowTransform( $angle, $x: 0, $y: 0 ) {
+@mixin arrowTransform($angle, $x: 0, $y: 0) {
   i:first-child {
-    transform: translate( $x, $y ) rotate( $angle );
+    transform: translate($x, $y) rotate($angle);
   }
 
   i:last-child {
-    transform: translate( $x, -$y ) rotate( -$angle );
+    transform: translate($x, -$y) rotate(-$angle);
   }
 }
 
@@ -101,7 +109,8 @@ button {
 
 .paginate {
   position: relative;
-  transform: translate3d(0,0,0); // fixes flicker in webkit
+  transform: translate3d(0, 0, 0); // fixes flicker in webkit
+
   i {
     position: absolute;
     top: 42%;
@@ -119,26 +128,29 @@ button {
       background-color: var(--gray-800);
     }
 
-    @include arrowTransform( $angle, 0, -1px );
+    @include arrowTransform($angle, 0, -1px);
 
     &:hover {
+
+      // @include arrowTransform( $angleHover, 0, -1px );
       i {
         background-color: var(--white);
       }
+
       i:first-child {
-        transform: translate(0,0px) rotate(30deg);
+        transform: translate(0, 0px) rotate(30deg);
       }
-    
+
       i:last-child {
-        transform: translate(0,1px) rotate(-30deg);
+        transform: translate(0, 1px) rotate(-30deg);
       }
     }
 
     &[data-state=disabled] {
-      @include arrowTransform( 0deg, -5px, 0 );
+      @include arrowTransform(0deg, -5px, 0);
 
       &:hover {
-        @include arrowTransform( 0deg, -5px, 0 );
+        @include arrowTransform(0deg, -5px, 0);
       }
     }
   }
@@ -148,23 +160,25 @@ button {
       transform-origin: 100% 50%
     }
 
-    @include arrowTransform( $angle, 0, 1px );
+    @include arrowTransform($angle, 0, 1px);
 
     &:hover {
+
+      //@include arrowTransform( $angleHover, 0, 1px );
       i:first-child {
-        transform: translate(0,1px) rotate(30deg);
+        transform: translate(0, 1px) rotate(30deg);
       }
-    
+
       i:last-child {
-        transform: translate(0,0px) rotate(-30deg);
+        transform: translate(0, 0px) rotate(-30deg);
       }
     }
 
     &[data-state=disabled] {
-      @include arrowTransform( 0deg, 5px, 0 );
+      @include arrowTransform(0deg, 5px, 0);
 
       &:hover {
-        @include arrowTransform( 0deg, 5px, 0 );
+        @include arrowTransform(0deg, 5px, 0);
       }
     }
   }
