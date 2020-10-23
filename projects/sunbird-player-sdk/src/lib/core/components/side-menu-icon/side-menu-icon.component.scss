@@ -17,17 +17,6 @@
     justify-content: center;
     transition: all .3s ease-in-out;
 
-    .PlayerMediaQueryClass & {
-      @include respond-above(xl) {
-        height: 3rem;
-        width: 3rem;
-      }
-
-      @include respond-above(xxxl) {
-        height: 3.5rem;
-        width: 3.5rem;
-      }
-    }
 
 
 
@@ -40,17 +29,6 @@
       display: block;
       transition: all .2s ease-in-out;
 
-      .PlayerMediaQueryClass & {
-        @include respond-above(xl) {
-          height: .20rem;
-          width: 1.95rem;
-        }
-
-        @include respond-above(xxxl) {
-          height: 0.25rem;
-          width: 2rem;
-        }
-      }
 
       &:before {
         top: -0.45rem;
@@ -60,11 +38,7 @@
       &:after {
         top: 0.45rem;
 
-        .PlayerMediaQueryClass & {
-          @include respond-above(xxxl) {
-            top: 0.45rem;
-          }
-        }
+  
       }
 
       &:before,
@@ -77,17 +51,7 @@
         content: "";
         transition: all .2s ease-in-out;
 
-        .PlayerMediaQueryClass & {
-          @include respond-above(xl) {
-            height: .20rem;
-            width: 1.95rem;
-          }
-
-          @include respond-above(xxxl) {
-            height: .25rem;
-            width: 2rem;
-          }
-        }
+       
 
 
 
@@ -133,12 +97,12 @@ input[type=checkbox]:checked~#overlay-button {
 
   span {
     &:before {
-      transform: rotate(45deg) translate(5px, 5px);
+      transform: rotate(45deg) translate(0.3125rem, 0.3125rem);
       opacity: 1;
     }
 
     &:after {
-      transform: rotate(-45deg) translate(5px, -5px);
+      transform: rotate(-45deg) translate(0.3125rem, -0.3125rem);
     }
   }
 }
