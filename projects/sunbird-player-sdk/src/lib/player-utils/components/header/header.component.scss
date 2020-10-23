@@ -9,20 +9,6 @@
     padding: .75em 1rem;
     background: var(--white);
 
-    .PlayerMediaQueryClass & {
-      @include respond-above(md) {
-        height: 3.5rem;
-      }
-
-      @include respond-above(xl) {
-        height: 4rem;
-      }
-
-      @include respond-above(xxxl) {
-        height: 4.5rem;
-      }
-    }
-
     &__panel {
       .player-zoom-btns {
         border-radius: .25rem;
@@ -33,7 +19,7 @@
           text-align: center;
           line-height: 0.8rem;
           font-size: 1.5rem;
-          background-color: var(--gray-100);
+          background-color: rgba(var(--rc-rgba-gray), 0.11);
           padding: 0;
           transition: all .3s ease-in;
           cursor: pointer;
@@ -44,58 +30,31 @@
           justify-content: center;
           border: 0px;
 
-          .PlayerMediaQueryClass & {
-            @include respond-above(md) {
-              width: 4rem;
-              height: 2.2rem;
-              font-size: 1.75rem;
-              line-height: 1.1rem;
-            }
-
-            @include respond-above(xl) {
-              width: 4.3rem;
-              height: 2.5rem;
-              font-size: 2rem;
-              line-height: 1.2rem;
-            }
-
-            @include respond-above(xxxl) {
-              width: 4.6rem;
-              height: 2.75rem;
-              font-size: 2.2rem;
-              line-height: 1.5rem;
-            }
+          span {
+            -webkit-mask-size: contain;
+            -webkit-mask-repeat: no-repeat;
+            mask-size: contain;
+            mask-repeat: no-repeat;
+            background-color: var(--gray-800);
           }
 
+
           &:hover {
-            background: var(--gray-200);
+            background: var(--gray-0);
 
-            .PlayerMediaQueryClass & {
-              @include respond-above(md) {
-                height: 2.2rem;
-                line-height: 2rem;
-              }
 
-              @include respond-above(xl) {
-                height: 2.5rem;
-                line-height: 2.2rem;
-              }
-
-              @include respond-above(xxxl) {
-                height: 2.75rem;
-                line-height: 2.5rem;
-              }
-            }
           }
         }
 
         .zoomOut-btn {
-          border-right: 0.063em solid #bbb9b9;
+          border-right: 0.063em solid rgba(var(--rc-rgba-gray), 0.1);
 
           &::after {
             content: '\002D';
           }
         }
+
+        .zoomIn-btn span {}
 
         .zoomIn-btn::after {
           content: '\002B';
@@ -108,19 +67,7 @@
         align-items: center;
         position: relative;
 
-        .PlayerMediaQueryClass & {
-          @include respond-above(md) {
-            font-size: 1.75rem;
-          }
 
-          @include respond-above(xl) {
-            font-size: 2rem;
-          }
-
-          @include respond-above(xxxl) {
-            font-size: 2.2rem;
-          }
-        }
 
         .page-count {
           height: 2rem;
@@ -130,20 +77,7 @@
           background-color: var(--white);
           text-align: center;
 
-          .PlayerMediaQueryClass & {
-            @include respond-above(md) {
-              height: 2.2rem;
-              width: 5rem;
-            }
 
-            @include respond-above(xl) {
-              height: 2.5rem;
-            }
-
-            @include respond-above(xxxl) {
-              height: 2.75rem;
-            }
-          }
 
           &:focus {
             border-radius: 0.25em 0px 0px 0.25rem;
@@ -163,23 +97,7 @@
             left: calc(3rem - 0px);
             cursor: pointer;
 
-            .PlayerMediaQueryClass & {
-              @include respond-above(md) {
-                height: 2.2rem;
-                width: 2.5rem;
-                left: calc(5rem - 0px);
-              }
 
-              @include respond-above(xl) {
-                height: 2.5rem;
-                width: 2.75rem;
-              }
-
-              @include respond-above(xxxl) {
-                height: 2.75rem;
-                width: 3rem;
-              }
-            }
 
             img {
               width: 50%;
@@ -219,7 +137,7 @@
   }
 
   .icon_rotate {
-    background: var(--white);
+    background: transparent;
     height: 2rem;
     text-align: center;
     width: 2rem;
@@ -227,43 +145,20 @@
     align-items: center;
     justify-content: center;
     border-radius: .25rem;
+    padding: 0.25rem;
     cursor: pointer;
     transition: all 0.3s ease-in;
-    border: 1px solid var(--gray-100);
+    // border: 1px solid rgba(var(--rc-rgba-gray),0.11);
 
     &:hover {
-      background: var(--gray-100);
+      background: rgba(var(--rc-rgba-gray), 0.11);
     }
 
-    .PlayerMediaQueryClass & {
-      @include respond-above(md) {
-        width: 2.2rem;
-        height: 2.2rem;
-      }
 
-      @include respond-above(xl) {
-        width: 2.5rem;
-        height: 2.5rem;
-      }
-
-      @include respond-above(xxxl) {
-        height: 2.75rem;
-        width: 2.75rem;
-      }
-    }
 
     .rotate-icon {
-      .PlayerMediaQueryClass & {
-        @include respond-above(xl) {
-          width: calculateRem(30px);
-          height: calculateRem(30px);
-        }
+      width: 100%;
 
-        @include respond-above(xxxl) {
-          width: calculateRem(36px);
-          height: calculateRem(36px);
-        }
-      }
     }
   }
 
@@ -274,16 +169,19 @@
     justify-content: center;
   }
 }
-::ng-deep{
-  html[dir=rtl] .sb-player-header__panel .pdf-pagenumber .page-count{
+
+::ng-deep {
+  html[dir=rtl] .sb-player-header__panel .pdf-pagenumber .page-count {
     &:focus {
-      border-radius:0 .25em .25rem 0 !important;
+      border-radius: 0 .25em .25rem 0 !important;
     }
+
     &~.focus-arrow {
-      left:auto;
+      left: auto;
       right: calc(3rem - 0px);
       border-radius: .25em 0 0 .25em !important;
-      img{
+
+      img {
         transform: rotate(180deg);
       }
     }

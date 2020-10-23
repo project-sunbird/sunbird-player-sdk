@@ -106,23 +106,7 @@
           font-weight: bold;
           font-size: 1.5rem;
 
-          @include respond-above(sm) {
-            font-size: 1.7rem;
-          }
-
-          .PlayerMediaQueryClass & {
-            @include respond-above(md) {
-              font-size: 2rem;
-            }
-
-            @include respond-above(xl) {
-              font-size: 2.1rem;
-            }
-
-            @include respond-above(xxxl) {
-              font-size: 2.4rem;
-            }
-          }
+        
         }
 
         span {
@@ -130,23 +114,7 @@
           font-size: .85rem;
           word-break: break-word;
 
-          @include respond-above(sm) {
-            font-size: 1rem;
-          }
-
-          .PlayerMediaQueryClass & {
-            @include respond-above(md) {
-              font-size: 1.2rem;
-            }
-
-            @include respond-above(xl) {
-              font-size: 1.4rem;
-            }
-
-            @include respond-above(xxxl) {
-              font-size: 1.5rem;
-            }
-          }
+       
         }
       }
 
@@ -161,46 +129,14 @@
           line-height: 1.188rem;
           text-align: center;
 
-          .PlayerMediaQueryClass & {
-            @include respond-above(md) {
-              font-size: 1.3rem;
-            }
-
-            @include respond-above(xl) {
-              font-size: 1.4rem;
-            }
-
-            @include respond-above(xxxl) {
-              font-size: 1.5rem;
-            }
-          }
+        
         }
 
         img {
           width: 2.55rem;
           height: 2.55rem;
 
-          @include respond-above(sm) {
-            width: 2.75rem;
-            height: 2.75rem;
-          }
-
-          .PlayerMediaQueryClass & {
-            @include respond-above(sm) {
-              width: 3rem;
-              height: 3rem;
-            }
-
-            @include respond-above(xl) {
-              width: 3.2rem;
-              height: 3.2rem;
-            }
-
-            @include respond-above(xxxl) {
-              width: 3.5rem;
-              height: 3.5rem;
-            }
-          }
+       
         }
       }
 
@@ -271,7 +207,7 @@
 @keyframes fadeInDown {
   0% {
     opacity: 0;
-    transform: translateY(-20px);
+    transform: translateY(-1.25rem);
   }
 
   100% {
@@ -283,7 +219,7 @@
 @keyframes fadeInUp {
   0% {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(1.25rem);
   }
 
   100% {
@@ -295,7 +231,7 @@
 @keyframes fadeInLeftSide {
   0% {
     opacity: 0;
-    transform: translateX(100px);
+    transform: translateX(6.25rem);
   }
 
   100% {
@@ -307,7 +243,7 @@
 @keyframes fadeInLeftSide {
   0% {
     opacity: 0;
-    transform: translateX(-100px);
+    transform: translateX(-6.25rem);
   }
 
   100% {
