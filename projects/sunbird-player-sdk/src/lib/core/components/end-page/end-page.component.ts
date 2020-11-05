@@ -8,7 +8,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class EndPageComponent {
 
   @Input() contentName: string;
-  @Input() pagesRead: number;
+  @Input() outcome: any;
+  @Input() outcomeLabel: string;
   @Input() userName: string;
   @Input() timeSpentLabel: string;
   @Output() replayContent = new EventEmitter<any>();

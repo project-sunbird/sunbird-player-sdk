@@ -31,7 +31,7 @@ export class DownloadPopupComponent implements OnChanges {
   }
 
   download() {
-    this.downloadEvent.emit({type: 'DOWNLOAD'});
+    this.downloadEvent.emit('DOWNLOAD');
     this.hideDownloadPopup();
   }
 
