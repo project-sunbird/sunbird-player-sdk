@@ -3,13 +3,13 @@
   "version": "0.0.0",
   "scripts": {
     "build": "ng build && node assets-copy.js",
-    "pre-publish": "gulp && npm run build && cd dist/sunbird-player-sdk && npm pack",
+    "pre-publish": "gulp && npm run build",
     "ng": "ng",
     "start": "ng serve",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "publish": "npm run pre-publish && npm publish project-sunbird-sunbird-player-sdk-*"
+    "publish": "npm run pre-publish && npm publish ./dist/sunbird-player-sdk/"
   },
   "private": true,
   "dependencies": {
