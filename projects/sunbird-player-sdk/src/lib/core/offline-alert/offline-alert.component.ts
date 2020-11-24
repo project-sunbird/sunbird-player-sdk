@@ -1,24 +1,20 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 
 @Component({
   selector: 'sb-player-offline-alert',
   templateUrl: './offline-alert.component.html',
   styleUrls: ['./offline-alert.component.scss']
 })
-export class OfflineAlertComponent implements OnInit, OnChanges {
-  @Input() showOfflineAlert: boolean;
+export class OfflineAlertComponent implements OnInit {
+  showOfflineAlert: boolean;
   constructor() { }
 
   ngOnInit() {
-
-  }
-
-  ngOnChanges() {
-    if (this.showOfflineAlert) {
+    window.addEventListener('offline', () => {
+      this.showOfflineAlert = true;
       setTimeout(() => {
         this.showOfflineAlert = false;
-      }, 5000);
-    }
+      }, 4000);
+    });
   }
-
 }
