@@ -13,6 +13,7 @@ export class ContentCompabilityService {
       const  compatibilityError = new Error();
       compatibilityError.message = `player supports ${this.playerContentCompatibiltyLevel}
       and content is compatibility is ${currentCompatibilityLevel}`;
+      compatibilityError.name = 'contentCompatibily';
       return compatibilityError;
     } else {
       return true;
