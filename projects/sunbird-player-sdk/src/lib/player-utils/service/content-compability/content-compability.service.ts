@@ -4,10 +4,13 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ContentCompabilityService {
+  playerContentCompatibiltyLevel = 4;
 
   constructor() { }
 
-  checkContentCompatibility(defaultCompatibilityLevel: number, currentCompatibilityLevel: number): boolean {
-    return currentCompatibilityLevel > defaultCompatibilityLevel;
+  checkContentCompatibility(currentCompatibilityLevel: number) {
+    if (currentCompatibilityLevel > this.playerContentCompatibiltyLevel) {
+      return true;
+    }
   }
 }

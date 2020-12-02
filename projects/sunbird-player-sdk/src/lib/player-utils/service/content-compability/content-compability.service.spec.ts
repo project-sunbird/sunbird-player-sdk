@@ -7,13 +7,8 @@ describe('ContentCompabilityService', () => {
 
   it('call checkContentCompatibility and get true', () => {
     const service: ContentCompabilityService = TestBed.get(ContentCompabilityService);
-    const result = service.checkContentCompatibility(4, 5);
+    service.playerContentCompatibiltyLevel = 4;
+    const result = service.checkContentCompatibility(5);
     expect(result).toBeTruthy();
-  });
-
-  it('call checkContentCompatibility and get false', () => {
-    const service: ContentCompabilityService = TestBed.get(ContentCompabilityService);
-    const result = service.checkContentCompatibility(5, 4);
-    expect(result).toBeFalsy();
   });
 });
