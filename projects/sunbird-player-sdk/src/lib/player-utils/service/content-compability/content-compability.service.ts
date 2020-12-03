@@ -10,12 +10,13 @@ export class ContentCompabilityService {
 
   checkContentCompatibility(currentCompatibilityLevel: number) {
     if (currentCompatibilityLevel > this.playerContentCompatibiltyLevel) {
-      const  compatibilityError = new Error();
-      compatibilityError.message = `Player supports ${this.playerContentCompatibiltyLevel} but content compatibility is ${currentCompatibilityLevel}`;
+      const compatibilityError = new Error();
+      compatibilityError.message = `Player supports ${this.playerContentCompatibiltyLevel}
+                                    but content compatibility is ${currentCompatibilityLevel}`;
       compatibilityError.name = 'contentCompatibily';
-      return { error: compatibilityError , isCompitable: false };
+      return { error: compatibilityError, isCompitable: false };
     } else {
-      return { error: null , isCompitable: true };
+      return { error: null, isCompitable: true };
     }
   }
 }
