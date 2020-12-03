@@ -13,9 +13,9 @@ export class ContentCompabilityService {
       const  compatibilityError = new Error();
       compatibilityError.message = `Player supports ${this.playerContentCompatibiltyLevel} but content compatibility is ${currentCompatibilityLevel}`;
       compatibilityError.name = 'contentCompatibily';
-      return compatibilityError;
+      return { error: compatibilityError , isCompatibilityError: true };
     } else {
-      return true;
+      return { error: null , isCompatibilityError: false };
     }
   }
 }
