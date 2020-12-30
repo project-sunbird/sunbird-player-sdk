@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
+import { errorCode, errorMessage } from './../../enums/exceptionLogs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ContentCompabilityService {
+export class ErrorService {
   playerContentCompatibiltyLevel = 4;
 
   constructor() { }
@@ -18,5 +19,12 @@ export class ContentCompabilityService {
     } else {
       return { error: null, isCompitable: true };
     }
+  }
+
+  internetConnectivity() {
+    const internetConnectivityError = new Error();
+    internetConnectivityError.message = errorMessage.internetConnectivity;
+    internetConnectivityError.name = errorCode.internetConnectivity;
+    return { error: internetConnectivityError };
   }
 }
