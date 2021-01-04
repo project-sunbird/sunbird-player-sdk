@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
-import { ContentCompabilityService } from './content-compability.service';
+import { errorCode, errorMessage } from './../../enums/exceptionLogs';
+import { ErrorService } from './error.service';
 
-
-describe('ContentCompabilityService', () => {
+describe('ErrorService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('call checkContentCompatibility and get compatibility error', () => {
-    const service: ContentCompabilityService = TestBed.get(ContentCompabilityService);
+    const service: ErrorService = TestBed.get(ErrorService);
     const compatibilityError = new Error();
     service.playerContentCompatibiltyLevel = 4;
     const result = service.checkContentCompatibility(3);
@@ -16,7 +16,7 @@ describe('ContentCompabilityService', () => {
   });
 
   it('call checkContentCompatibility and get compatibility error', () => {
-    const service: ContentCompabilityService = TestBed.get(ContentCompabilityService);
+    const service: ErrorService = TestBed.get(ErrorService);
     service.playerContentCompatibiltyLevel = 4;
     const currentCompatibilityLevel = 5;
     const compatibilityError = new Error();
@@ -26,5 +26,17 @@ describe('ContentCompabilityService', () => {
     const result = service.checkContentCompatibility(currentCompatibilityLevel);
     expect(result.error.name).toEqual('contentCompatibily');
     expect(result.isCompitable).toBeFalsy();
+  });
+
+  it('call initInternetConnectivityError and emit error when offline', () => {
+    const service: ErrorService = TestBed.get(ErrorService);
+    const internetConnectivityError = new Error();
+    internetConnectivityError.message = errorMessage.internetConnectivity;
+    internetConnectivityError.name = errorCode.internetConnectivity;
+    const offlineEvent = new Event('offline');
+    spyOn(service.getInternetConnectivityError, 'emit');
+    service.initInternetConnectivityError();
+    window.dispatchEvent(offlineEvent);
+    expect(service.getInternetConnectivityError.emit).toHaveBeenCalledWith({ error: internetConnectivityError });
   });
 });

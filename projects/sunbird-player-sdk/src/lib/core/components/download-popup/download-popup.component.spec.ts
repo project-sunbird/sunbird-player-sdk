@@ -63,7 +63,7 @@ describe('DownloadPopupComponent', () => {
     spyOn(component.downloadEvent, 'emit');
     component.download();
     expect(component.hideDownloadPopup).toHaveBeenCalled();
-    expect(component.downloadEvent.emit).toHaveBeenCalledWith({ type: 'DOWNLOAD' });
+    expect(component.downloadEvent.emit).toHaveBeenCalledWith('DOWNLOAD');
   });
 
   it('should emit the hide download popup', () => {
