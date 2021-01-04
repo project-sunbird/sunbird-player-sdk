@@ -1,13 +1,15 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { errorCode, errorMessage } from './../../enums/exceptionLogs';
-
 @Injectable({
   providedIn: 'root'
 })
 export class ErrorService {
   playerContentCompatibiltyLevel = 4;
+  getInternetConnectivityError = new EventEmitter<any>();
 
-  constructor() { }
+  constructor() {
+    this.initInternetConnectivityError();
+  }
 
   checkContentCompatibility(currentCompatibilityLevel: number) {
     if (currentCompatibilityLevel > this.playerContentCompatibiltyLevel) {
@@ -21,10 +23,12 @@ export class ErrorService {
     }
   }
 
-  internetConnectivity() {
-    const internetConnectivityError = new Error();
-    internetConnectivityError.message = errorMessage.internetConnectivity;
-    internetConnectivityError.name = errorCode.internetConnectivity;
-    return { error: internetConnectivityError };
+  initInternetConnectivityError() {
+    window.addEventListener('offline', (e) => {
+      const internetConnectivityError = new Error();
+      internetConnectivityError.message = errorMessage.internetConnectivity;
+      internetConnectivityError.name = errorCode.internetConnectivity;
+      this.getInternetConnectivityError.emit({ error: internetConnectivityError });
+    });
   }
 }

@@ -28,10 +28,15 @@ describe('ErrorService', () => {
     expect(result.isCompitable).toBeFalsy();
   });
 
-  it('call internetConnectivity and get error', () => {
+  it('call initInternetConnectivityError and emit error when offline', () => {
     const service: ErrorService = TestBed.get(ErrorService);
-    const result = service.internetConnectivity();
-    expect(result.error.name).toEqual(errorCode.internetConnectivity);
-    expect(result.error.message).toEqual(errorMessage.internetConnectivity);
+    const internetConnectivityError = new Error();
+    internetConnectivityError.message = errorMessage.internetConnectivity;
+    internetConnectivityError.name = errorCode.internetConnectivity;
+    const offlineEvent = new Event('offline');
+    spyOn(service.getInternetConnectivityError, 'emit');
+    service.initInternetConnectivityError();
+    window.dispatchEvent(offlineEvent);
+    expect(service.getInternetConnectivityError.emit).toHaveBeenCalledWith({ error: internetConnectivityError });
   });
 });
