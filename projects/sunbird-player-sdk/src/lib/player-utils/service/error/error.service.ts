@@ -1,11 +1,11 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { EventEmitter, Injectable, OnDestroy } from '@angular/core';
 import { errorCode, errorMessage } from './../../enums/exceptionLogs';
 @Injectable({
   providedIn: 'root'
 })
-export class ErrorService {
+export class ErrorService implements OnDestroy {
   playerContentCompatibiltyLevel = 4;
-  getInternetConnectivityError = new EventEmitter<any>();
+  getInternetConnectivityError = new EventEmitter<{ error: { message: string, name: string } }>();
 
   constructor() {
     this.initInternetConnectivityError();
@@ -23,12 +23,18 @@ export class ErrorService {
     }
   }
 
-  initInternetConnectivityError() {
-    window.addEventListener('offline', (e) => {
-      const internetConnectivityError = new Error();
-      internetConnectivityError.message = errorMessage.internetConnectivity;
-      internetConnectivityError.name = errorCode.internetConnectivity;
-      this.getInternetConnectivityError.emit({ error: internetConnectivityError });
-    });
+  private initInternetConnectivityError() {
+    window.addEventListener('offline', this.setInternetConnectivityError);
+  }
+
+  private setInternetConnectivityError = () => {
+    const internetConnectivityError = new Error();
+    internetConnectivityError.message = errorMessage.internetConnectivity;
+    internetConnectivityError.name = errorCode.internetConnectivity;
+    this.getInternetConnectivityError.emit({ error: internetConnectivityError });
+  }
+
+  ngOnDestroy() {
+    window.removeEventListener('offline', this.setInternetConnectivityError);
   }
 }
