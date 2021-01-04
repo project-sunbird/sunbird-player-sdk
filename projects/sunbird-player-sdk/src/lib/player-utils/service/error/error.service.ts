@@ -23,7 +23,7 @@ export class ErrorService implements OnDestroy {
     }
   }
 
-  private initInternetConnectivityError() {
+  initInternetConnectivityError() {
     window.addEventListener('offline', this.setInternetConnectivityError);
   }
 
