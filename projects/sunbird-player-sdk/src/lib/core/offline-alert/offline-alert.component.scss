@@ -1,0 +1,16 @@
+.offline-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3rem;
+    background: var(--tertiary-color);
+    color: #fff;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    z-index: 999;
+    justify-content: center;
+    box-shadow: 0 0 2px 2px #666;
+    font-size: 14px;
+}

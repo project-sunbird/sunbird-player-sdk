@@ -1,23 +1,27 @@
-import { Component, OnInit, OnDestroy, SimpleChanges, OnChanges, Input } from '@angular/core';
-import { PlayerEventsHelperService } from '../../services/player-events-helper.service';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 
 @Component({
-  selector: 'pdf-header',
+  selector: 'sb-player-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
 
-export class HeaderComponent implements  OnChanges {
+export class HeaderComponent implements  OnChanges, OnInit {
   @Input() pageNumber;
   @Input() totalPages;
-  totalPageView = true;
-  constructor(public playerEventsHelperService: PlayerEventsHelperService) {}
+  @Output() actions = new EventEmitter<any>();
+  page;
+
+  ngOnInit(): void {
+    this.page = this.pageNumber;
+  }
 
   ngOnChanges(changes: SimpleChanges) {
     for (const propName in changes) {
       if (changes.hasOwnProperty(propName)) {
         switch (propName) {
           case 'pageNumber':
+            this.page = changes[propName].currentValue;
             this.pageNumber = changes[propName].currentValue;
             break;
           case 'totalPages':
@@ -29,26 +33,25 @@ export class HeaderComponent implements  OnChanges {
   }
 
   zoomIn() {
-    // (window as any).PDFViewerApplication.zoomIn();
-    this.playerEventsHelperService.playerUtilEvent.emit('header:zoomIn');
-    // this.pdfPlayerService.raiseHeartBeatEvent('ZOOM_IN');
+    this.actions.emit({type: 'ZOOM_IN'});
   }
 
   zoomOut() {
-    this.playerEventsHelperService.playerUtilEvent.emit('header:zoomOut');
-    // (window as any).PDFViewerApplication.zoomOut();
-    // this.pdfPlayerService.raiseHeartBeatEvent('ZOOM_OUT');
+    this.actions.emit({type: 'ZOOM_OUT'});
   }
 
+  rotateCW() {
+    this.actions.emit({type: 'ROTATE_CW'});
+  }
+
+
   gotoPage() {
-    // if (this.pageNumber > 0 && this.pageNumber <= this.pdfPlayerService.totalNumberOfPages) {
-    //   (window as any).PDFViewerApplication.page = parseInt(this.pageNumber, 10) ;
-    // } else {
-    //   this.pageNumber = this.pdfPlayerService.currentPagePointer;
-    // }
-    // this.totalPageView = true;
-    // this.pdfPlayerService.raiseHeartBeatEvent('NAVIGATE_TO_PAGE');
-    this.totalPageView = true;
-    this.playerEventsHelperService.playerUtilEvent.emit({ type: 'header:navigateToPage', data: this.pageNumber });
+    const page = parseInt(this.page, 10);
+    if (page > 0 && page <= this.totalPages) {
+      this.actions.emit({ type: 'NAVIGATE_TO_PAGE', data: page });
+      this.pageNumber = page;
+    } else {
+      this.page = this.pageNumber;
+    }
   }
 }

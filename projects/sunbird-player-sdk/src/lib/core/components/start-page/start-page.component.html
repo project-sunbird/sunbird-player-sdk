@@ -1,9 +1,9 @@
-<div class="sb-pdf-splash-container">
-  <div class="sb-pdf-splash-container__header"></div>
-  <div class="sb-pdf-splash-container__body">
+<div class="sb-player-splash-container" [ngClass]="{'animated animateBg': progress === 100}">
+  <div class="sb-player-splash-container__header"></div>
+  <div class="sb-player-splash-container__body animated fadeInDown">
     <span class="">{{title}}</span>
   </div>
-  <div class="sb-pdf-splash-container__footer">
+  <div class="sb-player-splash-container__footer">
     <div class="loading-text">Loading... {{progress}}%</div>
     <div class="bg">
       <div class="el" [style.width]="progress+'%'"></div>

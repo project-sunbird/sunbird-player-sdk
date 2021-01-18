@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DownloadPdfPopupComponent } from './download-pdf-popup.component';
+import { OfflineAlertComponent } from './offline-alert.component';
 
-describe('DownloadPdfPopupComponent', () => {
-  let component: DownloadPdfPopupComponent;
-  let fixture: ComponentFixture<DownloadPdfPopupComponent>;
+describe('OfflineAlertComponent', () => {
+  let component: OfflineAlertComponent;
+  let fixture: ComponentFixture<OfflineAlertComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DownloadPdfPopupComponent ]
+      declarations: [ OfflineAlertComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DownloadPdfPopupComponent);
+    fixture = TestBed.createComponent(OfflineAlertComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

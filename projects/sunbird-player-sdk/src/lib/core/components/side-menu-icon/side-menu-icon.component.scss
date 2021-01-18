@@ -1,0 +1,123 @@
+@import "~@project-sunbird/sb-styles/assets/mixins/mixins";
+
+:host {
+  #overlay-button {
+    z-index: 10;
+    cursor: pointer;
+    user-select: none;
+    margin: 0;
+    position: absolute;
+    top: 0.4rem;
+    left: 1rem;
+    height: calculateRem(36px);
+    width: calculateRem(36px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .3s ease-in-out;
+
+
+
+
+    span {
+      height: 0.20rem;
+      width: 1.25rem;
+      border-radius: 0.125rem;
+      background-color: var(--black);
+      position: relative;
+      display: block;
+      transition: all .2s ease-in-out;
+
+
+      &:before {
+        top: -0.45rem;
+        visibility: visible;
+      }
+
+      &:after {
+        top: 0.45rem;
+
+  
+      }
+
+      &:before,
+      &:after {
+        height: 0.20rem;
+        width: 1.25rem;
+        border-radius: 0.125rem;
+        background-color: var(--black);
+        position: absolute;
+        content: "";
+        transition: all .2s ease-in-out;
+
+       
+
+
+
+      }
+    }
+
+    &:hover span,
+    &:hover span:before,
+    &:hover span:after {
+      background: #333332;
+    }
+
+    &:hover {
+      background-color: rgba(var(--rc-rgba-black), 0.75);
+
+      span {
+        background-color: var(--white);
+
+        &::before,
+        &::after {
+          background-color: var(--white);
+        }
+      }
+
+    }
+  }
+}
+
+input[type=checkbox] {
+  display: none;
+}
+
+input[type=checkbox]:checked~#overlay {
+  visibility: visible;
+}
+
+input[type=checkbox]:checked~#overlay-button {
+
+  &:hover span,
+  span {
+    background: transparent;
+  }
+
+  span {
+    &:before {
+      transform: rotate(45deg) translate(0.3125rem, 0.3125rem);
+      opacity: 1;
+    }
+
+    &:after {
+      transform: rotate(-45deg) translate(0.3125rem, -0.3125rem);
+    }
+  }
+}
+
+::ng-deep {
+  html[dir=rtl] #overlay-button {
+    left: auto;
+    right: 1rem;
+
+    span {
+
+      &:before,
+      &:after {
+        right: 0;
+      }
+    }
+  }
+}

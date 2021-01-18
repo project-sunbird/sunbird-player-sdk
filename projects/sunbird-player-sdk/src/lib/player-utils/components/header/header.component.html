@@ -1,33 +1,27 @@
-
-
-    
-<div id="sbPdfPlayerContainer">
-  <div class="sb-pdf-header">
-   <div class="sb-pdf-header__panel d-flex flex-ai-center flex-jc-flex-end">
-      <div class="pdf-header-btn d-flex">
-        <div (click)="zoomOut()" class="pdf-header-btn__zoombtn zoomOut-btn"></div>
-        <div (click)="zoomIn()" class="pdf-header-btn__zoombtn zoomIn-btn"></div>
+<div>
+  <div class="sb-player-header">
+    <div class="sb-player-header__panel d-flex flex-ai-center flex-jc-flex-end">
+      <div class="icon_rotate mr-8">
+        <img src="./assets/rotate-icon.svg" alt="rotate icon" class="rotate-icon" (click)="rotateCW()">
       </div>
-      <div class="pdf-pagenumber">
-        <input  [(ngModel)]='pageNumber' type="text" class="page-count" 
-        (click)="totalPageView = false"/>
-        <span class="focus-arrow" (click)="gotoPage()"><img src="./assets/arrow-right.svg" width="100%" /></span>
+      <div class="player-zoom-btns d-flex mr-8">
+        <button type="button" (click)="zoomOut()" class="player-zoom-btns__zoombtn zoomOut-btn" aria-label="player-zoomOut-btns"></button>
+        <button type="button" (click)="zoomIn()" class="player-zoom-btns__zoombtn zoomIn-btn" aria-label="player-zoomIn-btns"></button>
+      </div>
+      <div class="player-pagenumber">
+        <input [(ngModel)]='page' type="number" class="page-count" />
+        <span class="focus-arrow" (click)="gotoPage()"><img src="./assets/arrow-right.svg" alt="arrow-right" width="100%" /></span>
         <span class="slash">/</span>
         <span class="pageNumberFullcount">{{totalPages}}</span>
-        <!-- <div (click)="rotateLeft()" class="pdf-header-btn-inline pdf-header-btn">Rotate Left</div>
-        <div (click)="rotateRight()" class="pdf-header-btn-inline pdf-header-btn">Rotate Right</div> -->
       </div>
 
       <div class="visible-only-landscape">
-      <div class="d-flex pdf-slides">
-        <previous-navigation></previous-navigation>
-        <next-navigation></next-navigation>
-        <!-- <div class="pdf-previousIcon pdf-header-btn-inline" ></div>
-        <div class="pdf-nextIcon pdf-header-btn-inline" ></div> -->
+        <div class="d-flex player-slides ml-8">
+          <sb-player-previous-navigation (previousAction)="actions.emit($event)"></sb-player-previous-navigation>
+          <sb-player-next-navigation (nextAction)="actions.emit($event)"></sb-player-next-navigation>
+        </div>
       </div>
-    </div>
-    
-   </div>
-  </div>  
-</div>
 
+    </div>
+  </div>
+</div>

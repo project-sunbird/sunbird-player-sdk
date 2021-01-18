@@ -1,8 +1,7 @@
 import { ChangeDetectorRef, Component, EventEmitter, Input, Output } from '@angular/core';
-import { CoreEventsHelperService } from '../../services/core-events-helper.service';
 
 @Component({
-  selector: 'sidebar',
+  selector: 'sb-player-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })
@@ -18,11 +17,11 @@ export class SidebarComponent {
   @Output() sidebarEvent = new EventEmitter<any>();
   showDownloadPopUp = false;
 
-  constructor(public coreEventsHelperService: CoreEventsHelperService, public ref: ChangeDetectorRef) {}
+  constructor(public ref: ChangeDetectorRef) {}
   closeNav() {
     const inputChecked = document.getElementById('overlay-input') as HTMLInputElement;
     inputChecked.checked = false;
-    document.getElementById('pdfPlayerSideMenu').style.visibility = 'hidden';
+    document.getElementById('playerSideMenu').style.visibility = 'hidden';
     document.querySelector<HTMLElement>('.navBlock').style.marginLeft = '-100%';
     this.sidebarEvent.emit('CLOSE_MENU');
   }
