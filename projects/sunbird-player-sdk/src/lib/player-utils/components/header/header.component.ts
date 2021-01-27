@@ -9,6 +9,7 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange
 export class HeaderComponent implements  OnChanges, OnInit {
   @Input() pageNumber;
   @Input() totalPages;
+  @Input() config;
   @Output() actions = new EventEmitter<any>();
   page;
 

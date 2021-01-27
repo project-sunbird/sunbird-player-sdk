@@ -1,21 +1,21 @@
 <div>
   <div class="sb-player-header">
     <div class="sb-player-header__panel d-flex flex-ai-center flex-jc-flex-end">
-      <div class="icon_rotate mr-8">
+      <div class="icon_rotate mr-8" *ngIf="config && config.showRotate">
         <img src="./assets/rotate-icon.svg" alt="rotate icon" class="rotate-icon" (click)="rotateCW()">
       </div>
-      <div class="player-zoom-btns d-flex mr-8">
+      <div class="player-zoom-btns d-flex mr-8" *ngIf="config && config.showZoom">
         <button type="button" (click)="zoomOut()" class="player-zoom-btns__zoombtn zoomOut-btn" aria-label="player-zoomOut-btns"></button>
         <button type="button" (click)="zoomIn()" class="player-zoom-btns__zoombtn zoomIn-btn" aria-label="player-zoomIn-btns"></button>
       </div>
-      <div class="player-pagenumber">
+      <div class="player-pagenumber" *ngIf="config && config.showGoTo">
         <input [(ngModel)]='page' type="number" class="page-count" />
         <span class="focus-arrow" (click)="gotoPage()"><img src="./assets/arrow-right.svg" alt="arrow-right" width="100%" /></span>
         <span class="slash">/</span>
         <span class="pageNumberFullcount">{{totalPages}}</span>
       </div>
 
-      <div class="visible-only-landscape">
+      <div class="visible-only-landscape" *ngIf="config && config.showNavigation">
         <div class="d-flex player-slides ml-8">
           <sb-player-previous-navigation (previousAction)="actions.emit($event)"></sb-player-previous-navigation>
           <sb-player-next-navigation (nextAction)="actions.emit($event)"></sb-player-next-navigation>
