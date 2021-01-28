@@ -9,16 +9,21 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange
 export class HeaderComponent implements  OnChanges, OnInit {
   @Input() pageNumber;
   @Input() totalPages;
-  @Input() config;
+  // @Input() config;
   @Output() actions = new EventEmitter<any>();
   page;
-  headerConfiguration = {
+  private _item;
+  public _config = {
     rotation:true,
     goto: true,
     navigation: true,
     zoom: true
   }
-
+  
+  @Input() set config(value) {
+    this._item = {...this._config ,...value };
+    this._config = this._item;
+  }
 
   ngOnInit(): void {
     this.page = this.pageNumber;
@@ -36,23 +41,6 @@ export class HeaderComponent implements  OnChanges, OnInit {
             this.totalPages = changes[propName].currentValue;
             break;
         }
-      }
-    }
-  }
-
-  setHeaderConfiguration(){
-    if(this.config){
-      if(this.config.rotation){
-        this.headerConfiguration.rotation = this.config.rotation;
-      }
-      if(this.config.goto){
-        this.headerConfiguration.goto = this.config.goto;
-      }
-      if(this.config.navigation) {
-        this.headerConfiguration.navigation = this.config.navigation
-      }
-      if(this.config.zoom){
-        this.headerConfiguration.zoom = this.config.zoom;
       }
     }
   }
