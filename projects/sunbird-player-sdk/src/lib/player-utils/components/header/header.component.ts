@@ -9,11 +9,10 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange
 export class HeaderComponent implements  OnChanges, OnInit {
   @Input() pageNumber;
   @Input() totalPages;
-  // @Input() config;
   @Output() actions = new EventEmitter<any>();
   page;
   private _item;
-  public _config = {
+  private  _config = {
     rotation:true,
     goto: true,
     navigation: true,
@@ -22,7 +21,11 @@ export class HeaderComponent implements  OnChanges, OnInit {
   
   @Input() set config(value) {
     this._item = {...this._config ,...value };
-    this._config = this._item;
+    this._config = this._item
+  }
+
+  get config(): any { 
+    return this._config;
   }
 
   ngOnInit(): void {
