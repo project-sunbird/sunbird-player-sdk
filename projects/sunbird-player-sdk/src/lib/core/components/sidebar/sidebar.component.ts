@@ -12,7 +12,8 @@ export class SidebarComponent {
     showShare: true,
     showDownload: true,
     showReplay: true,
-    showExit: true
+    showExit: true,
+    showPrint: true
   };
   @Output() sidebarEvent = new EventEmitter<any>();
   showDownloadPopUp = false;
