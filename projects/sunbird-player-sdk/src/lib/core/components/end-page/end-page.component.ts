@@ -12,6 +12,14 @@ export class EndPageComponent {
   @Input() outcomeLabel: string;
   @Input() userName: string;
   @Input() timeSpentLabel: string;
+  @Input() nextContentToBePlayed: string;
   @Output() replayContent = new EventEmitter<any>();
   @Output() exitContent = new EventEmitter<any>();
+  @Output() playNextContent = new EventEmitter<any>();
+
+  playNext(){
+    this.playNextContent.emit({
+      playNextContent: true
+    })
+  }
 }
