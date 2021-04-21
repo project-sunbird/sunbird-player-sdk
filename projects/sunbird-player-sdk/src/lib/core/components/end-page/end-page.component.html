@@ -631,10 +631,10 @@
         <div class="title">Exit</div>
       </div>
     </div>
-    <ng-container *ngIf="nextContentToBePlayed">
+    <ng-container *ngIf="nextContent">
     <div class="next">Up Next</div>
     <div class="next-level">
-      <div class="title-text" (click)="playNext()">{{nextContentToBePlayed}}</div>
+      <div class="title-text" (click)="playNext()">{{nextContent.name}}</div>
       <div class="next-arrow">
         <img src="assets/next-arrow.svg" alt="next arrow">
       </div>
