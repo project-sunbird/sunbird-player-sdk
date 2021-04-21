@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { NextContentToBePlayed } from '../../../../sunbird-player-sdk.interface';
 
 @Component({
   selector: 'sb-player-end-page',
@@ -12,14 +13,15 @@ export class EndPageComponent {
   @Input() outcomeLabel: string;
   @Input() userName: string;
   @Input() timeSpentLabel: string;
-  @Input() nextContentToBePlayed: string;
+  @Input() nextContentToBePlayed: NextContentToBePlayed;
   @Output() replayContent = new EventEmitter<any>();
   @Output() exitContent = new EventEmitter<any>();
-  @Output() playNextContent = new EventEmitter<any>();
+  @Output() nextContentName = new EventEmitter<any>();
 
   playNext(){
-    this.playNextContent.emit({
-      playNextContent: true
+    this.nextContentName.emit({
+      playNextContent: true,
+      identifier: this.nextContentToBePlayed['identifier']
     })
   }
 }
