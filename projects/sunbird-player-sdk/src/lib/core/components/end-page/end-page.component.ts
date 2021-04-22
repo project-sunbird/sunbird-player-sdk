@@ -21,7 +21,8 @@ export class EndPageComponent {
   playNext(){
     this.playNextContent.emit({ 
       name: this.nextContent['name'],
-      identifier: this.nextContent['identifier']
+      identifier: this.nextContent['identifier'],
+      type: 'NEXT_CONTENT_PLAY'
     })
   }
 }
