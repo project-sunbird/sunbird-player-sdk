@@ -67,6 +67,7 @@ export class HeaderComponent implements  OnChanges, OnInit {
       this.actions.emit({ type: 'NAVIGATE_TO_PAGE', data: page });
       this.pageNumber = page;
     } else {
+      this.actions.emit({ type: 'INVALID_PAGE_ERROR', data: page });
       this.page = this.pageNumber;
     }
   }
