@@ -296,7 +296,7 @@
       }
       .truncate-overflow::before {
         position: absolute;
-        content: "...";
+        content: "";
         bottom: 0;
         right: 0;
       }
