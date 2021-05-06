@@ -32,10 +32,10 @@
             <stop stop-color="#70D4AD" offset="0%"></stop>
             <stop stop-color="#31A679" offset="100%"></stop>
           </linearGradient>
-          <text id="text-8" x="55" y="16" text-anchor="middle" fill="#FFFFFE" *ngIf="summaryType !== 'Duration'">
+          <text id="text-8" x="55" y="16" text-anchor="middle" fill="#FFFFFE" *ngIf="showScore">
             <tspan font-size="12" font-weight="400" font-family="Noto Sans, NotoSans-Bold">{{outcomeLabel}}</tspan>
             <tspan font-size="18" font-family="NotoSans-Bold, Noto Sans">{{outcome}}</tspan>
-            <tspan font-size="18" font-family="NotoSans-Bold, Noto Sans" *ngIf="summaryType === 'Complete'"> / {{totalScore}}</tspan>
+            <tspan font-size="18" font-family="NotoSans-Bold, Noto Sans" *ngIf="showTotalScore"> / {{totalScore}}</tspan>
           </text>
         </defs>
         <g id="player-Player" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -597,7 +597,7 @@
                   <foreignObject text-anchor="middle" x="60" y="60" style="width:50%;height:1.5rem;font-size: 0.75rem;">
                     <xhtml:div xmlns="http://www.w3.org/1999/xhtml" class="truncate-overflow"> {{userName}} </xhtml:div>
                   </foreignObject>
-                  <g id="Group-17-Copy-2" transform="translate(95.523500, 128.964250)" *ngIf="summaryType !== 'Score'">
+                  <g id="Group-17-Copy-2" transform="translate(95.523500, 128.964250)" *ngIf="showDuration">
                     <g id="Icon-24px" transform="translate(0.000000, 0.500000)">
                       <polygon id="Shape" points="0 0 18 0 18 18 0 18"></polygon>
                       <path
