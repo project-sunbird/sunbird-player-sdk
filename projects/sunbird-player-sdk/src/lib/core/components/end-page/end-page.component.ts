@@ -8,6 +8,8 @@ import { NextContent } from '../../../../sunbird-player-sdk.interface';
 })
 export class EndPageComponent {
   @Input() showExit: boolean;
+  @Input() summaryType: string;
+  @Input() totalScore: number;
   @Input() contentName: string;
   @Input() outcome: any;
   @Input() outcomeLabel: string;
