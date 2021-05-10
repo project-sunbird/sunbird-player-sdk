@@ -1,0 +1,53 @@
+.playersdk {
+  &-msg {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 260px;
+    margin-bottom: 8px;
+    padding: 24px 24px 24px 16px;
+    border: 1px solid;
+    border-radius: 8px;
+    border-width: 0 0 0 8px;
+    z-index: 111111;
+    // For error msg
+    &--error {
+      color: #333;
+      background: #fbccd1;
+      border-color: #ff4558;
+    }
+    &__body {
+      display: flex;
+      align-items: center;
+    }
+    &__text {
+      font-size: 14px;
+      font-weight: bold;
+    }
+    &__close-icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+      &::after, &::before {
+        content: " ";
+        position: absolute;
+        right: 16px;
+        height: 1rem;
+        width: .125rem;
+        top: 8px;
+        background: #ff4558;
+      }
+      &::before {
+        transform: rotate(45deg);
+      }
+      &::after {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}
