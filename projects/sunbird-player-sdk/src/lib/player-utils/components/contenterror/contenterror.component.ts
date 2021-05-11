@@ -9,8 +9,6 @@ import { errorMessage } from '../../enums/exceptionLogs';
 export class ContenterrorComponent implements OnInit {
   @Input() errorMessage : string;
   message : string;
-  constructor() { }
-
 
   ngOnInit() {
     if(this.errorMessage){
