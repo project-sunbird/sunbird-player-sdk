@@ -10,5 +10,5 @@ export enum errorMessage {
     contentLoadFails = 'content load failed',
     internetConnectivity = 'content failed to load , No Internet Available',
     streamingUrlSupport = 'streaming url is not supported',
-    serverConnectionFailed = 'Server connection failed, try again in some time'
+    serverConnectionFailed = 'Server connection failed, Try again in some time'
 }
