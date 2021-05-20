@@ -9,5 +9,6 @@ export enum errorMessage {
     contentCompatibility = 'content compatibility error',
     contentLoadFails = 'content load failed',
     internetConnectivity = 'content failed to load , No Internet Available',
-    streamingUrlSupport = 'streaming url is not supported'
+    streamingUrlSupport = 'streaming url is not supported',
+    contentPlayFailed = 'Unable to load content. Refresh and try again later. If you are unable to view content even after a while, Contact your system administrator'
 }

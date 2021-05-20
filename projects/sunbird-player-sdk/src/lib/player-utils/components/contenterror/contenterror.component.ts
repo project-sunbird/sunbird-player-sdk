@@ -14,7 +14,7 @@ export class ContenterrorComponent implements OnInit {
     if(this.errorMessage){
       this.message = this.errorMessage;
     } else {
-      this.message = errorMessage.contentLoadFails;
+      this.message = errorMessage.contentPlayFailed;
     }
 
   }
