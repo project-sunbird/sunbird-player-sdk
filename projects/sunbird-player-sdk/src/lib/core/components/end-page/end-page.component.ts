@@ -9,7 +9,6 @@ import { NextContent } from '../../../../sunbird-player-sdk.interface';
 export class EndPageComponent {
   @Input() showExit: boolean;
   @Input() showReplay: boolean = true;
-  @Input() attempts?: { max: number, current: number };
   @Input() contentName: string;
   @Input() outcome: any;
   @Input() outcomeLabel: string;
