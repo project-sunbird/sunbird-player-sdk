@@ -620,7 +620,8 @@
     <div class="title-section">
       <div class="title animated fadeInDown">You just completed</div>
       <span class="animated fadeInUp">{{contentName}}</span>
-      <span class="attempts" *ngIf="attempts?.max && attempts?.current">Attempt no {{attempts.current}}/{{attempts.max}}</span>
+      <span class="attempts sb-color-primary mt-8 fnormal font-weight-bold d-block" *ngIf="attempts?.max && attempts?.current && (attempts?.max != attempts?.current)">Attempt no {{attempts.current}}/{{attempts.max}}</span>
+      <span class="attempts sb-color-primary mt-8 fnormal font-weight-bold d-block" *ngIf="attempts?.max && attempts?.current && (attempts?.max === attempts?.current)">{{attempts.current}}/{{attempts.max}} attempts completed</span>
     </div>
     <div class="user-options">
       <div class="replay-section" *ngIf="showReplay"  (click)="replayContent.emit({type: 'REPLAY'})">
