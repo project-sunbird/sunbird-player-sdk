@@ -202,9 +202,14 @@
   }
 }
 
-
-
-
+.replay-section {
+  &.disabled {
+    cursor: not-allowed;
+    .title {
+      color: #ccc !important;
+    }    
+  }
+}
 
 @keyframes fadeInDown {
   0% {
