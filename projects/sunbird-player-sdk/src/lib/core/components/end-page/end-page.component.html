@@ -620,9 +620,10 @@
     <div class="title-section">
       <div class="title animated fadeInDown">You just completed</div>
       <span class="animated fadeInUp">{{contentName}}</span>
+      <span class="attempts" *ngIf="attempts?.max && attempts?.current">Attempt no {{attempts.current}}/{{attempts.max}}</span>
     </div>
     <div class="user-options">
-      <div class="replay-section" (click)="replayContent.emit({type: 'REPLAY'})">
+      <div class="replay-section" *ngIf="showReplay"  (click)="replayContent.emit({type: 'REPLAY'})">
         <img src="assets/replay.svg" alt="replay">
         <div class="title">Replay</div>
       </div>
