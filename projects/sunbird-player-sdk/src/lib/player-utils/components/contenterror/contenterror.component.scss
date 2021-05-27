@@ -3,24 +3,17 @@
 .playersdk {
   &-msg {
     position: absolute;
-    top: 20%;
+    top: 10%;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
-    max-width: calculateRem(230px);
+    max-width: calculateRem(320px);
     margin-bottom: 8px;
     padding: calculateRem(16px);
     border: 1px solid;
     border-radius: calculateRem(8px);
     border-width: 0 0 0 calculateRem(8px);
     z-index: 111111;
-    @include respond-below(sm) {
-      padding: calculateRem(12px);
-      top: 25%;
-    }
-    @include respond-below(xs) {     
-      top: 70%;
-    }
     // For error msg
     &--error {
       color: #333;
@@ -36,7 +29,6 @@
         font-size: calculateRem(12px);
       }
       font-size: calculateRem(14px);
-      font-weight: bold;
     }
     &__close-icon {
       position: absolute;
@@ -62,4 +54,12 @@
       }
     }
   }
+}
+
+.error-header {
+  font-size: 1.25rem;
+  display: block;
+  margin-bottom: 0.5rem;
+  line-height: normal;
+  color: #ff4558;
 }
