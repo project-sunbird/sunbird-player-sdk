@@ -20,11 +20,17 @@ export class EndPageComponent {
   @Output() exitContent = new EventEmitter<any>();
   @Output() playNextContent = new EventEmitter<any>();
 
-  playNext(){
-    this.playNextContent.emit({ 
+  playNext() {
+    this.playNextContent.emit({
       name: this.nextContent['name'],
       identifier: this.nextContent['identifier'],
       type: 'NEXT_CONTENT_PLAY'
     })
+  }
+
+  replay() {
+    if (this.showReplay) {
+      this.replayContent.emit({ type: 'REPLAY' })
+    }
   }
 }
