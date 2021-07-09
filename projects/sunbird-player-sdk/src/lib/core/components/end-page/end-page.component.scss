@@ -11,6 +11,8 @@
 
     @media all and (orientation: portrait) {
       flex-direction: column;
+      display: block;
+      overflow-y: auto;
     }
 
     &__left-panel {
