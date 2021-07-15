@@ -24,7 +24,7 @@
     letter-spacing: 0;
 
     span {
-      color: var(--white);
+      color: var(--sbt-footer-bg);
       font-size: 1.5rem;
       font-weight: bold;
       letter-spacing: 0;
@@ -36,7 +36,7 @@
   }
 
   &__footer {
-    color: var(--gray-800);
+    color: var(--black);
     font-size: 0.75rem;
     line-height: 1.25rem;
     display: flex;
