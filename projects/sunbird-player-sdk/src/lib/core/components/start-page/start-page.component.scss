@@ -24,19 +24,17 @@
     letter-spacing: 0;
 
     span {
-      color: var(--white);
       font-size: 1.5rem;
       font-weight: bold;
       letter-spacing: 0;
       line-height: normal;
-      text-shadow: 0px 2px var(--gray-400);
       word-break: break-word;
 
     }
   }
 
   &__footer {
-    color: var(--gray-800);
+    color: var(--black);
     font-size: 0.75rem;
     line-height: 1.25rem;
     display: flex;
@@ -90,6 +88,7 @@ $color: #F1635D;
 .loading-text {
   align-self: center;
   margin-bottom: 0.5rem;
+  color: var(--black);
 }
 
 

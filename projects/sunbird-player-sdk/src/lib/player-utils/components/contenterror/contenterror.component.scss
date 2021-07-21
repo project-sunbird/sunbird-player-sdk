@@ -1,0 +1,65 @@
+@import "~@project-sunbird/sb-styles/assets/mixins/mixins";
+
+.playersdk {
+  &-msg {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: calculateRem(320px);
+    margin-bottom: 8px;
+    padding: calculateRem(16px);
+    border: 1px solid;
+    border-radius: calculateRem(8px);
+    border-width: 0 0 0 calculateRem(8px);
+    z-index: 111111;
+    // For error msg
+    &--error {
+      color: #333;
+      background: #fbccd1;
+      border-color: #ff4558;
+    }
+    &__body {
+      display: flex;
+      align-items: center;
+    }
+    &__text {
+      @include respond-below(sm) {
+        font-size: calculateRem(12px);
+      }
+      font-size: calculateRem(14px);
+    }
+    &__close-icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: calculateRem(32px);
+      height: calculateRem(32px);
+      cursor: pointer;
+      &::after, &::before {
+        content: " ";
+        position: absolute;
+        right: calculateRem(16px);
+        height: calculateRem(16px);
+        width: calculateRem(2px);
+        top: calculateRem(8px);
+        background: #ff4558;
+      }
+      &::before {
+        transform: rotate(45deg);
+      }
+      &::after {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}
+
+.error-header {
+  font-size: 1.25rem;
+  display: block;
+  margin-bottom: 0.5rem;
+  line-height: normal;
+  color: #ff4558;
+}

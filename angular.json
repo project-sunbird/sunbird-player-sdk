@@ -39,5 +39,8 @@
       }
     }
   },
-  "defaultProject": "sunbird-player-sdk"
+  "defaultProject": "sunbird-player-sdk",
+  "cli": {
+    "analytics": "c34999ae-e8a2-4833-be15-744590477e97"
+  }
 }

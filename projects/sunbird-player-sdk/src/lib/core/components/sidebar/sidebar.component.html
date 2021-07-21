@@ -2,14 +2,16 @@
   <div class="navBlock">
     <div class="player-nav-unit text-left">{{title}}</div>
     <ul>
-      <li *ngIf="config.showShare" (click)="sidebarEvent.emit('SHARE')"><span class="player-icon player-share mr-16"></span>Share
+      <li *ngIf="config.showShare" (click)="sidebarEvent.emit('SHARE')"><span tabindex="0"  class="player-icon player-share mr-16"></span>Share
       </li>
-      <li *ngIf="config.showDownload" (click)="showDownloadPopup()"><span class="player-icon player-download mr-16"></span>Download
+      <li *ngIf="config.showDownload" (click)="showDownloadPopup()"><span tabindex="0" class="player-icon player-download mr-16"></span>Download
       </li>
-      <li *ngIf="config.showExit" (click)="sidebarEvent.emit('EXIT');closeNav();"><span class="player-icon player-exit mr-16"></span>Exit</li>
+      <li *ngIf="config.showPrint" (click)="sidebarEvent.emit('PRINT')"><span tabindex="0" class="player-icon player-print mr-16"></span>Print
+      </li>
+      <li *ngIf="config.showExit" (click)="sidebarEvent.emit('EXIT');closeNav();"><span tabindex="0" class="player-icon player-exit mr-16"></span>Exit</li>
     </ul>
   </div>
-  <div class="transparentBlock" (click)="closeNav()"></div>
+  <div class="transparentBlock" tabindex="0" (click)="closeNav()"></div>
 </div>
 <sb-player-download-popup [title]="title" [showDownloadPopUp]="showDownloadPopUp" (hideDownloadPopUp)="hideDownloadPopUp()"
   (downloadEvent)="sidebarEvent.emit($event)"></sb-player-download-popup>

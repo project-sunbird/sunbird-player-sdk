@@ -11,6 +11,8 @@
 
     @media all and (orientation: portrait) {
       flex-direction: column;
+      display: block;
+      overflow-y: auto;
     }
 
     &__left-panel {
@@ -191,7 +193,7 @@
   }
 }
 
-.replay-section {
+.replay-section, .exit-section {
   cursor: pointer;
   background-color: var(--white);
   padding: 0.5rem;
@@ -202,7 +204,14 @@
   }
 }
 
-
+.replay-section {
+  &.disabled {
+    cursor: not-allowed;
+    .title {
+      color: #ccc !important;
+    }    
+  }
+}
 
 @keyframes fadeInDown {
   0% {
@@ -294,7 +303,7 @@
       }
       .truncate-overflow::before {
         position: absolute;
-        content: "...";
+        content: "";
         bottom: 0;
         right: 0;
       }

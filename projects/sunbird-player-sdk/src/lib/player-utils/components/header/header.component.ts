@@ -11,6 +11,22 @@ export class HeaderComponent implements  OnChanges, OnInit {
   @Input() totalPages;
   @Output() actions = new EventEmitter<any>();
   page;
+  private _item;
+  private  _config = {
+    rotation:true,
+    goto: true,
+    navigation: true,
+    zoom: true
+  }
+  
+  @Input() set config(value) {
+    this._item = {...this._config ,...value };
+    this._config = this._item
+  }
+
+  get config(): any { 
+    return this._config;
+  }
 
   ngOnInit(): void {
     this.page = this.pageNumber;
@@ -51,6 +67,7 @@ export class HeaderComponent implements  OnChanges, OnInit {
       this.actions.emit({ type: 'NAVIGATE_TO_PAGE', data: page });
       this.pageNumber = page;
     } else {
+      this.actions.emit({ type: 'INVALID_PAGE_ERROR', data: page });
       this.page = this.pageNumber;
     }
   }
