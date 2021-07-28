@@ -11,7 +11,7 @@ jobs:
           name: Show current branch
           command: echo ${CIRCLE_BRANCH}
       - run: cd projects/sunbird-player-sdk && sudo npm install
-      - run: export NG_CLI_ANALYTICS=false && sudo npm install
+      - run: export NG_CLI_ANALYTICS=ci && sudo npm install
       - run:
           name: Linting
           command: npm run lint
