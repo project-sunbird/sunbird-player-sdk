@@ -4,9 +4,11 @@
   "peerDependencies": {
     "@angular/common": "^9.1.12",
     "@angular/core": "^9.1.12",
+    "@angular/forms": "^9.1.12",
     "@project-sunbird/sb-styles": "0.0.7"
   },
   "devDependencies": {
+    "@angular/forms": "^9.1.12",
     "@project-sunbird/sb-styles": "0.0.7"
   }
 }

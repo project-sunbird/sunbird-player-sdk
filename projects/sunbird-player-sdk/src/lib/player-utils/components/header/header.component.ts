@@ -11,21 +11,21 @@ export class HeaderComponent implements  OnChanges, OnInit {
   @Input() totalPages;
   @Output() actions = new EventEmitter<any>();
   page;
-  private _item;
-  private  _config = {
-    rotation:true,
+  private item;
+  private  configuration = {
+    rotation: true,
     goto: true,
     navigation: true,
     zoom: true
-  }
-  
+  };
+
   @Input() set config(value) {
-    this._item = {...this._config ,...value };
-    this._config = this._item
+    this.item = {...this.configuration , ...value };
+    this.configuration = this.item;
   }
 
-  get config(): any { 
-    return this._config;
+  get config(): any {
+    return this.configuration;
   }
 
   ngOnInit(): void {

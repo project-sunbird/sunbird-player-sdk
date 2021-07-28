@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { errorMessage } from '../../enums/exceptionLogs';
-import { contentErrorMessage } from '../../interfaces/errorMessage';
+import { ContentErrorMessage } from '../../interfaces/errorMessage';
 
 @Component({
   selector: 'sb-player-contenterror',
@@ -8,17 +8,17 @@ import { contentErrorMessage } from '../../interfaces/errorMessage';
   styleUrls: ['./contenterror.component.scss']
 })
 export class ContenterrorComponent implements OnInit {
-  @Input() errorMsg: contentErrorMessage;
-  message : string;
+  @Input() errorMsg: ContentErrorMessage;
+  message: string;
 
 
   ngOnInit() {
-    if(!this.errorMsg){
+    if (!this.errorMsg) {
     this.errorMsg = {
       messageHeader: errorMessage.contentPlayFailedHeader,
       messageTitle: errorMessage.contentPlayFailTitle
-    }
-   } 
+    };
+   }
   }
 
 }

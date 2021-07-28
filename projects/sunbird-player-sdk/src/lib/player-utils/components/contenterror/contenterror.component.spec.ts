@@ -30,11 +30,11 @@ describe('ContenterrorComponent', () => {
       component.errorMessage = 'message to be shown';
       component.ngOnInit();
       expect(component.message).toBe(component.errorMessage);
-  })
+  });
 
-  it('should not set the error message', () =>{
+  it('should not set the error message', () => {
      component.errorMessage = undefined;
      component.ngOnInit();
      expect(component.message).toBe(errorMessage.contentLoadFails);
-  })
+  });
 });

@@ -1,4 +1,4 @@
 export interface NextContent {
-    name: string
-    identifer?: string
+    name: string;
+    identifier?: string;
 }
