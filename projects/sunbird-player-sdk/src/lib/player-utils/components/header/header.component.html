@@ -2,23 +2,23 @@
   <div class="sb-player-header">
     <div class="sb-player-header__panel d-flex flex-ai-center flex-jc-flex-end">
       <div class="icon_rotate mr-8" *ngIf="config.rotation">
-        <img src="./assets/rotate-icon.svg" alt="rotate icon" class="rotate-icon" tabindex="0" (click)="rotateCW()">
+        <img src="./assets/rotate-icon.svg" alt="rotate icon" class="rotate-icon" tabindex="0" role="button" aria-label="rotate page" (click)="rotateCW()">
       </div>
       <div class="player-zoom-btns d-flex mr-8" *ngIf="config.zoom">
-        <button type="button" (click)="zoomOut()" tabindex="0" class="player-zoom-btns__zoombtn zoomOut-btn" aria-label="player-zoomOut-btns"></button>
-        <button type="button" (click)="zoomIn()" tabindex="0" class="player-zoom-btns__zoombtn zoomIn-btn" aria-label="player-zoomIn-btns"></button>
+        <button type="button" (click)="zoomOut()" tabindex="0" class="player-zoom-btns__zoombtn zoomOut-btn" aria-label="player zoom out"></button>
+        <button type="button" (click)="zoomIn()" tabindex="0" class="player-zoom-btns__zoombtn zoomIn-btn" aria-label="player zoom in"></button>
       </div>
       <div class="player-pagenumber" *ngIf="config.goto">
         <input [(ngModel)]='page' type="number" class="page-count" />
-        <span class="focus-arrow" (click)="gotoPage()" tabindex="0"><img src="./assets/arrow-right.svg" alt="arrow-right" width="100%" /></span>
+        <span class="focus-arrow" role="button" aria-label="Go to page" (click)="gotoPage()" tabindex="0"><img src="./assets/arrow-right.svg" alt="arrow-right" width="100%" /></span>
         <span class="slash">/</span>
         <span class="pageNumberFullcount">{{totalPages}}</span>
       </div>
 
       <div class="visible-only-landscape" *ngIf="config.navigation">
         <div class="d-flex player-slides ml-8">
-          <sb-player-previous-navigation (previousAction)="actions.emit($event)"></sb-player-previous-navigation>
-          <sb-player-next-navigation (nextAction)="actions.emit($event)"></sb-player-next-navigation>
+          <sb-player-previous-navigation class="d-flex flex-ai-center" (previousAction)="actions.emit($event)"></sb-player-previous-navigation>
+          <sb-player-next-navigation class="d-flex flex-ai-center" (nextAction)="actions.emit($event)"></sb-player-next-navigation>
         </div>
       </div>
 
