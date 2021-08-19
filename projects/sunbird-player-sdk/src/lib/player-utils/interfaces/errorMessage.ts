@@ -1,4 +1,4 @@
-export interface ContentErrorMessage {
-    messageHeader: string;
-    messageTitle: string;
+export interface contentErrorMessage {
+    messageHeader: string, 
+    messageTitle: string
 }

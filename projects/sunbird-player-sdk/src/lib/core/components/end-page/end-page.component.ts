@@ -8,7 +8,7 @@ import { NextContent } from '../../../../sunbird-player-sdk.interface';
 })
 export class EndPageComponent {
   @Input() showExit: boolean;
-  @Input() showReplay = true;
+  @Input() showReplay: boolean = true;
   @Input() contentName: string;
   @Input() outcome: any;
   @Input() outcomeLabel: string;
@@ -21,15 +21,15 @@ export class EndPageComponent {
 
   playNext() {
     this.playNextContent.emit({
-      name: this.nextContent.name,
-      identifier: this.nextContent.identifier,
+      name: this.nextContent['name'],
+      identifier: this.nextContent['identifier'],
       type: 'NEXT_CONTENT_PLAY'
-    });
+    })
   }
 
   replay() {
     if (this.showReplay) {
-      this.replayContent.emit({ type: 'REPLAY' });
+      this.replayContent.emit({ type: 'REPLAY' })
     }
   }
 }
