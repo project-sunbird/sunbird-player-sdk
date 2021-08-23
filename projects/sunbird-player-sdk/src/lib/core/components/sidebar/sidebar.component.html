@@ -1,6 +1,6 @@
 <div id="playerSideMenu" class="sidenav" #sidebarMenu>
   <div class="navBlock">
-    <div class="player-nav-unit text-left">{{title}}</div>
+    <div class="player-nav-unit text-left" role="heading" aria-level="2">{{title}}</div>
     <ul role="navigation" aria-label="player sidebar">
       <li *ngIf="config.showShare" role="button"  tabindex="0" (click)="sidebarEvent.emit('SHARE')"><span class="player-icon player-share mr-16"></span> Share</li>
       <li *ngIf="config.showDownload" role="button" tabindex="0" (click)="showDownloadPopup()"><span  class="player-icon player-download mr-16"></span> Download</li>
