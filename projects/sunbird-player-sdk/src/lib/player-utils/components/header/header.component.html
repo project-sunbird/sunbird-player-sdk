@@ -5,8 +5,8 @@
         <img src="./assets/rotate-icon.svg" alt="rotate icon" class="rotate-icon" tabindex="0" role="button" aria-label="rotate page" (click)="rotateCW()">
       </div>
       <div class="player-zoom-btns d-flex mr-8" *ngIf="config.zoom">
-        <button type="button" (click)="zoomOut()" tabindex="0" class="player-zoom-btns__zoombtn zoomOut-btn" aria-label="player zoom out"></button>
-        <button type="button" (click)="zoomIn()" tabindex="0" class="player-zoom-btns__zoombtn zoomIn-btn" aria-label="player zoom in"></button>
+        <button type="button" (click)="zoomOut()" tabindex="0" class="player-zoom-btns__zoombtn zoomOut-btn" aria-label="Content zoom out"></button>
+        <button type="button" (click)="zoomIn()" tabindex="0" class="player-zoom-btns__zoombtn zoomIn-btn" aria-label="Content zoom in"></button>
       </div>
       <div class="player-pagenumber" *ngIf="config.goto">
         <input [(ngModel)]='page' type="number" class="page-count" />
