@@ -4,7 +4,7 @@ import { errorCode, errorMessage } from './../../enums/exceptionLogs';
   providedIn: 'root'
 })
 export class ErrorService implements OnDestroy {
-  playerContentCompatibiltyLevel = 4;
+  playerContentCompatibiltyLevel = 5;
   getInternetConnectivityError = new EventEmitter<{ error: { message: string, name: string } }>();
 
   constructor() {
