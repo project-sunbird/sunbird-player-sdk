@@ -104,16 +104,16 @@
 
       .title-section {
         .title {
-          color: var(--primary-color);
+          color: var(--black);
+          font-size: calculateRem(21px);
           font-weight: bold;
-          font-size: 1.5rem;
-
-        
+          letter-spacing: 0;
+          line-height: calculateRem(28px);
         }
 
         span {
           color: var(--gray-400);
-          font-size: .85rem;
+          font-size: calculateRem(12px);
           word-break: break-word;
 
        
@@ -298,7 +298,6 @@
         position: relative;
         max-height: calc(var(--lh) * var(--max-lines));
         overflow: hidden;
-        padding-right: 0.5rem; 
         width: 100%;font-size: 0.65rem;
       }
       .truncate-overflow::before {
@@ -320,6 +319,8 @@
         transform: scale(1.1);
         transform-origin: center;
         animation: heartbeat 3s ease-in-out infinite both;
+        fill:#4970D9;
+        opacity: 0.4;
       }
       .badge-inner-animation {
         animation: heartbeat 5s ease-in-out infinite both;
