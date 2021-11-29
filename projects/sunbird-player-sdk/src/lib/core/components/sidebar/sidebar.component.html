@@ -1,4 +1,4 @@
-<div id="playerSideMenu" class="sidenav" #sidebarMenu>
+<div id="playerSideMenu" class="sidenav" #sidebarMenu aria-modal="true" aria-labelledby="Menubar">
   <div class="navBlock">
     <div class="player-nav-unit text-left" role="heading" aria-level="2">{{title}}</div>
     <ul aria-label="player sidebar">
@@ -8,7 +8,7 @@
       <li *ngIf="config.showExit" tabindex="0" (click)="sidebarEvent.emit('EXIT');closeNav();"><span  class="player-icon player-exit mr-16"></span> Exit</li>
     </ul>
   </div>
-  <div class="transparentBlock" tabindex="0" role="button" (click)="closeNav()"></div>
+  <div class="transparentBlock" aria-hidden="true" (click)="closeNav()"></div>
 </div>
-<sb-player-download-popup tabindex="0" [title]="title" [showDownloadPopUp]="showDownloadPopUp" (hideDownloadPopUp)="hideDownloadPopUp()"
+<sb-player-download-popup [title]="title" [showDownloadPopUp]="showDownloadPopUp" (hideDownloadPopUp)="hideDownloadPopUp()"
   (downloadEvent)="sidebarEvent.emit($event)"></sb-player-download-popup>
