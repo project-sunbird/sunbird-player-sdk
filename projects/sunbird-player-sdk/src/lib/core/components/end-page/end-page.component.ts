@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { fromEvent, Subscription } from 'rxjs';
 import { NextContent } from '../../../../sunbird-player-sdk.interface';
 
 @Component({
@@ -6,7 +7,7 @@ import { NextContent } from '../../../../sunbird-player-sdk.interface';
   templateUrl: './end-page.component.html',
   styleUrls: ['./end-page.component.scss']
 })
-export class EndPageComponent {
+export class EndPageComponent implements OnInit, OnDestroy {
   @Input() showExit: boolean;
   @Input() showReplay: boolean = true;
   @Input() contentName: string;
@@ -18,6 +19,17 @@ export class EndPageComponent {
   @Output() replayContent = new EventEmitter<any>();
   @Output() exitContent = new EventEmitter<any>();
   @Output() playNextContent = new EventEmitter<any>();
+
+  subscription: Subscription;
+
+  ngOnInit() {
+    this.subscription = fromEvent(document, 'keydown').subscribe((e: KeyboardEvent) => {
+      if (e['key'] === 'Enter') {
+        e.stopPropagation();
+        (document.activeElement  as HTMLElement).click();
+      }
+    });
+  }
 
   playNext() {
     this.playNextContent.emit({
@@ -31,5 +43,9 @@ export class EndPageComponent {
     if (this.showReplay) {
       this.replayContent.emit({ type: 'REPLAY' })
     }
+  }
+
+  ngOnDestroy() {
+    this.subscription && this.subscription.unsubscribe();
   }
 }
