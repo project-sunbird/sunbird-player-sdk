@@ -1,5 +1,11 @@
 @import "~@project-sunbird/sb-styles/assets/mixins/mixins";
-
+::ng-deep :root {
+  --sdk-playersdk-text:#333;
+  --sdk-playersdk-bg:#fbccd1;
+  --sdk-playersdk-border:#ff4558;
+  --sdk-playersdk-closeicon:#ff4558;
+  --sdk-playersdk-error-header:#ff4558;
+}
 .playersdk {
   &-msg {
     position: absolute;
@@ -16,9 +22,9 @@
     z-index: 111111;
     // For error msg
     &--error {
-      color: #333;
-      background: #fbccd1;
-      border-color: #ff4558;
+      color: var( --sdk-playersdk-text);
+      background: var(--sdk-playersdk-bg);
+      border-color: var(--sdk-playersdk-border);
     }
     &__body {
       display: flex;
@@ -44,7 +50,7 @@
         height: calculateRem(16px);
         width: calculateRem(2px);
         top: calculateRem(8px);
-        background: #ff4558;
+        background: var(--sdk-playersdk-closeicon);
       }
       &::before {
         transform: rotate(45deg);
@@ -61,5 +67,5 @@
   display: block;
   margin-bottom: 0.5rem;
   line-height: normal;
-  color: #ff4558;
+  color: var(--sdk-playersdk-error-header);
 }
