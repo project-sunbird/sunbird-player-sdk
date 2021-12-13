@@ -2,7 +2,7 @@
   <div class="file-download__overlay">
     <div class="file-download__popup" aria-modal="true" aria-labelledby="Download Content" aria-describedby="Dialog to download content">
       <div class="close-btn" (click)="hideDownloadPopup()">
-        <button type="button" class="close-icon" data-animation="showShadow" aria-label="player-close-btn"></button>
+        <button type="button" id="close" class="close-icon" data-animation="showShadow" aria-label="player-close-btn"></button>
       </div>
       <div class="file-download__metadata">
         <h5 class="file-download__title text-left">Confirm Download</h5>
@@ -11,8 +11,8 @@
           <!-- File Size 1.6mb -->
         </div>
         <div class="file-download__action-btns">
-          <button type="button" (click)="hideDownloadPopup()" class="sb-btn sb-btn-normal sb-btn-outline-primary sb-btn-radius cancel-btn mr-8">Cancel</button>
-          <button type="button" class="sb-btn sb-btn-normal sb-btn-primary sb-btn-radius download-btn" (click)="download()">Download</button>
+          <button type="button" id="cancel" (click)="hideDownloadPopup()" class="sb-btn sb-btn-normal sb-btn-outline-primary sb-btn-radius cancel-btn mr-8">Cancel</button>
+          <button type="button" id="download" class="sb-btn sb-btn-normal sb-btn-primary sb-btn-radius download-btn" (click)="download()">Download</button>
         </div>
       </div>
     </div>
