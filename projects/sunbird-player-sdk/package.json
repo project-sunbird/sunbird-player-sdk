@@ -8,5 +8,8 @@
   },
   "devDependencies": {
     "@project-sunbird/sb-styles": "0.0.7"
+  },
+  "dependencies": {
+    "ally.js": "1.4.1"
   }
 }
