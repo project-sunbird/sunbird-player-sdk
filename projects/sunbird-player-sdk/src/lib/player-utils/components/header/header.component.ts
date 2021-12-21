@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { IHeaderConfig } from '../../../../sunbird-player-sdk.interface';
 
 @Component({
   selector: 'sb-player-header',
@@ -6,25 +7,25 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange
   styleUrls: ['./header.component.scss']
 })
 
-export class HeaderComponent implements  OnChanges, OnInit {
-  @Input() pageNumber;
-  @Input() totalPages;
-  @Output() actions = new EventEmitter<any>();
+export class HeaderComponent implements OnChanges, OnInit {
+  @Input() pageNumber: number;
+  @Input() totalPages: number;
+  @Output() actions = new EventEmitter<{ type: string, data?: any }>();
   page;
   private _item;
-  private  _config = {
-    rotation:true,
-    goto: true,
-    navigation: true,
-    zoom: true
+  private _config: IHeaderConfig = {
+    rotation: false,
+    goto: false,
+    navigation: false,
+    zoom: false
   }
-  
+
   @Input() set config(value) {
-    this._item = {...this._config ,...value };
+    this._item = { ...this._config, ...value };
     this._config = this._item
   }
 
-  get config(): any { 
+  get config(): any {
     return this._config;
   }
 
@@ -49,17 +50,16 @@ export class HeaderComponent implements  OnChanges, OnInit {
   }
 
   zoomIn() {
-    this.actions.emit({type: 'ZOOM_IN'});
+    this.actions.emit({ type: 'ZOOM_IN' });
   }
 
   zoomOut() {
-    this.actions.emit({type: 'ZOOM_OUT'});
+    this.actions.emit({ type: 'ZOOM_OUT' });
   }
 
   rotateCW() {
-    this.actions.emit({type: 'ROTATE_CW'});
+    this.actions.emit({ type: 'ROTATE_CW' });
   }
-
 
   gotoPage() {
     const page = parseInt(this.page, 10);

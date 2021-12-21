@@ -8,8 +8,8 @@
         <button type="button" (click)="zoomOut()" tabindex="0" class="player-zoom-btns__zoombtn zoomOut-btn" aria-label="zoom out" title="zoom out"></button>
         <button type="button" (click)="zoomIn()" tabindex="0" class="player-zoom-btns__zoombtn zoomIn-btn" aria-label="zoom in" title="zoom in"></button>
       </div>
-      <div class="player-pagenumber" *ngIf="config.goto">
-        <input [(ngModel)]='page' type="number" class="page-count" />
+      <div class="player-pagenumber" *ngIf="config.goto && totalPages">
+        <input [(ngModel)]='page' type="number" class="page-count" min="1" [max]="totalPages" />
         <span class="focus-arrow" role="button" aria-label="Go to page" (click)="gotoPage()" tabindex="0"><img src="./assets/arrow-right.svg" alt="arrow-right" width="100%" /></span>
         <span class="slash">/</span>
         <span class="pageNumberFullcount">{{totalPages}}</span>
