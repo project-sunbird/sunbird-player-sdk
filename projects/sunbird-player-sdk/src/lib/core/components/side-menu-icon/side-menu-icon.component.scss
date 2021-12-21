@@ -1,4 +1,7 @@
 @import "~@project-sunbird/sb-styles/assets/mixins/mixins";
+::ng-deep :root {
+  --sdk-overlay-btn-hover:#333332;
+}
 
 :host {
   #overlay-button {
@@ -61,7 +64,7 @@
     &:hover span,
     &:hover span:before,
     &:hover span:after {
-      background: #333332;
+      background: var(--sdk-overlay-btn-hover);
     }
 
     &:hover {

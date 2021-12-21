@@ -1,5 +1,8 @@
 @import "~@project-sunbird/sb-styles/assets/mixins/mixins";
 
+::ng-deep :root {
+  --sdk-player-icon:#6D7278;
+}
 :host {
   .sidenav {
     height: 100%;
@@ -97,7 +100,7 @@
         .player-icon {
           width: calculateRem(24px);
           height: calculateRem(24px);
-          background-color: #6D7278;
+          background-color: var(--sdk-player-icon);
 
 
         }
