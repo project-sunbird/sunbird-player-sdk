@@ -1,5 +1,13 @@
 @import "~@project-sunbird/sb-styles/assets/mixins/mixins";
-
+::ng-deep :root {
+  --sdk-sb-player-header:#fff;
+  --sdk-player-zoombtn:#000;
+  --sdk-player-zoombtn-icon:#333;
+  --sdk-player-zoombtn-icon-hover:#F2F2F2;
+  --sdk-player-page-count-bg:#fff;
+  --sdk-player-page-count-txt:#CCCCCC;
+  --sdk-player-page-count-arrow:#333333
+}
 :host {
   .sb-player-header {
     display: flex;
@@ -7,7 +15,7 @@
     justify-content: flex-end;
     height: 3rem;
     padding: .75em 1rem;
-    background: var(--white);
+    background: var(--sdk-sb-player-header);
 
     &__panel {
       .player-zoom-btns {
@@ -15,7 +23,7 @@
         overflow: hidden;
 
         &__zoombtn {
-          color: var(--black);
+          color: var(--sdk-player-zoombtn);
           text-align: center;
           line-height: 0.8rem;
           font-size: 1.5rem;
@@ -35,12 +43,12 @@
             -webkit-mask-repeat: no-repeat;
             mask-size: contain;
             mask-repeat: no-repeat;
-            background-color: var(--gray-800);
+            background-color: var(--sdk-player-zoombtn-icon);
           }
 
 
           &:hover {
-            background: var(--gray-0);
+            background: var(--sdk-player-zoombtn-icon-hover);
 
 
           }
@@ -72,9 +80,9 @@
         .page-count {
           height: 2rem;
           width: 3rem;
-          border: 0.031em solid var(--gray-100);
+          border: 0.031em solid var(--sdk-player-page-count-txt);
           border-radius: 0.25rem;
-          background-color: var(--white);
+          background-color: var(--sdk-player-page-count-bg);
           text-align: center;
 
 
@@ -91,7 +99,7 @@
             justify-content: center;
             width: 2.2rem;
             height: 2rem;
-            background: var(--gray-800);
+            background: var(--sdk-player-page-count-arrow);
             border-radius: 0px 0.25em 0.25em 0px;
             position: absolute;
             left: calc(3rem - 0px);

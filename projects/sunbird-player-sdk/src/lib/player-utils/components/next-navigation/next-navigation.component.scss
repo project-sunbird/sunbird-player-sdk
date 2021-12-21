@@ -1,14 +1,19 @@
 @import "~@project-sunbird/sb-styles/assets/mixins/mixins";
-
+::ng-deep :root {
+  --sdk-navigation-arrows-bg:#fff;
+  --sdk-navigation-arrows-border:#F2F2F2;
+  --sdk-navigation-arrows-after:#999999;
+  --sdk-player-nextIcon:#fff;
+}
 :host {
   .navigation-arrows {
     height: 2rem;
     width: 4rem;
     cursor: pointer;
     border-radius: 1rem;
-    background-color: var(--white);
+    background-color: var(--sdk-navigation-arrows-bg);
     box-shadow: var(--sbt-box-shadow-3px);
-    border: 1px solid var(--gray-0);
+    border: 1px solid var(--sdk-navigation-arrows-border);
     transition: all .1s ease-in;
     &:hover {
       border: 1px solid transparent;
@@ -23,9 +28,8 @@
       content: '';
       width: 0.5rem;
       height: 0.5rem;
-      border-top: 0.125rem solid var(--gray-200);
-      border-left: 0.125rem solid var(--gray-200);
-
+      border-top: 0.125rem solid var(--sdk-navigation-arrows-after);
+      border-left: 0.125rem solid var(--sdk-navigation-arrows-after);
     }
   }
 
@@ -33,15 +37,15 @@
     &::after {
       content: '';
       transform: rotate(135deg);
-      border-top: .125rem solid var(--white);
-      border-left: .125rem solid var(--white);
+      border-top: .125rem solid var(--sdk-player-nextIcon);
+      border-left: .125rem solid var(--sdk-player-nextIcon);
     }
   }
 
   .navigation-arrows:hover.player-nextIcon::after {
     content: '';
-    border-top: 0.125rem solid var(--white);
-    border-left: 0.125rem solid var(--white);
+    border-top: 0.125rem solid var(--sdk-player-nextIcon);
+    border-left: 0.125rem solid var(--sdk-player-nextIcon);
   }
 
   .navigation-arrows.player-nextIcon {
