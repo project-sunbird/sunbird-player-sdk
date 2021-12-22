@@ -15,3 +15,10 @@ export interface ISideBarEvent {
   event: KeyboardEvent | MouseEvent;
   type: string;
 }
+
+export interface IHeaderConfig {
+  rotation: boolean;
+  goto: boolean;
+  navigation: boolean;
+  zoom: boolean;
+}
