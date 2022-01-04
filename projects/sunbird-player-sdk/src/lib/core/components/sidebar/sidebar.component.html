@@ -4,7 +4,7 @@
     <ul aria-label="player sidebar">
       <li *ngIf="config.showShare" tabindex="0" (click)="sidebarEvent.emit('SHARE')"><span class="player-icon player-share mr-16"></span> Share</li>
       <li *ngIf="config.showDownload" tabindex="0" (click)="showDownloadPopup()"><span  class="player-icon player-download mr-16"></span> Download</li>
-      <li *ngIf="config.showPrint" tabindex="0" (click)="sidebarEvent.emit('PRINT')"><span  class="player-icon player-print mr-16"></span> Print</li>
+      <li *ngIf="config.showPrint" tabindex="0" (click)="sidebarEvent.emit('PRINT');closeNav();"><span  class="player-icon player-print mr-16"></span> Print</li>
       <li *ngIf="config.showExit" tabindex="0" (click)="sidebarEvent.emit('EXIT');closeNav();"><span  class="player-icon player-exit mr-16"></span> Exit</li>
     </ul>
   </div>
