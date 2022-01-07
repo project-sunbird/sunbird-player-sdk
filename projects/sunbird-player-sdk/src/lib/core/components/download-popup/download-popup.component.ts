@@ -1,8 +1,9 @@
 import {
-  Component, EventEmitter, Input, OnChanges, Output,
-  SimpleChanges
+  Component, EventEmitter, Input, OnChanges, Output, SimpleChanges
 } from '@angular/core';
 import maintain from 'ally.js/esm/maintain/_maintain';
+import { ISideBarEvent } from '../../../../sunbird-player-sdk.interface';
+
 @Component({
   selector: 'sb-player-download-popup',
   templateUrl: './download-popup.component.html',
@@ -11,16 +12,15 @@ import maintain from 'ally.js/esm/maintain/_maintain';
 export class DownloadPopupComponent implements OnChanges {
 
   @Input() title: string;
-  @Output() downloadEvent = new EventEmitter<any>();
-  @Output() hideDownloadPopUp = new EventEmitter<any>();
+  @Output() downloadEvent = new EventEmitter<ISideBarEvent>();
+  @Output() hideDownloadPopUp = new EventEmitter<ISideBarEvent>();
   @Input() showDownloadPopUp =  false;
   
-  subscription;
   disabledHandle;
 
-  hideDownloadPopup() {
+  hideDownloadPopup(event: MouseEvent | KeyboardEvent,  type: string) {
     this.disabledHandle.disengage();
-    this.hideDownloadPopUp.emit();
+    this.hideDownloadPopUp.emit({ event, type });
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -37,9 +37,8 @@ export class DownloadPopupComponent implements OnChanges {
     }
   }
 
-  download() {
-    this.downloadEvent.emit('DOWNLOAD');
-    this.hideDownloadPopup();
+  download(event: MouseEvent | KeyboardEvent, type: string) {
+    this.downloadEvent.emit({ event, type });
+    this.disabledHandle.disengage();
   }
-
 }

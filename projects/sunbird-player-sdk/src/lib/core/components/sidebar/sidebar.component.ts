@@ -30,14 +30,15 @@ export class SidebarComponent {
     this.sidebarEvent.emit({ event, type: 'CLOSE_MENU' });
   }
 
-  showDownloadPopup(event: MouseEvent | KeyboardEvent) {
+  showDownloadPopup(event: MouseEvent | KeyboardEvent, type: string) {
     this.showDownloadPopUp = true;
     this.ref.detectChanges();
-    this.sidebarEvent.emit({ event, type: 'DOWNLOAD_MENU' });
+    this.emitSideBarEvent(event, type);
   }
 
-  hideDownloadPopUp() {
+  hideDownloadPopUp(event: ISideBarEvent) {
     this.showDownloadPopUp = false;
+    this.sidebarEvent.emit(event);
     this.ref.detectChanges();
   }
 

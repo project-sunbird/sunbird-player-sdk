@@ -1,7 +1,7 @@
 <div class="file-download" [ngClass]="{'showDownload':showDownloadPopUp}">
   <div class="file-download__overlay">
     <div class="file-download__popup" aria-modal="true" aria-labelledby="Download Content" aria-describedby="Dialog to download content">
-      <div class="close-btn" (click)="hideDownloadPopup()">
+      <div class="close-btn" (click)="hideDownloadPopup($event, 'DOWNLOAD_POPUP_CLOSE')">
         <button type="button" id="close" class="close-icon" data-animation="showShadow" aria-label="player-close-btn"></button>
       </div>
       <div class="file-download__metadata">
@@ -11,8 +11,8 @@
           <!-- File Size 1.6mb -->
         </div>
         <div class="file-download__action-btns">
-          <button type="button" id="cancel" (click)="hideDownloadPopup()" class="sb-btn sb-btn-normal sb-btn-outline-primary sb-btn-radius cancel-btn mr-8">Cancel</button>
-          <button type="button" id="download" class="sb-btn sb-btn-normal sb-btn-primary sb-btn-radius download-btn" (click)="download()">Download</button>
+          <button type="button" id="cancel" (click)="hideDownloadPopup($event, 'DOWNLOAD_POPUP_CANCEL')" class="sb-btn sb-btn-normal sb-btn-outline-primary sb-btn-radius cancel-btn mr-8">Cancel</button>
+          <button type="button" id="download" class="sb-btn sb-btn-normal sb-btn-primary sb-btn-radius download-btn" (click)="download($event, 'DOWNLOAD')">Download</button>
         </div>
       </div>
     </div>
