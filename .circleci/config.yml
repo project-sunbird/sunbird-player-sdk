@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/sunbird-player-sdk
     docker:
-      - image: circleci/node:12.20
+      - image: circleci/node:12.20.2-browsers
     steps:
       - checkout:
           path: ~/sunbird-player-sdk
@@ -11,15 +11,13 @@ jobs:
           name: Show current branch
           command: echo ${CIRCLE_BRANCH}
       - run:
-          name: Analytics off
-          command: npx -p @angular/cli ng analytics off
+          environment:
+            NG_CLI_ANALYTICS: "ci"
+          command: npm install
       - run: cd projects/sunbird-player-sdk && sudo npm install
       - run:
           name: Node install
           command: sudo npm install
-      - run:
-          name: Linting
-          command: npm run lint
       - run:
           name: Testing
           command: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
