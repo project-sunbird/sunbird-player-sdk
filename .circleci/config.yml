@@ -20,7 +20,7 @@ jobs:
           command: sudo npm install
       - run:
           name: Testing
-          command: npm run test --no-watch --no-progress --browsers=ChromeHeadlessCI
+          command: npm run test --no-watch
       - run:
           name: Install sonar scanner
           command: 'sudo npm install -i -g sonarqube-scanner'
