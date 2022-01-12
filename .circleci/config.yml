@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/sunbird-player-sdk
     docker:
-      - image: circleci/node:12.13.0
+      - image: circleci/node:12.20
     steps:
       - checkout:
           path: ~/sunbird-player-sdk
