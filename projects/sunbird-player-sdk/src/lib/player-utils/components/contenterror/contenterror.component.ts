@@ -9,16 +9,16 @@ import { contentErrorMessage } from '../../interfaces/errorMessage';
 })
 export class ContenterrorComponent implements OnInit {
   @Input() errorMsg: contentErrorMessage;
-  message : string;
+  message: string;
 
 
   ngOnInit() {
-    if(!this.errorMsg){
+    if (!this.errorMsg) {
     this.errorMsg = {
       messageHeader: errorMessage.contentPlayFailedHeader,
       messageTitle: errorMessage.contentPlayFailTitle
-    }
-   } 
+    };
+   }
   }
 
 }
