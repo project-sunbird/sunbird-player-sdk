@@ -9,7 +9,7 @@ import { NextContent } from '../../../../sunbird-player-sdk.interface';
 })
 export class EndPageComponent implements OnInit, OnDestroy {
   @Input() showExit: boolean;
-  @Input() showReplay: boolean = true;
+  @Input() showReplay = true;
   @Input() contentName: string;
   @Input() outcome: any;
   @Input() outcomeLabel: string;
@@ -24,7 +24,7 @@ export class EndPageComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.subscription = fromEvent(document, 'keydown').subscribe((e: KeyboardEvent) => {
-      if (e['key'] === 'Enter') {
+      if (e.key === 'Enter') {
         e.stopPropagation();
         (document.activeElement  as HTMLElement).click();
       }
@@ -33,19 +33,21 @@ export class EndPageComponent implements OnInit, OnDestroy {
 
   playNext() {
     this.playNextContent.emit({
-      name: this.nextContent['name'],
+      name: this.nextContent.name,
+      // tslint:disable-next-line:no-string-literal
       identifier: this.nextContent['identifier'],
       type: 'NEXT_CONTENT_PLAY'
-    })
+    });
   }
 
   replay() {
     if (this.showReplay) {
-      this.replayContent.emit({ type: 'REPLAY' })
+      this.replayContent.emit({ type: 'REPLAY' });
     }
   }
 
   ngOnDestroy() {
+    // tslint:disable-next-line:no-unused-expression
     this.subscription && this.subscription.unsubscribe();
   }
 }
