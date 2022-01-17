@@ -6,7 +6,7 @@
     "pre-publish": "gulp && npm run build",
     "ng": "ng",
     "start": "ng serve",
-    "test": "ng test",
+    "test": "ng test --code-coverage --watch=false",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "publish": "npm run pre-publish && npm publish ./dist/sunbird-player-sdk/"
@@ -36,7 +36,7 @@
     "@angular/language-service": "~9.1.12",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
-    "@types/node": "~8.9.4",
+    "@types/node": "^12.20.15",
     "codelyzer": "^5.0.1",
     "fs-extra": "^9.0.1",
     "gulp": "^4.0.2",
@@ -56,6 +56,6 @@
     "tsickle": "^0.37.1",
     "tslib": "^1.9.0",
     "tslint": "~5.11.0",
-    "typescript": "~3.7.3"
+    "typescript": "~3.8.3"
   }
 }
