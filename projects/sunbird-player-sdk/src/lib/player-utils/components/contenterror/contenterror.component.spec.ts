@@ -29,7 +29,7 @@ describe('ContenterrorComponent', () => {
       // expect(component.message).toBe(component.errorMessage);
   });
 
-  xit('should not set the error message', () =>{
+  xit('should not set the error message', () => {
      // component.errorMessage = undefined;
      component.ngOnInit();
      expect(component.message).toBe(errorMessage.contentLoadFails);
