@@ -17,10 +17,10 @@ module.exports = function (config) {
     },
     coverageIstanbulReporter: {
       dir: require('path').join(__dirname, '../../coverage/sunbird-player-sdk'),
-      reports: ['html', 'lcovonly'],
+      reports: ['text-summary', 'html', 'lcovonly'],
       fixWebpackSourcePaths: true
     },
-    browsers: ['Chrome'],
+    browsers: ['ChromeHeadless'],
     customLaunchers: {
         ChromeHeadlessCI: {
             base: 'ChromeHeadless',

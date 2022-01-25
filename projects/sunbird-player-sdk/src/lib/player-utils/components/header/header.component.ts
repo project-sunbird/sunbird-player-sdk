@@ -12,17 +12,19 @@ export class HeaderComponent implements OnChanges, OnInit {
   @Input() totalPages: number;
   @Output() actions = new EventEmitter<{ type: string, data?: any }>();
   page;
+  // tslint:disable-next-line:variable-name
   private _item;
+  // tslint:disable-next-line:variable-name
   private _config: IHeaderConfig = {
     rotation: false,
     goto: false,
     navigation: false,
     zoom: false
-  }
+  };
 
   @Input() set config(value) {
     this._item = { ...this._config, ...value };
-    this._config = this._item
+    this._config = this._item;
   }
 
   get config(): any {

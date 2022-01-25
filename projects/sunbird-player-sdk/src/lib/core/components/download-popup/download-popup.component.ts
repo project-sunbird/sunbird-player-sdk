@@ -15,7 +15,7 @@ export class DownloadPopupComponent implements OnChanges {
   @Output() downloadEvent = new EventEmitter<ISideBarEvent>();
   @Output() hideDownloadPopUp = new EventEmitter<ISideBarEvent>();
   @Input() showDownloadPopUp =  false;
-  
+
   disabledHandle;
 
   hideDownloadPopup(event: MouseEvent | KeyboardEvent,  type: string) {
