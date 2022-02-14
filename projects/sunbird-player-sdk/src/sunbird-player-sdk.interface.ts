@@ -1,6 +1,6 @@
 export interface NextContent {
   name: string;
-  identifer?: string;
+  identifier?: string;
 }
 
 export interface ISideBarConfig {
