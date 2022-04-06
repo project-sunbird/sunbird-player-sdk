@@ -1,17 +1,14 @@
-<div id="playerSideMenu" class="sidenav" #sidebarMenu>
+<div id="playerSideMenu" class="sidenav" #sidebarMenu aria-modal="true" aria-labelledby="Menubar">
   <div class="navBlock">
-    <div class="player-nav-unit text-left">{{title}}</div>
-    <ul>
-      <li *ngIf="config.showShare" (click)="sidebarEvent.emit('SHARE')"><span tabindex="0"  class="player-icon player-share mr-16"></span>Share
-      </li>
-      <li *ngIf="config.showDownload" (click)="showDownloadPopup()"><span tabindex="0" class="player-icon player-download mr-16"></span>Download
-      </li>
-      <li *ngIf="config.showPrint" (click)="sidebarEvent.emit('PRINT')"><span tabindex="0" class="player-icon player-print mr-16"></span>Print
-      </li>
-      <li *ngIf="config.showExit" (click)="sidebarEvent.emit('EXIT');closeNav();"><span tabindex="0" class="player-icon player-exit mr-16"></span>Exit</li>
+    <div class="player-nav-unit text-left" role="heading" aria-level="2">{{title}}</div>
+    <ul aria-label="player sidebar" id="sidebar-list">
+      <li *ngIf="config.showShare" tabindex="0" (click)="emitSideBarEvent($event,'SHARE')" (keydown.enter)="emitSideBarEvent($event,'SHARE')"><span class="player-icon player-share mr-16"></span> Share</li>
+      <li *ngIf="config.showDownload" tabindex="0" (click)="showDownloadPopup($event, 'DOWNLOAD_MENU')" (keydown.enter)="closeNav($event);showDownloadPopup($event, 'DOWNLOAD_MENU');"><span  class="player-icon player-download mr-16"></span> Download</li>
+      <li *ngIf="config.showPrint" tabindex="0" (click)="closeNav($event);emitSideBarEvent($event, 'PRINT')" (keydown.enter)="emitSideBarEvent($event, 'PRINT')"><span  class="player-icon player-print mr-16"></span> Print</li>
+      <li *ngIf="config.showExit" tabindex="0" (click)="closeNav($event);emitSideBarEvent($event, 'EXIT')" (keydown.enter)="closeNav($event);emitSideBarEvent($event, 'EXIT')"><span  class="player-icon player-exit mr-16"></span> Exit</li>
     </ul>
   </div>
-  <div class="transparentBlock" tabindex="0" (click)="closeNav()"></div>
+  <div class="transparentBlock" aria-hidden="true" tabindex="-1" (click)="closeNav($event)"></div>
 </div>
-<sb-player-download-popup [title]="title" [showDownloadPopUp]="showDownloadPopUp" (hideDownloadPopUp)="hideDownloadPopUp()"
+<sb-player-download-popup [title]="title" *ngIf="showDownloadPopUp" [showDownloadPopUp]="showDownloadPopUp" (hideDownloadPopUp)="hideDownloadPopUp($event)"
   (downloadEvent)="sidebarEvent.emit($event)"></sb-player-download-popup>

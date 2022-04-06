@@ -1,2 +1,2 @@
-<input type="checkbox" id="overlay-input" (click)="toggleMenu()" tabindex="0"/>
-<label for="overlay-input" id="overlay-button" tabindex="0"><span></span></label>
+<input type="checkbox" id="overlay-input" (click)="toggleMenu($event)" />
+<label aria-label="Player Menu" for="overlay-input" id="overlay-button" (keydown.enter)="toggleMenu($event)" tabindex="0"><span></span></label>
