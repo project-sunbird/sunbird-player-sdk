@@ -11,7 +11,6 @@ export class SideMenuIconComponent {
 
   @Output() sidebarMenuEvent = new EventEmitter<ISideBarEvent>();
   subscription: Subscription;
-  isOpen= false;
   toggleMenu(event: MouseEvent | KeyboardEvent) {
     const inputChecked = document.getElementById('overlay-input') as HTMLInputElement;
     const navBlock = document.querySelector('.navBlock') as HTMLElement;
