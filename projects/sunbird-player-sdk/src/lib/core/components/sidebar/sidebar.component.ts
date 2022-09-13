@@ -23,6 +23,10 @@ export class SidebarComponent {
   constructor(public ref: ChangeDetectorRef) {}
 
   closeNav(event: MouseEvent | KeyboardEvent) {
+    const ariaLabelValue = document.getElementById('ariaLabelValue') as HTMLElement;
+    const overlayButton = document.getElementById('overlay-button') as HTMLElement;
+    ariaLabelValue.innerHTML = 'Player Menu Open';
+    overlayButton.setAttribute("aria-label", "Player Menu Open");
     const inputChecked = document.getElementById( 'overlay-input') as HTMLInputElement;
     inputChecked.checked = false;
     document.getElementById('playerSideMenu').style.visibility = 'hidden';
