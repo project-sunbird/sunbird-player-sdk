@@ -23,11 +23,15 @@ export class SideMenuIconComponent {
 
     if (inputChecked.checked) {
       playerSideMenu.style.visibility = 'visible';
+      document.getElementById('ariaLabelValue').innerHTML = 'Player Menu Close';
+      document.getElementById("overlay-button").setAttribute("aria-label", "Player Menu Close");
       navBlock.style.width = '100%';
       navBlock.style.marginLeft = '0%';
       this.sidebarMenuEvent.emit({ event, type: 'OPEN_MENU' });
     } else {
       playerSideMenu.style.visibility = 'hidden';
+      document.getElementById('ariaLabelValue').innerHTML = 'Player Menu Open';
+      document.getElementById("overlay-button").setAttribute("aria-label", "Player Menu Open");
       navBlock.style.marginLeft = '-100%';
       this.sidebarMenuEvent.emit({ event, type: 'CLOSE_MENU'});
     }
