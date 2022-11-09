@@ -1,4 +1,11 @@
 @import "~@project-sunbird/sb-styles/assets/mixins/mixins";
+::ng-deep :root {
+  --sdk-end-page-title:#000;
+  --sdk-end-page-replay-icon: #024f9d;
+  --sdk-end-page-replay-section-bg:#fff;
+  --sdk-end-page-title-span: #666666;
+  --sdk-end-page-replay-section-hover: #F2F2F2;
+}
 
 :host {
   .player-endpage {
@@ -7,7 +14,7 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background: var(--white);
+    background: var(--sdk-end-page-replay-section-bg);
 
     @media all and (orientation: portrait) {
       flex-direction: column;
@@ -104,7 +111,7 @@
 
       .title-section {
         .title {
-          color: var(--black);
+          color: var(--sdk-end-page-title);
           font-size: calculateRem(21px);
           font-weight: bold;
           letter-spacing: 0;
@@ -112,7 +119,7 @@
         }
 
         span {
-          color: var(--gray-400);
+          color: var(--sdk-end-page-title-span);
           font-size: calculateRem(12px);
           word-break: break-word;
 
@@ -195,16 +202,22 @@
 
 .replay-section, .exit-section {
   cursor: pointer;
-  background-color: var(--white);
+  background-color: var(--sdk-end-page-replay-section-bg);
   padding: 0.5rem;
   border-radius: calculateRem(4px);
 
   &:hover {
-    background-color: var(--gray-0);
+    background-color: var(--sdk-end-page-replay-section-hover);
   }
 }
 
 .replay-section {
+  div svg g path{
+    fill: var(--sdk-end-page-replay-icon);
+    &:first-child{
+      fill: transparent;
+    }
+  }
   &.disabled {
     cursor: not-allowed;
     .title {
@@ -299,6 +312,7 @@
         max-height: calc(var(--lh) * var(--max-lines));
         overflow: hidden;
         width: 100%;font-size: 0.65rem;
+        color: var(--black);
       }
       .truncate-overflow::before {
         position: absolute;
