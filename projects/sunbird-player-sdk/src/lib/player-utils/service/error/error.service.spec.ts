@@ -1,9 +1,15 @@
 import { TestBed } from '@angular/core/testing';
+import { PLAYER_CONFIG } from '../../../sunbird-player-sdk.module';
 import { errorCode, errorMessage } from './../../enums/exceptionLogs';
 import { ErrorService } from './error.service';
 
 describe('ErrorService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+  beforeEach(() => TestBed.configureTestingModule({
+    providers: [
+      ErrorService,
+      { provide: PLAYER_CONFIG, useValue: { contentCompatibilityLevel: 6 } }
+    ]
+  }));
 
   it('call checkContentCompatibility and get compatibility error', () => {
     const service: ErrorService = TestBed.get(ErrorService);
