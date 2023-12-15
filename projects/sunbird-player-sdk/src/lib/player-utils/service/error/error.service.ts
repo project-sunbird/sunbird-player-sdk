@@ -9,7 +9,7 @@ export class ErrorService implements OnDestroy {
   playerContentCompatibiltyLevel = 5;
   getInternetConnectivityError = new EventEmitter<{ error: { message: string, name: string } }>();
 
-  constructor(@Inject(PLAYER_CONFIG) private config: any) {
+  constructor(@Inject(PLAYER_CONFIG) private config?: any) {
     this.initInternetConnectivityError();
     if (this.config?.contentCompatibilityLevel) {
       this.playerContentCompatibiltyLevel = this.config?.contentCompatibilityLevel;

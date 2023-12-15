@@ -11,14 +11,22 @@ describe('ErrorService', () => {
     ]
   }));
 
-  it('call checkContentCompatibility and get compatibility error', () => {
+  it('should set player content compatibility level from config if available', () => {
+    const mockConfig = { contentCompatibilityLevel: 8 };
+    const errorService = new ErrorService(mockConfig);
+    expect(errorService.playerContentCompatibiltyLevel).toBe(8);
+  });
+
+  it('should set player content compatibility level to default if not available', () => {
+    const errorService = new ErrorService();
+    expect(errorService.playerContentCompatibiltyLevel).toBe(5);
+  });
+
+  it('call checkContentCompatibility and does not get compatibility error', () => {
     const service: ErrorService = TestBed.get(ErrorService);
-    const compatibilityError = new Error();
-    service.playerContentCompatibiltyLevel = 4;
-    const result = service.checkContentCompatibility(3);
-    const err = new Error();
-    err.message = null;
-    expect(result).toEqual({ error: null, isCompitable: true });
+    const result = service.checkContentCompatibility(6);
+    expect(result.error).toBeFalsy();
+    expect(result.isCompitable).toBeTruthy();
   });
 
   it('call checkContentCompatibility and get compatibility error', () => {
