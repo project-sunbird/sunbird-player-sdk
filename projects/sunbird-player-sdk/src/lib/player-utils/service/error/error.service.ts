@@ -1,5 +1,7 @@
-import { EventEmitter, Injectable, OnDestroy } from '@angular/core';
+import { EventEmitter, Inject, Injectable, OnDestroy } from '@angular/core';
+import { PLAYER_CONFIG } from '../../../sunbird-player-sdk.module';
 import { errorCode, errorMessage } from './../../enums/exceptionLogs';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -7,8 +9,11 @@ export class ErrorService implements OnDestroy {
   playerContentCompatibiltyLevel = 5;
   getInternetConnectivityError = new EventEmitter<{ error: { message: string, name: string } }>();
 
-  constructor() {
+  constructor(@Inject(PLAYER_CONFIG) private config?: any) {
     this.initInternetConnectivityError();
+    if (this.config?.contentCompatibilityLevel) {
+      this.playerContentCompatibiltyLevel = this.config?.contentCompatibilityLevel;
+    }
   }
 
   checkContentCompatibility(currentCompatibilityLevel: number) {
