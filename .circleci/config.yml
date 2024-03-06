@@ -3,21 +3,19 @@ jobs:
   build:
     working_directory: ~/sunbird-player-sdk
     docker:
-      - image: circleci/node:12.20.2-browsers
+      - image: circleci/node:16.13.1-browsers
     steps:
       - checkout:
           path: ~/sunbird-player-sdk
       - run:
           name: Show current branch
           command: echo ${CIRCLE_BRANCH}
-      - run:
-          environment:
-            NG_CLI_ANALYTICS: "ci"
+      - run: 
+          name: Install depedencies
           command: npm install
-      - run: cd projects/sunbird-player-sdk && sudo npm install
-      - run:
-          name: Node install
-          command: sudo npm install
+      - run: 
+          name: Install SDK depedencies
+          command: cd projects/sunbird-player-sdk && sudo npm install
       - run:
           name: Linting
           command: npm run lint
