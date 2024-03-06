@@ -23,6 +23,7 @@
     "@angular/router": "^13.4.0",
     "@project-sunbird/sb-styles": "0.0.7",
     "core-js": "^2.5.4",
+    "ally.js": "1.4.1",
     "rxjs": "~6.6.7",
     "tsickle": "^0.46.3",
     "tslib": "^2.0.0",
