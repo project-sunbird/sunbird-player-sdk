@@ -3,26 +3,21 @@ jobs:
   build:
     working_directory: ~/sunbird-player-sdk
     docker:
-      - image: circleci/node:12.22.7-bullseye-browsers-legacy
+      - image: circleci/node:16.13.1-browsers
     steps:
       - checkout:
           path: ~/sunbird-player-sdk
       - run:
           name: Show current branch
           command: echo ${CIRCLE_BRANCH}
-      - run:
-          environment:
-            NG_CLI_ANALYTICS: "ci"
+      - run: 
+          name: Install depedencies
           command: npm install
-      - run: cd projects/sunbird-player-sdk && sudo npm install
       - run:
-          name: Node install
-          command: sudo npm install
-      - run:
-          name: Linting
+          name: Linting the library
           command: npm run lint
       - run:
-          name: Testing
+          name: Run test cases
           command: npm run test
       - run:
           name: Install sonar scanner
@@ -30,6 +25,16 @@ jobs:
       - run:
           name: Sonar scanner
           command: sonar-scanner -Dsonar.projectKey=project-sunbird_sunbird-player-sdk -Dsonar.organization=project-sunbird -Dsonar.host.url=https://sonarcloud.io -Dsonar.language=ts -Dsonar.sources=projects/sunbird-player-sdk/src -Dsonar.typescript.lcov.reportPaths=coverage/sunbird-player-sdk/lcov.info
+      - run:
+          name: Publish to NPM
+          command: |
+            if [ -z $CIRCLE_PR_NUMBER ]; then
+              npm run pre-publish && npm pack ./dist/sunbird-player-sdk
+              echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+              npm publish project-sunbird-sunbird-player-sdk-v9-*
+            else
+              npm run pre-publish && npm pack ./dist/sunbird-player-sdk
+            fi    
 workflows:
   version: 2.1
   build_and_test:

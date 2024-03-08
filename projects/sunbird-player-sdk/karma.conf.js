@@ -27,7 +27,7 @@ module.exports = function (config) {
             flags: ['--no-sandbox']
         }
     },
-    reporters: ['progress', 'kjhtml'],
+    reporters: ['progress', 'kjhtml', 'coverage-istanbul'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
