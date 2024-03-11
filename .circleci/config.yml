@@ -12,7 +12,7 @@ jobs:
           command: echo ${CIRCLE_BRANCH}
       - run: 
           name: Install depedencies
-          command: npm install
+          command: npm install --legacy-peer-deps
       - run:
           name: Linting the library
           command: npm run lint
