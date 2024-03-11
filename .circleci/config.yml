@@ -1,14 +1,13 @@
 version: 2.1
 orbs:
-  browser-tools: circleci/browser-tools@1.4.4
+  browser-tools: circleci/browser-tools@1.4.8
 jobs:
   build:
     working_directory: ~/sunbird-player-sdk
     docker:
-      - image: cimg/node:21.6.2-browsers
+      - image: cimg/node:20.4.0-browsers
     steps:
-      - browser-tools/install-chrome:
-          chrome-version: 116.0.5845.96
+      - browser-tools/install-chrome
       - browser-tools/install-chromedriver
       - run:
           command: |
