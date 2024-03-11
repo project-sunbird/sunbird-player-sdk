@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/sunbird-player-sdk
     docker:
-      - image: circleci/node:16.13.1-browsers
+      - image: cimg/node:21.6.2-browsers
     steps:
       - checkout:
           path: ~/sunbird-player-sdk
