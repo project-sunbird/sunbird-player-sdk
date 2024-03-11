@@ -9,7 +9,6 @@ jobs:
     steps:
       - browser-tools/install-chrome:
           chrome-version: 116.0.5845.96
-          replace-existing: true 
       - browser-tools/install-chromedriver
       - run:
           command: |
