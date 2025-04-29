@@ -68,8 +68,8 @@ export class EndPageComponent implements OnInit, OnDestroy {
     this.subscription && this.subscription.unsubscribe();
 
     // Disconnect the MutationObserver to avoid memory leaks
-    if (this.observer) {
-      this.observer.disconnect();
+    if (this?.observer) {
+      this?.observer?.disconnect();
     }
   }
 }
