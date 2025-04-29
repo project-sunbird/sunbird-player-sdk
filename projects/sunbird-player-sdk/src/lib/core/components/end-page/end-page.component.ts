@@ -40,7 +40,6 @@ export class EndPageComponent implements OnInit, OnDestroy {
       mutations.forEach((mutation) => {
         if (mutation.attributeName === 'dir') {
           this.isRTL = document.dir === 'rtl';
-          console.log('Updated isRTL after dir change:', this.isRTL);
         }
       });
     });
