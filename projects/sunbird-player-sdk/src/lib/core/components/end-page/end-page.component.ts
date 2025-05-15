@@ -8,6 +8,7 @@ import { NextContent } from '../../../../sunbird-player-sdk.interface';
   styleUrls: ['./end-page.component.scss']
 })
 export class EndPageComponent implements OnInit, OnDestroy {
+  @Input() resourceService: any;
   isRTL: boolean = false;
   @Input() showExit: boolean;
   @Input() showReplay = true;
@@ -25,6 +26,7 @@ export class EndPageComponent implements OnInit, OnDestroy {
   observer: MutationObserver;
 
   ngOnInit() {
+    console.log("this from video player",globalThis);
     // Initial check for RTL
     this.isRTL = document.dir === 'rtl';
 

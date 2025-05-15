@@ -618,7 +618,7 @@
   </div>
   <div class="player-endpage__right-panel">
     <div class="title-section">
-      <div class="title animated fadeInDown">You just completed</div>
+      <div class="title animated fadeInDown">{{resourceService?.frmelmnts?.lbl?.youJustCompleted}}</div>
       <span class="animated fadeInUp">{{contentName}}</span>
       <ng-content></ng-content>
     </div>
@@ -629,15 +629,15 @@
         
         <svg *ngIf="showReplay" width="36" height="37" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient x1="18%" y1="0%" x2="83.101%" y2="100%" id="a"><stop stop-color="#024F9D" offset="0%"/><stop stop-color="#024F9D" offset="100%"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><path d="M0 .853h36v36H0z"/><path d="M18 7.5v-6L10.5 9l7.5 7.5v-6c4.965 0 9 4.035 9 9s-4.035 9-9 9-9-4.035-9-9H6c0 6.63 5.37 12 12 12s12-5.37 12-12-5.37-12-12-12z" fill="url(#a)" transform="translate(0 .853)"/></g></svg>
       </div>
-        <div class="title">Replay</div>
+        <div class="title">{{resourceService?.frmelmnts?.lbl?.reply}}</div>
       </div>
       <div class="exit-section" *ngIf="showExit" (click)="exitContent.emit({type: 'EXIT'})" tabindex="0">
         <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36"><defs><linearGradient x1="0%" y1="0%" x2="101.72%" y2="100%" id="a"><stop stop-color="#024F9D" offset="0%"/><stop stop-color="#024F9D" offset="100%"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><path d="M0 0h36v36H0z"/><path d="M15.135 23.385L17.25 25.5l7.5-7.5-7.5-7.5-2.115 2.115 3.87 3.885H4.5v3h14.505l-3.87 3.885zM28.5 4.5h-21a3 3 0 00-3 3v6h3v-6h21v21h-21v-6h-3v6a3 3 0 003 3h21c1.65 0 3-1.35 3-3v-21c0-1.65-1.35-3-3-3z" fill="url(#a)"/></g></svg>
-        <div class="title">Exit</div>
+        <div class="title">{{resourceService?.frmelmnts?.lbl?.exit}}</div>
       </div>
     </div>
     <ng-container *ngIf="nextContent">
-    <div class="next">Up Next</div>
+    <div class="next">{{resourceService?.frmelmnts?.lbl?.upNext}}</div>
     <div class="next-level" (click)="playNext()" aria-label="Next content">
       <div class="title-text" tabindex="0">{{nextContent.name}}</div>
       <div class="next-arrow">
