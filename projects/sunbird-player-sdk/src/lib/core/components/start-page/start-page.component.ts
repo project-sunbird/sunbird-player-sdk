@@ -6,7 +6,7 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
   styleUrls: ['./start-page.component.scss']
 })
 export class StartPageComponent implements OnChanges {
-  @Input() resourceService: any;
+  @Input() playerConfig: any;
   @Input() title: string;
   @Input() progress = 0;
 

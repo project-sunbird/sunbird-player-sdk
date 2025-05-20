@@ -4,7 +4,7 @@
     <span class="">{{title}}</span>
   </div>
   <div class="sb-player-splash-container__footer">
-    <div class="loading-text">{{resourceService?.frmelmnts?.lbl?.loading}}... {{progress}}%</div>
+    <div class="loading-text">{{playerConfig?.context?.resourceBundles?.loading || "Loading"}}... {{progress}}%</div>
     <div class="bg">
       <div class="el" [style.width]="progress+'%'"></div>
     </div>
