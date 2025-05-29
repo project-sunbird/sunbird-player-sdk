@@ -28,7 +28,7 @@ export class SidebarComponent {
     const overlayButton = document.getElementById('overlay-button') as HTMLElement;
     const inputChecked = document.getElementById( 'overlay-input') as HTMLInputElement;
     ariaLabelValue.innerHTML = 'Player Menu Open';
-    overlayButton.setAttribute("aria-label", "Player Menu Open");
+    overlayButton.setAttribute('aria-label', 'Player Menu Open');
     inputChecked.checked = false;
     document.getElementById('playerSideMenu').style.visibility = 'hidden';
     document.querySelector<HTMLElement>('.navBlock').style.marginLeft = '-100%';

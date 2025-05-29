@@ -6,7 +6,7 @@ describe('ErrorService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('call checkContentCompatibility and get compatibility error', () => {
-    const service: ErrorService = TestBed.get(ErrorService);
+    const service: ErrorService = TestBed.inject(ErrorService);
     const compatibilityError = new Error();
     service.playerContentCompatibiltyLevel = 4;
     const result = service.checkContentCompatibility(3);
@@ -16,7 +16,7 @@ describe('ErrorService', () => {
   });
 
   it('call checkContentCompatibility and get compatibility error', () => {
-    const service: ErrorService = TestBed.get(ErrorService);
+    const service: ErrorService = TestBed.inject(ErrorService);
     service.playerContentCompatibiltyLevel = 4;
     const currentCompatibilityLevel = 5;
     const compatibilityError = new Error();
@@ -29,7 +29,7 @@ describe('ErrorService', () => {
   });
 
   it('call initInternetConnectivityError and emit error when offline', () => {
-    const service: ErrorService = TestBed.get(ErrorService);
+    const service: ErrorService = TestBed.inject(ErrorService);
     const internetConnectivityError = new Error();
     internetConnectivityError.message = errorMessage.internetConnectivity;
     internetConnectivityError.name = errorCode.internetConnectivity;

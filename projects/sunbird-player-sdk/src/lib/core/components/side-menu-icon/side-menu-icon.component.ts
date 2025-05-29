@@ -26,14 +26,14 @@ export class SideMenuIconComponent {
     if (inputChecked.checked) {
       playerSideMenu.style.visibility = 'visible';
       ariaLabelValue.innerHTML = 'Player Menu Close';
-      overlayButton.setAttribute("aria-label", "Player Menu Close");
+      overlayButton.setAttribute('aria-label', 'Player Menu Close');
       navBlock.style.width = '100%';
       navBlock.style.marginLeft = '0%';
       this.sidebarMenuEvent.emit({ event, type: 'OPEN_MENU' });
     } else {
       playerSideMenu.style.visibility = 'hidden';
       ariaLabelValue.innerHTML = 'Player Menu Open';
-      overlayButton.setAttribute("aria-label", "Player Menu Open");
+      overlayButton.setAttribute('aria-label', 'Player Menu Open');
       navBlock.style.marginLeft = '-100%';
       this.sidebarMenuEvent.emit({ event, type: 'CLOSE_MENU'});
     }
