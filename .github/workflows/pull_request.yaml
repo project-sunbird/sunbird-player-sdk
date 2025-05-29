@@ -43,3 +43,5 @@ jobs:
 
       - name: Run test
         run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+        env:
+          NODE_OPTIONS: --openssl-legacy-provider
