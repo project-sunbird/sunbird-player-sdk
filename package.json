@@ -8,6 +8,7 @@
     "start": "ng serve",
     "test": "ng test --code-coverage --watch=false",
     "lint": "ng lint",
+    "lint:fix": "ng lint --fix",
     "e2e": "ng e2e",
     "publish": "npm run pre-publish && npm publish ./dist/sunbird-player-sdk/"
   },
