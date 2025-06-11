@@ -8,6 +8,8 @@ import { NextContent } from '../../../../sunbird-player-sdk.interface';
   styleUrls: ['./end-page.component.scss']
 })
 export class EndPageComponent implements OnInit, OnDestroy {
+  @Input() playerConfig: any;
+  isRTL: boolean = false;
   @Input() showExit: boolean;
   @Input() showReplay = true;
   @Input() contentName: string;
@@ -21,14 +23,30 @@ export class EndPageComponent implements OnInit, OnDestroy {
   @Output() playNextContent = new EventEmitter<any>();
 
   subscription: Subscription;
+  observer: MutationObserver;
 
   ngOnInit() {
+    // Initial check for RTL
+    this.isRTL = document.dir === 'rtl';
+
     this.subscription = fromEvent(document, 'keydown').subscribe((e: KeyboardEvent) => {
       if (e.key === 'Enter') {
         e.stopPropagation();
         (document.activeElement  as HTMLElement).click();
       }
     });
+
+    // Setup MutationObserver to monitor changes to the `dir` attribute
+    this.observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'dir') {
+          this.isRTL = document.dir === 'rtl';
+        }
+      });
+    });
+
+    // Start observing the document's root element (html tag)
+    this.observer.observe(document.documentElement, { attributes: true });
   }
 
   playNext() {
@@ -49,5 +67,10 @@ export class EndPageComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     // tslint:disable-next-line:no-unused-expression
     this.subscription && this.subscription.unsubscribe();
+
+    // Disconnect the MutationObserver to avoid memory leaks
+    if (this?.observer) {
+      this?.observer?.disconnect();
+    }
   }
 }
