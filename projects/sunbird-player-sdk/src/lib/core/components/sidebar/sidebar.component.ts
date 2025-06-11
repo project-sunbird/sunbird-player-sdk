@@ -6,6 +6,7 @@ import { ISideBarConfig, ISideBarEvent } from '../../../../sunbird-player-sdk.in
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent {
+  @Input() playerConfig: any;
   @Input() title: string;
   @Input() config: ISideBarConfig = {
     showShare: false,
